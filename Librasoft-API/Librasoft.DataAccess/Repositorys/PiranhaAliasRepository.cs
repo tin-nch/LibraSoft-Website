@@ -19,7 +19,7 @@ namespace Librasoft_API.DataAccess.Repositorys
           
         }
 
-        public  IEnumerable<PiranhaAlias> GetByID(int id)
+        public IEnumerable<PiranhaAlias> GetByID(int id)
         {
             return (IEnumerable<PiranhaAlias>)_context.PiranhaAliases.FirstOrDefault(a => a.Id.Equals(id));
         }
@@ -27,6 +27,6 @@ namespace Librasoft_API.DataAccess.Repositorys
         {
             return _context.PiranhaAliases.ToList();
         }
-       
+
     }
 }

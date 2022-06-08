@@ -17,6 +17,9 @@ using Librasoft_API.Librasoft.DataAccess.Repositorys.Constracts;
 using Librasoft_API.DataAccess.Repositorys.Constracts;
 using Librasoft_API.DataAccess.Repositorys;
 using Librasoft.Services.Constract;
+using Librasoft.DataAccess.Repositorys.Constracts;
+using Librasoft.DataAccess.Repositorys;
+using Librasoft.Services;
 
 namespace Librasoft_API
 {
@@ -38,7 +41,12 @@ namespace Librasoft_API
             #region Repositories
             services.AddTransient(typeof(IRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IAliasRepository, PiranhaAliasRepository>();
-         
+            services.AddScoped<IPagesRepository, PiranhaPagesRepository>();
+            #endregion
+
+            #region Services
+            services.AddScoped(typeof(IPages), typeof(PagesServices));
+            
             #endregion
         }
 

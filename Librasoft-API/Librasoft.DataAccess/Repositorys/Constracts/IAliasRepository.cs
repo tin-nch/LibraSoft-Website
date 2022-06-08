@@ -10,6 +10,6 @@ namespace Librasoft_API.DataAccess.Repositorys.Constracts
     {
         IEnumerable<PiranhaAlias> GetByID(int id);
         List<PiranhaAlias> GetListAlias();
-       
+
     }
 }
