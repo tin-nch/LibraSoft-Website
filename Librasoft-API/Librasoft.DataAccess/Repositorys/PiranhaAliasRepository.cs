@@ -4,8 +4,10 @@ using System.Linq;
 using Librasoft_API.Librasoft.DataAccess.Repositorys;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
-using Librasoft_API.Librasoft.DataAccess.EFs;
+
 using System.Collections.Generic;
+using Librasoft.Entities.Entities;
+using Librasoft.DataAccess.EFs;
 
 namespace Librasoft_API.DataAccess.Repositorys
 {

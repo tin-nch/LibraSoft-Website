@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Librasoft_API.Entities;
+using Librasoft.Entities.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Librasoft_API.Librasoft.DataAccess.EFs
+namespace Librasoft.DataAccess.EFs
 {
     public partial class PiranhaCoreContext : DbContext
     {
@@ -21,6 +21,11 @@ namespace Librasoft_API.Librasoft.DataAccess.EFs
         public virtual DbSet<PiranhaBlock> PiranhaBlocks { get; set; }
         public virtual DbSet<PiranhaBlockField> PiranhaBlockFields { get; set; }
         public virtual DbSet<PiranhaCategory> PiranhaCategories { get; set; }
+        public virtual DbSet<PiranhaCfcountry> PiranhaCfcountries { get; set; }
+        public virtual DbSet<PiranhaCfindustry> PiranhaCfindustries { get; set; }
+        public virtual DbSet<PiranhaCfpartnerImg> PiranhaCfpartnerImgs { get; set; }
+        public virtual DbSet<PiranhaCfreasonReaching> PiranhaCfreasonReachings { get; set; }
+        public virtual DbSet<PiranhaContactForm> PiranhaContactForms { get; set; }
         public virtual DbSet<PiranhaContent> PiranhaContents { get; set; }
         public virtual DbSet<PiranhaContentBlock> PiranhaContentBlocks { get; set; }
         public virtual DbSet<PiranhaContentBlockField> PiranhaContentBlockFields { get; set; }
@@ -151,6 +156,77 @@ namespace Librasoft_API.Librasoft.DataAccess.EFs
                 entity.HasOne(d => d.Blog)
                     .WithMany(p => p.PiranhaCategories)
                     .HasForeignKey(d => d.BlogId);
+            });
+
+            modelBuilder.Entity<PiranhaCfcountry>(entity =>
+            {
+                entity.HasKey(e => e.CountryId)
+                    .HasName("PK__Piranha___10D1609FC572840F");
+
+                entity.ToTable("Piranha_CFCountry");
+
+                entity.Property(e => e.CountryName).HasMaxLength(500);
+            });
+
+            modelBuilder.Entity<PiranhaCfindustry>(entity =>
+            {
+                entity.HasKey(e => e.IndustyId)
+                    .HasName("PK__Piranha___101795B3DC0215EE");
+
+                entity.ToTable("Piranha_CFIndustry");
+
+                entity.Property(e => e.IndustyName).HasMaxLength(500);
+            });
+
+            modelBuilder.Entity<PiranhaCfpartnerImg>(entity =>
+            {
+                entity.HasKey(e => e.PartnerImgId)
+                    .HasName("PK__Piranha___0F211E782B71773A");
+
+                entity.ToTable("Piranha_CFPartnerImg");
+
+                entity.Property(e => e.PartnerName).HasMaxLength(500);
+            });
+
+            modelBuilder.Entity<PiranhaCfreasonReaching>(entity =>
+            {
+                entity.HasKey(e => e.ReasonReachingId)
+                    .HasName("PK__Piranha___350A614E69386839");
+
+                entity.ToTable("Piranha_CFReasonReaching");
+
+                entity.Property(e => e.ReasonReachingContent).HasMaxLength(2000);
+            });
+
+            modelBuilder.Entity<PiranhaContactForm>(entity =>
+            {
+                entity.ToTable("Piranha_ContactForm");
+
+                entity.Property(e => e.Email).HasMaxLength(500);
+
+                entity.Property(e => e.FirstName).HasMaxLength(250);
+
+                entity.Property(e => e.LastName).HasMaxLength(250);
+
+                entity.Property(e => e.Phone)
+                    .HasMaxLength(15)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
+                entity.HasOne(d => d.Country)
+                    .WithMany(p => p.PiranhaContactForms)
+                    .HasForeignKey(d => d.CountryId)
+                    .HasConstraintName("FK__Piranha_C__Count__6AEFE058");
+
+                entity.HasOne(d => d.Industy)
+                    .WithMany(p => p.PiranhaContactForms)
+                    .HasForeignKey(d => d.IndustyId)
+                    .HasConstraintName("FK__Piranha_C__Indus__69FBBC1F");
+
+                entity.HasOne(d => d.ReasonReaching)
+                    .WithMany(p => p.PiranhaContactForms)
+                    .HasForeignKey(d => d.ReasonReachingId)
+                    .HasConstraintName("FK__Piranha_C__Reaso__6BE40491");
             });
 
             modelBuilder.Entity<PiranhaContent>(entity =>

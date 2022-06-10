@@ -2,8 +2,9 @@
 
 
 
+using Librasoft.DataAccess.EFs;
 using Librasoft_API.DataAccess.Extensions;
-using Librasoft_API.Librasoft.DataAccess.EFs;
+
 using Librasoft_API.Librasoft.DataAccess.Repositorys.Constracts;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,8 @@ namespace Librasoft_API.Librasoft.DataAccess.Repositorys
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _dbSet = _context.Set<TEntity>();
         }
+
+      
 
         public virtual async Task<TEntity> AddAsync(TEntity entity)
         {

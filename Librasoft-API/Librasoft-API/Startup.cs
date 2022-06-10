@@ -11,7 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
-using Librasoft_API.Librasoft.DataAccess.EFs;
+using Librasoft.DataAccess.EFs;
 using Librasoft_API.Librasoft.DataAccess.Repositorys;
 using Librasoft_API.Librasoft.DataAccess.Repositorys.Constracts;
 using Librasoft_API.DataAccess.Repositorys.Constracts;
@@ -20,6 +20,7 @@ using Librasoft.Services.Constract;
 using Librasoft.DataAccess.Repositorys.Constracts;
 using Librasoft.DataAccess.Repositorys;
 using Librasoft.Services;
+using System.Reflection;
 
 namespace Librasoft_API
 {
@@ -37,16 +38,24 @@ namespace Librasoft_API
         {
             services.AddDbContext<PiranhaCoreContext>(options => { options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")); });
             services.AddControllersWithViews();
-
+            services.AddAutoMapper(typeof(Startup));
             #region Repositories
             services.AddTransient(typeof(IRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IAliasRepository, PiranhaAliasRepository>();
             services.AddScoped<IPagesRepository, PiranhaPagesRepository>();
+            services.AddScoped<IContactFormRepository, ContactFormRepository>();
+            services.AddScoped<ICFCountryRepository, CFCountryRepository>();
+            services.AddScoped<ICFIndustryRepository, CFIndustryRepository>();
+            services.AddScoped<ICFReasonReachingRepository, CFReasonReachingRepository>();
             #endregion
 
             #region Services
-            services.AddScoped(typeof(IPages), typeof(PagesServices));
-            
+
+            services.AddScoped(typeof(IPagesServices), typeof(PagesServices));
+            services.AddScoped(typeof(IContactFormsServices), typeof(ContactFormService));
+            services.AddScoped(typeof(ICFCountryServices), typeof(CFCountryServices));
+            services.AddScoped(typeof(ICFIndustryServices), typeof(CFIndustryServices));
+            services.AddScoped(typeof(ICFReasonReachingServices), typeof(CFReasonReachingServices));
             #endregion
         }
 

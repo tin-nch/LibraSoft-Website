@@ -3,6 +3,7 @@ using Librasoft_API.Librasoft.DataAccess.Repositorys.Constracts;
 using Librasoft_API.Entities;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Librasoft.Entities.Entities;
 
 namespace Librasoft_API.DataAccess.Repositorys.Constracts
 {

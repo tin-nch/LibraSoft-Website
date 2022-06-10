@@ -1,6 +1,6 @@
 ﻿using Librasoft.Services;
 using Librasoft_API.Entities;
-using Librasoft_API.Librasoft.DataAccess.EFs;
+using Librasoft.DataAccess.EFs;
 using Librasoft.Services.Constract;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +10,7 @@ using System.Linq;
 using Librasoft_API.Entities.Dtos.Response;
 using Newtonsoft.Json;
 using System;
+using Librasoft.Entities.Entities;
 
 namespace Librasoft_API.Controllers
 {

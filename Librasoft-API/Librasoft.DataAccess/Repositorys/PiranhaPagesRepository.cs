@@ -1,7 +1,8 @@
-﻿using Librasoft.DataAccess.Repositorys.Constracts;
+﻿using Librasoft.DataAccess.EFs;
+using Librasoft.DataAccess.Repositorys.Constracts;
+using Librasoft.Entities.Entities;
 
-using Librasoft_API.Entities;
-using Librasoft_API.Librasoft.DataAccess.EFs;
+using Librasoft.DataAccess.EFs;
 using Librasoft_API.Librasoft.DataAccess.Repositorys;
 using System;
 using System.Collections.Generic;
@@ -27,10 +28,16 @@ namespace Librasoft.DataAccess.Repositorys
             List<string> listTitle = new List<string>();
             List<PiranhaPage> piranhaPages = new List<PiranhaPage>();
             piranhaPages = GetListPages();
-            foreach (PiranhaPage a in piranhaPages)
+            if (piranhaPages.Count > 0)
             {
-                listTitle.Add(a.NavigationTitle.ToString());
+                foreach (PiranhaPage a in piranhaPages)
+                {
+                    listTitle.Add(a.NavigationTitle.ToString());
+                }
             }
+            else listTitle = null;
+
+
             return listTitle;
         }
     }

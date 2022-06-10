@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-namespace Librasoft_API.Entities
+
+namespace Librasoft.Entities.Entities
 {
     public partial class PiranhaContentTranslation
     {

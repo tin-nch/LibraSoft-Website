@@ -1,4 +1,5 @@
 ﻿using Librasoft.DataAccess.Repositorys.Constracts;
+using Librasoft.Entities.Entities;
 using Librasoft.Services.Constract;
 using Librasoft_API.Entities;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Librasoft.Services
 {
-    public class PagesServices: IPages
+    public class PagesServices: IPagesServices
     {
 
         private readonly IPagesRepository pagesRepository;

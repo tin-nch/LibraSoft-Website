@@ -18,7 +18,7 @@ namespace Librasoft_API.Librasoft.DataAccess.Repositorys.Constracts
         Task<TEntity> UpdateAsync(TEntity entity);
 
         Task<TEntity> DeleteAsync(TEntity entity);
-
+    
         Task<int> CountAsync(Expression<Func<TEntity, bool>> filter = null);
         
 

@@ -16,14 +16,14 @@ namespace Librasoft_API.Controllers
     public class PagesController : ControllerBase
     {
 
-        private readonly IPages pagesServices ;
-        public PagesController(IPages pagesServices)
+        private readonly IPagesServices pagesServices ;
+        public PagesController(IPagesServices pagesServices)
         {
             this.pagesServices = pagesServices;
         }
 
         [HttpGet]
-        public RequestResponse GetListAlias()
+        public RequestResponse GetListTitle()
         {
 
             try

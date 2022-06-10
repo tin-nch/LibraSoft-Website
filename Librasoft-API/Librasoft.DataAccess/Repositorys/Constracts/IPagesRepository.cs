@@ -1,4 +1,5 @@
-﻿using Librasoft_API.Entities;
+﻿using Librasoft.Entities.Entities;
+
 using Librasoft_API.Librasoft.DataAccess.Repositorys.Constracts;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,6 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
     {
         List<PiranhaPage> GetListPages();
         List<string> GetListTitle();
-        //List<string> GetListTitle();
+   
     }
 }

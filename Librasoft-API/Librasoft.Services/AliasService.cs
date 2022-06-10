@@ -14,7 +14,7 @@ using Librasoft_API.DataAccess.Repositorys;
 
 namespace Librasoft.Services
 {
-    public class AliasService : IAliases
+    public class AliasService : IAliasesServices
     {
 
         private readonly IAliasRepository aliasRepository;
