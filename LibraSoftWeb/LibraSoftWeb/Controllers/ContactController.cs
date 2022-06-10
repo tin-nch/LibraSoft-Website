@@ -5,63 +5,47 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
+using LibraSoftSolution.API;
+using LibraSoftSolution.API.Contacts_Customer;
 
 namespace LibraSoftWeb.Controllers
 {
     public class ContactController : Controller
     {
-        private DatabaseContext _databaseContext;
-        public ContactController(DatabaseContext databaseContext)
+        private readonly ICFCountryAPI _CountryAPI;
+        private readonly ICFIndustryAPI _IndustryAPI;
+        private readonly ICFReasonReachingAPI _ReasonReachingAPI;
+        private readonly IContactAPI _ContactAPI;
+        private PiranhaCoreContext _databaseContext;
+
+
+        public ContactController( ICFCountryAPI cFCountryAPI, ICFIndustryAPI cFIndustryAPI, ICFReasonReachingAPI cFReasonReachingAPI, IContactAPI contactAPI, PiranhaCoreContext piranhaCoreContext )
         {
-            _databaseContext = databaseContext;
+            _CountryAPI = cFCountryAPI;
+            _IndustryAPI = cFIndustryAPI;
+            _ReasonReachingAPI = cFReasonReachingAPI;
+            _ContactAPI = contactAPI;
+            _databaseContext = piranhaCoreContext;
+
+
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var industryList = (from industry in _databaseContext.Piranha_CFIndustries
-                                select new SelectListItem()
-                                {
-                                    Text = industry.IndustyName,
-                                    Value = industry.IndustyId.ToString(),
-                                }).ToList();
-            industryList.Insert(0, new SelectListItem()
-            {
-                Text="---Select---",
-                Value= string.Empty
-            });
+            var industryList = await _IndustryAPI.GetIndustry();
             ViewBag.ListOfIndustry = industryList;
 
-            var countryList = (from country in _databaseContext.Piranha_CFCountries
-                                select new SelectListItem()
-                                {
-                                    Text = country.CountryName,
-                                    Value = country.CountryId.ToString(),
-                                }).ToList();
-            countryList.Insert(0, new SelectListItem()
-            {
-                Text = "---Select---",
-                Value = string.Empty
-            });
+            var countryList = await _CountryAPI.GetCountry();
 
             ViewBag.ListOfCountry = countryList;
 
-            var reasonReachingList = (from rr in _databaseContext.Piranha_CFReasonReachings
-                                select new SelectListItem()
-                                {
-                                    Text = rr.ReasonReachingContent,
-                                    Value = rr.ReasonReachingId.ToString(),
-                                }).ToList();
-            reasonReachingList.Insert(0, new SelectListItem()
-            {
-                Text = "---Select---",
-                Value = string.Empty
-            });
+            var reasonReachingList = await _ReasonReachingAPI.GetReasonReaching();
             ViewBag.ListOfReasonReaching = reasonReachingList;
 
             return View();
         }
 
         [HttpPost]
-        public IActionResult Index(Piranha_ContactForm piranha_ContactForm)
+        public IActionResult Index(PiranhaContactForm piranha_ContactForm)
         {
             if (ModelState.IsValid)
             {

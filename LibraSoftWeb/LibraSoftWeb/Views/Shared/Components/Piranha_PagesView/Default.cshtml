@@ -3,11 +3,11 @@
 *@
 @{
 }
-@model List<Piranha_Pages>
+@model List<String>
 
 @foreach (var menu in Model)
 {
      <li class="nav-item">
-        <a href="#" class="nav-link">@menu.NavigationTitle</a>
+        <a href="#" class="nav-link">@menu</a>
      </li>
 }

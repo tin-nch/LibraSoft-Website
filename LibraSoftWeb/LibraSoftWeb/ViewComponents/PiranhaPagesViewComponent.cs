@@ -2,21 +2,22 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using LibraSoftSolution.API;
 
 namespace LibraSoftWeb.Controllers
 {
     [ViewComponent(Name = "Piranha_PagesView")]
     public class Piranha_PagesViewComponent : ViewComponent
     {
-        private DatabaseContext _databaseContext;
-        public Piranha_PagesViewComponent(DatabaseContext databaseContext)
+        private readonly INavigationTitleAPI _NavigationTitle;
+
+        public Piranha_PagesViewComponent(INavigationTitleAPI NavigationTitle)
         {
-            _databaseContext = databaseContext;
+            _NavigationTitle = NavigationTitle;
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var listofPages = (from p in _databaseContext.Piranha_Pages
-                               select p).ToList();
+            var listofPages = await _NavigationTitle.GetTitle();
             return View(listofPages);
         }
     }

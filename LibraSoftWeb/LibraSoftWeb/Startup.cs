@@ -10,6 +10,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using LibraSoftWeb.Models;
 using Microsoft.EntityFrameworkCore;
+using LibraSoftSolution.API;
+using Microsoft.AspNetCore.Http;
+using LibraSoftSolution.API.Contacts_Customer;
 
 namespace LibraSoftWeb
 {
@@ -25,8 +28,16 @@ namespace LibraSoftWeb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
             services.AddControllersWithViews();
-            services.AddDbContext<DatabaseContext>(options =>
+            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<INavigationTitleAPI, NavigationTitleAPI>();
+            services.AddTransient<ICFCountryAPI, CFCountryAPI>();
+            services.AddTransient<ICFIndustryAPI, CFIndustryAPI>();
+            services.AddTransient<ICFReasonReachingAPI, CFReasonReachingAPI>();
+            services.AddTransient<IContactAPI, ContactAPI>();
+
+            services.AddDbContext<PiranhaCoreContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
