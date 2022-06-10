@@ -23,20 +23,7 @@ namespace LibraSoftSolution.API
         {
             var body = await GetAsync<RequestResponse>("api/pages");
 
-            if (body.ErrorCode == 0)
-            {
-                try
-                {
-                    List<string> NavigationTitle = (List<string>)JsonConvert.DeserializeObject(body.Content, typeof(List<string>));
-                    return NavigationTitle;
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-            }
-            return null;
+            return OutPutApi.OutPut<string>(body);
         }
     }
 }

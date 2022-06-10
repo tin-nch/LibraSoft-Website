@@ -1,5 +1,5 @@
 ﻿using LibraSoftSolution.Models;
-using LibraSoftSolution.ViewModels;
+using LibraSoftSolution.ViewModels.ContactForm;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -25,19 +25,7 @@ namespace LibraSoftSolution.API.Contacts_Customer
         {
             var body = await GetAsync<RequestResponse>("api/cfindustry");
 
-            if (body.ErrorCode == 0)
-            {
-                try
-                {
-                    List<CFIndustryVM> data = (List<CFIndustryVM>)JsonConvert.DeserializeObject(body.Content, typeof(List<CFIndustryVM>));
-                    return data;
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-            }
-            return null;
+            return OutPutApi.OutPut<CFIndustryVM>(body);
         }
     }
 }

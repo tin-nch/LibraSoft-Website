@@ -1,5 +1,5 @@
 ﻿using LibraSoftSolution.Models;
-using LibraSoftSolution.ViewModels;
+using LibraSoftSolution.ViewModels.ContactForm;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -25,22 +25,19 @@ namespace LibraSoftSolution.API.Contacts_Customer
         {
             var body = await GetAsync<RequestResponse>("api/contactform");
 
+            return OutPutApi.OutPut<ContactVM>(body);
+        }
+
+        public async Task<bool> AddContactForm(ContactVM contact)
+        {
+
+            var body = await AddAsync<RequestResponse, ContactVM>("api/contactform/add", contact);
+
             if (body.ErrorCode == 0)
             {
-                try
-                {
-                    List<ContactVM> Contact = (List<ContactVM>)JsonConvert.DeserializeObject(body.Content, typeof(List<ContactVM>));
-
-                    return Contact;
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
+                return true;
             }
-            return null;
-
-            //return OutPutApi.OutPut(body);
+            return false;
         }
     }
 }

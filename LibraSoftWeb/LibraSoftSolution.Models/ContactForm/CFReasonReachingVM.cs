@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraSoftSolution.ViewModels
+namespace LibraSoftSolution.ViewModels.ContactForm
 {
     public class CFReasonReachingVM
     {

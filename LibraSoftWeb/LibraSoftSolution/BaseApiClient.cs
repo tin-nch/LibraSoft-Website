@@ -35,8 +35,21 @@ namespace LibraSoftSolution
             var client = _httpClientFactory.CreateClient();
             client.BaseAddress = new Uri("https://localhost:44362/");
             //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
-            var response = await client.GetAsync(url);
-            var body = await response.Content.ReadAsStringAsync();
+
+            HttpResponseMessage response;
+            string body;
+            try
+            {
+                response = await client.GetAsync(url);
+            }
+            catch (Exception)
+            {
+                Object bodyOB = new { ErrorCode = 1, Content = "" };
+                body = JsonConvert.SerializeObject(bodyOB);
+                return JsonConvert.DeserializeObject<TResponse>(body);
+            }
+
+            body = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
                     TResponse myDeserializedObjList = (TResponse)JsonConvert.DeserializeObject(body,
@@ -65,6 +78,43 @@ namespace LibraSoftSolution
                 return data;
             }
             throw new Exception(body);
+        }
+
+        protected async Task<TResponse> AddAsync<TResponse, T>(string url, T data)
+        {
+            //var sessions = _httpContextAccessor
+            //    .HttpContext
+            //    .Session
+            //    .GetString(SystemConstants.AppSettings.Token);
+
+            string json = JsonConvert.SerializeObject(data);
+            StringContent httpContent = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+            var client = _httpClientFactory.CreateClient();
+            client.BaseAddress = new Uri("https://localhost:44362/");
+            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
+            HttpResponseMessage response;
+            string body;
+            try
+            {
+                response = await client.PostAsync(url, httpContent);
+            }
+            catch (Exception)
+            {
+                Object bodyOB = new { ErrorCode = 1, Content = "" };
+                body = JsonConvert.SerializeObject(bodyOB);
+                return JsonConvert.DeserializeObject<TResponse>(body);
+            }
+
+            body = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                TResponse myDeserializedObjList = (TResponse)JsonConvert.DeserializeObject(body,
+                typeof(TResponse));
+
+                return myDeserializedObjList;
+            }
+            return JsonConvert.DeserializeObject<TResponse>(body);
         }
 
         public async Task<bool> Delete(string url)

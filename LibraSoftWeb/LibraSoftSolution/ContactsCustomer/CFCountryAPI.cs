@@ -1,6 +1,6 @@
 ﻿using LibraSoftSolution.API.Contacts_Customer;
 using LibraSoftSolution.Models;
-using LibraSoftSolution.ViewModels;
+using LibraSoftSolution.ViewModels.ContactForm;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -26,20 +26,7 @@ namespace LibraSoftSolution.API
         {
             var body = await GetAsync<RequestResponse>("api/cfcountry");
 
-            if (body.ErrorCode == 0)
-            {
-                try
-                {
-                    List<CFCountryVM> data = (List<CFCountryVM>)JsonConvert.DeserializeObject(body.Content, typeof(List<CFCountryVM>));
-                    return data;
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-            }
-            return null;
+            return OutPutApi.OutPut<CFCountryVM>(body);
         }
     }
 }
