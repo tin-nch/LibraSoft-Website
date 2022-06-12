@@ -1,5 +1,5 @@
 ﻿using LibraSoftSolution.Models;
-using LibraSoftSolution.ViewModels.ContactForm;
+using LibraSoftSolution.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraSoftSolution.ViewModels.ContactForm
+namespace LibraSoftSolution.ViewModels
 {
     public class ContactVM
     {

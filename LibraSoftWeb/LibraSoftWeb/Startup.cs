@@ -13,7 +13,6 @@ using Microsoft.EntityFrameworkCore;
 using LibraSoftSolution.API;
 using Microsoft.AspNetCore.Http;
 using LibraSoftSolution.API.Contacts_Customer;
-using LibraSoftSolution.API.Test;
 
 namespace LibraSoftWeb
 {
@@ -30,7 +29,6 @@ namespace LibraSoftWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient();
-
             services.AddControllersWithViews();
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<INavigationTitleAPI, NavigationTitleAPI>();
@@ -38,7 +36,6 @@ namespace LibraSoftWeb
             services.AddTransient<ICFIndustryAPI, CFIndustryAPI>();
             services.AddTransient<ICFReasonReachingAPI, CFReasonReachingAPI>();
             services.AddTransient<IContactAPI, ContactAPI>();
-            services.AddTransient<ITestAPI, TestAPI>();
 
             services.AddDbContext<PiranhaCoreContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
