@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System;
 using LibraSoftSolution.API;
 using LibraSoftSolution.API.Contacts_Customer;
+using LibraSoftSolution.ViewModels;
 
 namespace LibraSoftWeb.Controllers
 {
@@ -45,15 +46,14 @@ namespace LibraSoftWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(PiranhaContactForm piranha_ContactForm)
+        public async Task<IActionResult> Index(ContactVM piranha_ContactForm)
         {
             if (ModelState.IsValid)
             {
-
+                
                 try
                 {
-                    this._databaseContext.Add(piranha_ContactForm);
-                    this._databaseContext.SaveChanges();
+                    await this._ContactAPI.AddContactForm(piranha_ContactForm);
                     return RedirectToAction("Index");
                 }
                 catch (Exception e) {

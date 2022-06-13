@@ -1,4 +1,4 @@
-﻿using LibraSoftSolution.API.ReceiveMails;
+using LibraSoftSolution.API.ReceiveMails;
 using LibraSoftSolution.Models;
 using LibraSoftSolution.ViewModels.ContactForm;
 using MailKit.Security;

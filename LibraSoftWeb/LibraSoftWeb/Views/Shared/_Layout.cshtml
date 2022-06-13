@@ -10,7 +10,9 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="~images/favicon.ico">
     <!-- favicon -->
+    <!-- favicon -->
     <link rel="shortcut icon" href="~/lib/" >
+    <link rel="stylesheet" type="text/css" href="~/css/pe-icon-7.css" />
 
     <!--Slider-->
     <link rel="stylesheet" href="~/css/owl.carousel.min.css" asp-append-version="true" />
@@ -24,21 +26,9 @@
 </head>
 <body>
 
-    <!-- Loader -->
-@*    <div id="preloader">
-        <div id="status">
-            <div class="sk-chase">
-                <div class="sk-chase-dot"></div>
-                <div class="sk-chase-dot"></div>
-                <div class="sk-chase-dot"></div>
-                <div class="sk-chase-dot"></div>
-                <div class="sk-chase-dot"></div>
-                <div class="sk-chase-dot"></div>
-            </div>
-        </div>
-    </div>*@
 
-        <!--Navbar Start-->
+
+    <!--Navbar Start-->
     <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark nav-dark">
         <div class="container">
             <!-- LOGO -->
@@ -63,10 +53,7 @@
     </nav>
     <!-- Navbar End -->
 
-@*    <div class="container">
-        <main role="main" class="pb-3">
-        </main>
-    </div>*@
+
     @RenderBody()
 
     
@@ -141,8 +128,6 @@
     <script src="~/js/owl.carousel.min.js"></script>
     <!-- Main Js -->
     <script src="~/js/app.js"></script>
-@*  <script src="~/js/popper.js"></script>
-    <script src="~/js/main.js"></script>*@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
