@@ -1,8 +1,6 @@
 ﻿using Librasoft.DataAccess.EFs;
 using Librasoft.DataAccess.Repositorys.Constracts;
 using Librasoft.Entities.Entities;
-
-using Librasoft.DataAccess.EFs;
 using Librasoft_API.Librasoft.DataAccess.Repositorys;
 using System;
 using System.Collections.Generic;
@@ -12,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace Librasoft.DataAccess.Repositorys
 {
-    public class PiranhaPagesRepository : GenericRepository<PiranhaPage>, IPagesRepository
+    public class BlockFieldsRepository : GenericRepository<PiranhaBlockField>, IBlockFieldsRepository
     {
-        public PiranhaPagesRepository(PiranhaCoreContext context) : base(context)
+        public BlockFieldsRepository(PiranhaCoreContext context) : base(context)
         {
+
+
         }
 
-     
-
-    
+        
     }
 }

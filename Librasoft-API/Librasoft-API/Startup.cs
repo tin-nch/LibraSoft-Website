@@ -32,10 +32,19 @@ namespace Librasoft_API
         }
 
         public IConfiguration Configuration { get; }
-
+        readonly string MyAllowSpecificOrigins = "_MyAllowSpecificOrigins";
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins, 
+                    builder => {
+                        builder.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                    });
+            });
             services.AddDbContext<PiranhaCoreContext>(options => { options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")); });
             services.AddControllersWithViews();
             services.AddAutoMapper(typeof(Startup));
@@ -47,6 +56,10 @@ namespace Librasoft_API
             services.AddScoped<ICFCountryRepository, CFCountryRepository>();
             services.AddScoped<ICFIndustryRepository, CFIndustryRepository>();
             services.AddScoped<ICFReasonReachingRepository, CFReasonReachingRepository>();
+            services.AddScoped<IBlockFieldsRepository, BlockFieldsRepository>();
+            services.AddScoped<IBlocksRepository, BlocksRepository>();
+            services.AddScoped<IPageRevisionsRepository, PagesRevisionRepository>();
+
             #endregion
 
             #region Services
@@ -56,6 +69,9 @@ namespace Librasoft_API
             services.AddScoped(typeof(ICFCountryServices), typeof(CFCountryServices));
             services.AddScoped(typeof(ICFIndustryServices), typeof(CFIndustryServices));
             services.AddScoped(typeof(ICFReasonReachingServices), typeof(CFReasonReachingServices));
+            services.AddScoped(typeof(IBlockFieldsServices), typeof(BlockFieldsServices));
+            services.AddScoped(typeof(IBlocksServices), typeof(BlocksServices));
+            services.AddScoped(typeof(IPageRevisionsServices), typeof(PageRevisionsServices));
             #endregion
         }
 
@@ -72,10 +88,15 @@ namespace Librasoft_API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
 
+
+            app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
+       
             app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 

@@ -1,5 +1,4 @@
 ﻿using Librasoft.Entities.Entities;
-using Librasoft.Services;
 using Librasoft.Services.Constract;
 using Librasoft_API.Entities.Dtos.Response;
 using Microsoft.AspNetCore.Http;
@@ -14,22 +13,23 @@ namespace Librasoft_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PageRevisionsController : ControllerBase
+    public class BlocksController : ControllerBase
     {
-        private readonly IPageRevisionsServices pagesRevisionServices;
 
-        public PageRevisionsController(IPageRevisionsServices pagesRevisionServices)
+        private readonly IBlocksServices blocksServices;
+
+        public BlocksController(IBlocksServices blocksServices)
         {
-            this.pagesRevisionServices = pagesRevisionServices;
+            this.blocksServices = blocksServices;
         }
 
         [HttpGet]
-        public async Task<RequestResponse> GetListPageRevisionField()
+        public async Task<RequestResponse> GetListBlockList()
         {
 
             try
             {
-                IEnumerable<PiranhaPageRevision> result = await pagesRevisionServices.GetPagesRevisionListAsync();
+                IEnumerable<PiranhaBlock> result = await blocksServices.GetBlocklistAsync();
                 if (result != null && result.Any())
                 {
                     return new RequestResponse

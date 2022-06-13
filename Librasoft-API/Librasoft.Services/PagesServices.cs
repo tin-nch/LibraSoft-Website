@@ -1,4 +1,5 @@
-﻿using Librasoft.DataAccess.Repositorys.Constracts;
+﻿using AutoMapper;
+using Librasoft.DataAccess.Repositorys.Constracts;
 using Librasoft.Entities.Entities;
 using Librasoft.Services.Constract;
 using Librasoft_API.Entities;
@@ -14,21 +15,18 @@ namespace Librasoft.Services
     {
 
         private readonly IPagesRepository pagesRepository;
-        public PagesServices(IPagesRepository pagesRepository)
+        private readonly IMapper mapper;
+
+      public PagesServices(IPagesRepository pagesRepository, IMapper mapper)
         {
             this.pagesRepository = pagesRepository;
+            this.mapper = mapper;
         }
 
-       
-
-        public List<PiranhaPage> GetListPages()
+        public async Task<IEnumerable<PiranhaPage>> GetPagesListAsync()
         {
-            return pagesRepository.GetListPages();
-        }
-        public List<string> GetListNavigationTitle()
-        {
-            return pagesRepository.GetListTitle();
-          
+            IReadOnlyList<PiranhaPage> contactForms = await pagesRepository.ListAsync();
+            return mapper.Map<IEnumerable<PiranhaPage>>(contactForms);
         }
     }
 }

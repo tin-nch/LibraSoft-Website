@@ -1,4 +1,5 @@
 ﻿using Librasoft.DataAccess.Repositorys.Constracts;
+using Librasoft.Entities.Entities;
 using Librasoft.Services.Constract;
 using Librasoft_API.Entities;
 using Librasoft_API.Entities.Dtos.Response;
@@ -8,6 +9,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Librasoft_API.Controllers
 {
@@ -23,12 +25,12 @@ namespace Librasoft_API.Controllers
         }
 
         [HttpGet]
-        public RequestResponse GetListTitle()
+        public async Task<RequestResponse> GetListPage()
         {
 
             try
             {
-                List<string> result = pagesServices.GetListNavigationTitle();
+                IEnumerable<PiranhaPage> result  =await pagesServices.GetPagesListAsync();
                 if (result != null && result.Any())
                 {
                     return new RequestResponse
