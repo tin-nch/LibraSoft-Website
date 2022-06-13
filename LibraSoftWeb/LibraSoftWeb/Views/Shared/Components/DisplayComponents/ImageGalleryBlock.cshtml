@@ -1,13 +1,13 @@
 ﻿
-@using Piranha.Extend.Blocks
+@*@using Piranha.Extend.Blocks
 @{
     var unique = "gallery-" + Guid.NewGuid().ToString();
     var images = Model.Items
         .Where(i => i.GetType() == typeof(ImageBlock) && ((ImageBlock)i).Body.HasValue)
         .ToList();
-}
+}*@
 
-<div id="@unique" class="carousel slide gallery-block" data-ride="carousel">
+@*<div id="@unique" class="carousel slide gallery-block" data-ride="carousel">
     <ol class="carousel-indicators">
         @for (var n = 0; n < images.Count; n++)
         {
@@ -30,4 +30,4 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-</div>
+</div>*@
