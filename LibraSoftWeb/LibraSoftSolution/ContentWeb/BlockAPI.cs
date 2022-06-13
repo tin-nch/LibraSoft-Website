@@ -21,14 +21,32 @@ namespace LibraSoftSolution.API.ContentWeb
 
         public async Task<List<BlocksVM>> GetListBlocks()
         {
-            var body = await GetAsync<RequestResponse>("api/blocks");
+            var body = await GetAsync<RequestResponse>("api/blocks/getlistblocklist");
             return OutPutApi.OutPut<BlocksVM>(body);
+        }
+
+        public async Task<List<string>> GetListBlocksCLRType()
+        {
+            var body = await GetAsync<RequestResponse>("api/blocks/GetListBlockCLRType");
+            return OutPutApi.OutPut<string>(body);
         }
 
         public async Task<List<BlockFieldsVM>> GetListBlocksFields()
         {
             var body = await GetAsync<RequestResponse>("api/blockfields");
             return OutPutApi.OutPut<BlockFieldsVM>(body);
+        }
+
+        public async Task<List<PageRevisionsVM>> GetListPageRevisions()
+        {
+            var body = await GetAsync<RequestResponse>("api/blockfields");
+            return OutPutApi.OutPut<PageRevisionsVM>(body);
+        }
+
+        public async Task<List<PagesVM>> GetListPages()
+        {
+            var body = await GetAsync<RequestResponse>("api/blockfields");
+            return OutPutApi.OutPut<PagesVM>(body);
         }
     }
 }

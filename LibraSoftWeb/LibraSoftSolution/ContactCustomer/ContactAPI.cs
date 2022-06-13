@@ -1,5 +1,6 @@
 ﻿using LibraSoftSolution.Models;
 using LibraSoftSolution.ViewModels;
+using LibraSoftSolution.ViewModels.ContactForm;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System;

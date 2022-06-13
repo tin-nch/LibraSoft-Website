@@ -15,7 +15,7 @@ namespace LibraSoftSolution
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IConfiguration _configuration;
         private readonly IHttpContextAccessor _httpContextAccessor;
-
+        public string _baseAddress = "http://192.168.1.64:8088/";
         protected BaseApiClient(IHttpClientFactory httpClientFactory,
                    IHttpContextAccessor httpContextAccessor,
                     IConfiguration configuration)
@@ -31,10 +31,10 @@ namespace LibraSoftSolution
             //    .HttpContext
             //    .Session
             //    .GetString(SystemConstants.AppSettings.Token);
+            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
 
             var client = _httpClientFactory.CreateClient();
-            client.BaseAddress = new Uri("https://localhost:44362/");
-            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
+            client.BaseAddress = new Uri(_baseAddress);
 
             HttpResponseMessage response;
             string body;
@@ -90,7 +90,7 @@ namespace LibraSoftSolution
             string json = JsonConvert.SerializeObject(data);
             StringContent httpContent = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
             var client = _httpClientFactory.CreateClient();
-            client.BaseAddress = new Uri("https://localhost:44362/");
+            client.BaseAddress = new Uri(_baseAddress);
             //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
             HttpResponseMessage response;
             string body;

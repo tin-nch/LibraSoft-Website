@@ -1,4 +1,5 @@
 ﻿using LibraSoftSolution.Models;
+using LibraSoftSolution.ViewModels.ContactForm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace LibraSoftSolution.API.Test
 {
     public interface ITestAPI
     {
-        Task<List<string>> GetAll();
+        Task<List<ContactVM>> GetAll();
     }
 }

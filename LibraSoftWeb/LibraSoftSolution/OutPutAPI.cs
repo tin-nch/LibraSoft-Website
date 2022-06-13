@@ -13,10 +13,6 @@ namespace LibraSoftSolution.API
 
         public static List<T> OutPut<T>(RequestResponse body)
         {
-            if (body == null)
-            {
-                return null;
-            }
             if (body.ErrorCode == 0)
             {
                 try

@@ -1,4 +1,5 @@
 ﻿using LibraSoftSolution.Models;
+using LibraSoftSolution.ViewModels.ContactForm;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -19,10 +20,10 @@ namespace LibraSoftSolution.API.Test
         {
         }
 
-        public async Task<List<string>> GetAll()
+        public async Task<List<ContactVM>> GetAll()
         {
-            var body = await GetAsync<RequestResponse>("api/pages");
-            return OutPutApi.OutPut<string>(body);
+            var body = await GetAsync<RequestResponse>("api/contactform");
+            return OutPutApi.OutPut<ContactVM>(body);
         }
     }
 }

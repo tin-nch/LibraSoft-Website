@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraSoftSolution.ViewModels.ContentWeb;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace LibraSoftSolution.API
 {
     public interface INavigationTitleAPI
     {
-        Task<List<string>> GetTitle();
+        Task<List<NavigationTitleVM>> GetTitle();
     }
 }

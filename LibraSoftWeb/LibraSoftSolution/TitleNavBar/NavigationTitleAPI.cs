@@ -1,4 +1,5 @@
 ﻿using LibraSoftSolution.Models;
+using LibraSoftSolution.ViewModels.ContentWeb;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -19,24 +20,11 @@ namespace LibraSoftSolution.API
         {
         }
 
-        public async Task<List<string>> GetTitle()
+        public async Task<List<NavigationTitleVM>> GetTitle()
         {
             var body = await GetAsync<RequestResponse>("api/pages");
 
-            if (body.ErrorCode == 0)
-            {
-                try
-                {
-                    List<string> NavigationTitle = (List<string>)JsonConvert.DeserializeObject(body.Content, typeof(List<string>));
-                    return NavigationTitle;
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-            }
-            return null;
+            return OutPutApi.OutPut<NavigationTitleVM>(body);
         }
     }
 }

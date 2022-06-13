@@ -8,6 +8,7 @@ using System;
 using LibraSoftSolution.API;
 using LibraSoftSolution.ViewModels;
 using LibraSoftSolution.API.ContactCustomer;
+using LibraSoftSolution.ViewModels.ContactForm;
 
 namespace LibraSoftWeb.Controllers
 {

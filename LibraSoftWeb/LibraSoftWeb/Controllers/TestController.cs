@@ -48,9 +48,9 @@ namespace LibraSoftWeb.Controllers
             //    MessageContent = "This is Content message"
             //};
             //bool c = await emailAPI1.SendEmail(a);
-            //var a = await _testAPI.GetAll();
-            var b = await blockAPI.GetListBlocksFields();
-            ViewBag.test = b;
+            var a = await blockAPI.GetListBlocksCLRType();
+            //var b = await blockAPI.GetListBlocksFields();
+            ViewBag.test = a;
             return View();
         }
     }
