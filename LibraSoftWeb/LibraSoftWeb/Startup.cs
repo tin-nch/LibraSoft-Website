@@ -14,6 +14,8 @@ using LibraSoftSolution.API;
 using Microsoft.AspNetCore.Http;
 using LibraSoftSolution.API.Contacts_Customer;
 using LibraSoftSolution.API.Test;
+using LibraSoftSolution.API.ReceiveMails;
+using LibraSoftSolution.API.ContentWeb;
 
 namespace LibraSoftWeb
 {
@@ -39,6 +41,8 @@ namespace LibraSoftWeb
             services.AddTransient<ICFReasonReachingAPI, CFReasonReachingAPI>();
             services.AddTransient<IContactAPI, ContactAPI>();
             services.AddTransient<ITestAPI, TestAPI>();
+            services.AddTransient<IEmailAPI, EmailAPI>();
+            services.AddTransient<IBlockAPI, BlockAPI>();
 
             services.AddDbContext<PiranhaCoreContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

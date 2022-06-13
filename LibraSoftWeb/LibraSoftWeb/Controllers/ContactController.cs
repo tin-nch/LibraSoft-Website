@@ -56,7 +56,10 @@ namespace LibraSoftWeb.Controllers
                     this._databaseContext.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                catch (Exception e) { };
+                catch (Exception e) {
+                    Console.WriteLine("Exception caught in CreateMessageWithAttachment(): {0}",
+                    e.ToString());
+                };
 
             }
             return View(piranha_ContactForm);

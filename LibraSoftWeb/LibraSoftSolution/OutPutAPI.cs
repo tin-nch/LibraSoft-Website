@@ -13,6 +13,10 @@ namespace LibraSoftSolution.API
 
         public static List<T> OutPut<T>(RequestResponse body)
         {
+            if (body == null)
+            {
+                return null;
+            }
             if (body.ErrorCode == 0)
             {
                 try
@@ -27,6 +31,27 @@ namespace LibraSoftSolution.API
                 }
             }
             return null;
+        }
+        public static bool OutPutBool<T>(RequestResponse body)
+        {
+            if (body == null)
+            {
+                return false;
+            }
+            if (body.ErrorCode == 0)
+            {
+                try
+                {
+                    List<T> data = (List<T>)JsonConvert.DeserializeObject(body.Content, typeof(List<T>));
+
+                    return true;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            return false;
         }
     }
 }
