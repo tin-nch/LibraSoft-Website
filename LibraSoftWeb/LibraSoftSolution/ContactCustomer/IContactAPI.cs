@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraSoftSolution.API.Contacts_Customer
+namespace LibraSoftSolution.API.ContactCustomer
 {
     public interface IContactAPI
     {

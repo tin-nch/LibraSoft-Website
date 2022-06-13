@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraSoftSolution.API.Contacts_Customer
+namespace LibraSoftSolution.API.ContactCustomer
 {
-    public interface ICFCountryAPI
+    public interface ICFIndustryAPI
     {
-        Task<List<CFCountryVM>> GetCountry();
+        Task<List<CFIndustryVM>> GetIndustry();
     }
 }

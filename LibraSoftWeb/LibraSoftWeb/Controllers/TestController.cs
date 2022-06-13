@@ -1,4 +1,4 @@
-﻿using LibraSoftSolution.API.Contacts_Customer;
+﻿using LibraSoftSolution.API.ContactCustomer;
 using LibraSoftSolution.API.ContentWeb;
 using LibraSoftSolution.API.ReceiveMails;
 using LibraSoftSolution.API.Test;

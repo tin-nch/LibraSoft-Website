@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
 using LibraSoftSolution.API;
-using LibraSoftSolution.API.Contacts_Customer;
 using LibraSoftSolution.ViewModels;
+using LibraSoftSolution.API.ContactCustomer;
 
 namespace LibraSoftWeb.Controllers
 {
