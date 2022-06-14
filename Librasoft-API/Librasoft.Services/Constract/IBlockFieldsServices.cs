@@ -8,5 +8,9 @@ namespace Librasoft.Services.Constract
     {
 
         public Task<IEnumerable<PiranhaBlockField>> GetBlockFieldlistAsync();
+
+        public PiranhaBlockField GetBlockFieldByID(string id);
+
+        public List<string> GetListHTML(List<PiranhaBlock> listblk);
     }
 }

@@ -13,14 +13,18 @@ using System.Threading.Tasks;
 namespace Librasoft_API.Controllers
 {
     [EnableCors("MyPolicy")]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]/{id?}")]
     [ApiController]
     public class BlockFieldsController : ControllerBase
     {
         private readonly IBlockFieldsServices blockFieldsServices;
-        public BlockFieldsController(IBlockFieldsServices blockFieldsServices)
+        private readonly IPageBlocksServices pageBlocksServices;
+        private readonly IBlocksServices blocksServices;
+      public BlockFieldsController(IBlockFieldsServices blockFieldsServices, IPageBlocksServices pageBlocksServices, IBlocksServices blocksServices)
         {
             this.blockFieldsServices = blockFieldsServices;
+            this.pageBlocksServices = pageBlocksServices;
+            this.blocksServices = blocksServices;
         }
 
         [HttpGet]
@@ -31,6 +35,79 @@ namespace Librasoft_API.Controllers
             {
                 IEnumerable<PiranhaBlockField> result = await blockFieldsServices.GetBlockFieldlistAsync();
                 if (result != null && result.Any())
+                {
+                    return new RequestResponse
+                    {
+                        ErrorCode = ErrorCode.Success,
+                        Content = JsonConvert.SerializeObject(result)
+                    };
+                }
+                return new RequestResponse
+                {
+                    ErrorCode = ErrorCode.GeneralFailure,
+                    Content = string.Empty
+                };
+            }
+            catch (Exception ex)
+            {
+                string errorDetail = ex.InnerException != null ? ex.InnerException.ToString() : ex.Message.ToString();
+                return new RequestResponse
+                {
+                    ErrorCode = ErrorCode.GeneralFailure,
+                    Content = errorDetail
+                };
+            }
+
+
+
+        }
+        public RequestResponse GetHTMLBySortOrder(int id)
+        {
+
+            try
+            {
+                string blockid = pageBlocksServices.GetBlockIDBySortOrder(id);
+               List<PiranhaBlock> listblk = blocksServices.GetBlockListHaveParentID(blockid).ToList();
+
+
+                List<string> result = blockFieldsServices.GetListHTML(listblk);
+                if (result != null)
+                {
+                    return new RequestResponse
+                    {
+                        ErrorCode = ErrorCode.Success,
+                        Content = JsonConvert.SerializeObject(result)
+                    };
+                }
+                return new RequestResponse
+                {
+                    ErrorCode = ErrorCode.GeneralFailure,
+                    Content = string.Empty
+                };
+            }
+            catch (Exception ex)
+            {
+                string errorDetail = ex.InnerException != null ? ex.InnerException.ToString() : ex.Message.ToString();
+                return new RequestResponse
+                {
+                    ErrorCode = ErrorCode.GeneralFailure,
+                    Content = errorDetail
+                };
+            }
+
+
+
+        }
+
+
+        [HttpGet]
+        public RequestResponse GetBlockFieldByID(string id)
+        {
+
+            try
+            {
+                PiranhaBlockField result =  blockFieldsServices.GetBlockFieldByID(id);
+                if (result != null )
                 {
                     return new RequestResponse
                     {

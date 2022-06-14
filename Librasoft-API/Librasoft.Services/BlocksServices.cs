@@ -32,5 +32,11 @@ namespace Librasoft.Services
             IReadOnlyList<PiranhaBlock> block = await blocksRepository.ListAsync();
             return mapper.Map<IEnumerable<PiranhaBlock>>(block);
         }
+
+        public IEnumerable<PiranhaBlock> GetBlockListHaveParentID(string id)
+        {
+            IReadOnlyList<PiranhaBlock> block =  blocksRepository.GetBlockListHaveParentID(id);
+            return mapper.Map<IEnumerable<PiranhaBlock>>(block);
+        }
     }
 }

@@ -16,6 +16,13 @@ namespace Librasoft.DataAccess.Repositorys
         {
         }
 
+        public List<PiranhaBlock> GetBlockListHaveParentID(string id)
+        {
+            List<PiranhaBlock> b = _context.PiranhaBlocks.Where(a => a.ParentId.ToString().Contains(id)).ToList();
+            return b;
+
+        }
+
         public List<string> GetCLRTypeList()
         {
             List<string> list = new List<string>();

@@ -78,7 +78,7 @@ namespace Librasoft_API.Controllers
                         return new RequestResponse
                         {
                             ErrorCode = ErrorCode.Success,
-                            Content = string.Empty
+                            Content = "submit thành công"
                         };
                     }
 

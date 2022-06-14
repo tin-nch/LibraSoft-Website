@@ -9,5 +9,6 @@ namespace Librasoft.Services.Constract
 
         public Task<IEnumerable<PiranhaBlock>> GetBlocklistAsync();
         public List<string> GetBlockCRLTypelist();
+        public IEnumerable<PiranhaBlock> GetBlockListHaveParentID(string id);
     }
 }
