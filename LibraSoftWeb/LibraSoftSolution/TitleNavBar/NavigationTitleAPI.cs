@@ -22,7 +22,7 @@ namespace LibraSoftSolution.API
 
         public async Task<List<NavigationTitleVM>> GetTitle()
         {
-            var body = await GetAsync<RequestResponse>("api/pages");
+            var body = await GetAsync<RequestResponse>("api/pages/GetListPageWithHomeTitle");
 
             return OutPutApi.OutPut<NavigationTitleVM>(body);
         }
