@@ -19,6 +19,12 @@ namespace LibraSoftSolution.API.ContentWeb
         {
         }
 
+        public async Task<List<BlockFieldsVM>> gethtmlbysortorders(int id)
+        {
+            var body = await GetAsync<RequestResponse>($"api/blockfields/gethtmlbysortorder/{id}");
+            return OutPutApi.OutPut<BlockFieldsVM>(body);
+        }
+
         public async Task<List<BlocksVM>> GetListBlocks()
         {
             var body = await GetAsync<RequestResponse>("api/blocks/getlistblocklist");
@@ -33,7 +39,7 @@ namespace LibraSoftSolution.API.ContentWeb
 
         public async Task<List<BlockFieldsVM>> GetListBlocksFields()
         {
-            var body = await GetAsync<RequestResponse>("api/blockfields");
+            var body = await GetAsync<RequestResponse>("api/blockfields/getlistblockfield");
             return OutPutApi.OutPut<BlockFieldsVM>(body);
         }
 
@@ -45,7 +51,7 @@ namespace LibraSoftSolution.API.ContentWeb
 
         public async Task<List<PagesVM>> GetListPages()
         {
-            var body = await GetAsync<RequestResponse>("/api/pages");
+            var body = await GetAsync<RequestResponse>("api/pages/getlistpage");
             return OutPutApi.OutPut<PagesVM>(body);
         }
     }

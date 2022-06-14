@@ -13,7 +13,7 @@ namespace LibraSoftSolution.API
 
         public static List<T> OutPut<T>(RequestResponse body)
         {
-            if (body.ErrorCode == 0)
+            if (body.ErrorCode == 0 || body != null)
             {
                 try
                 {
@@ -30,11 +30,7 @@ namespace LibraSoftSolution.API
         }
         public static bool OutPutBool<T>(RequestResponse body)
         {
-            if (body == null)
-            {
-                return false;
-            }
-            if (body.ErrorCode == 0)
+            if (body.ErrorCode == 0 && body != null)
             {
                 try
                 {
