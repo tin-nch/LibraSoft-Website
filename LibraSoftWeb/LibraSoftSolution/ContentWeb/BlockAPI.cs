@@ -39,13 +39,13 @@ namespace LibraSoftSolution.API.ContentWeb
 
         public async Task<List<PageRevisionsVM>> GetListPageRevisions()
         {
-            var body = await GetAsync<RequestResponse>("api/blockfields");
+            var body = await GetAsync<RequestResponse>("api/pagerevisions");
             return OutPutApi.OutPut<PageRevisionsVM>(body);
         }
 
         public async Task<List<PagesVM>> GetListPages()
         {
-            var body = await GetAsync<RequestResponse>("api/blockfields");
+            var body = await GetAsync<RequestResponse>("/api/pages");
             return OutPutApi.OutPut<PagesVM>(body);
         }
     }
