@@ -19,7 +19,6 @@ namespace Librasoft_API.Controllers
     public class AliasController : ControllerBase
     {
         private readonly IAliasRepository aliases;
-
         
         public AliasController(IAliasRepository aliases)
         {

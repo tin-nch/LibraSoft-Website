@@ -21,16 +21,17 @@ namespace Librasoft_API.Controllers
     {
 
         private readonly IContactFormsServices _contactFormService;
-        public ContactFormController(IContactFormsServices _contactFormService)
+        private readonly ISendEmailServices _sendEmailServices;
+        public ContactFormController(IContactFormsServices _contactFormService, ISendEmailServices _sendEmailServices)
         {
             this._contactFormService = _contactFormService;
+            this._sendEmailServices = _sendEmailServices;
            
         }
-        [EnableCors]
+        
         [HttpGet]
         public async Task<RequestResponse> GetListContactForm()
         {
-
             try
             {
                IEnumerable<PiranhaContactForm> result = await _contactFormService.GetContactFormlistAsync();
@@ -57,8 +58,6 @@ namespace Librasoft_API.Controllers
                     Content = errorDetail
                 };
             }
-
-
             
         }
 
@@ -69,10 +68,13 @@ namespace Librasoft_API.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    //add contact to dtb
                     PiranhaContactForm add = await _contactFormService.AddContactFormAsync(contactForm);
-                    if (add != null)
-                    {
+                    //send email
+                    var a = await _sendEmailServices.SendEmail(contactForm);
 
+                    if (add != null && a == true)
+                    {
                         return new RequestResponse
                         {
                             ErrorCode = ErrorCode.Success,

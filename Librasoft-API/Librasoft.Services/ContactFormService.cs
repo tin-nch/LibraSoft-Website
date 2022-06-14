@@ -5,6 +5,8 @@ using Librasoft.Services.Constract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,13 +30,12 @@ namespace Librasoft.Services
             if (add != null)
             {
                 PiranhaContactForm dto = mapper.Map<PiranhaContactForm>(add);
+                
                 // Task.Run(() => { syncCommunication.PushToSync(ActionType.Insert, DataType.Master, dto.GetType().Name, dto, dto.BlackListID); });
                 return dto;
             }
             return null;
         }
-
-    
 
         public Task<PiranhaContactForm> GetContactFormByIdAsync(string contactID)
         {
@@ -46,7 +47,6 @@ namespace Librasoft.Services
             IReadOnlyList<PiranhaContactForm> contactForms = await contactFormRepository.ListAsync();
             return mapper.Map<IEnumerable<PiranhaContactForm>>(contactForms);
         }
-
         public Task<PiranhaContactForm> UpdateContactFormAsync(PiranhaContactForm contactForm)
         {
             throw new NotImplementedException();

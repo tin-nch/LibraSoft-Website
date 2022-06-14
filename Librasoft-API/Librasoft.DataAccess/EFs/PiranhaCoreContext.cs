@@ -16,7 +16,7 @@ namespace Librasoft.DataAccess.EFs
             : base(options)
         {
         }
-
+        public virtual DbSet<AdminAccount> AdminAccounts { get; set; }
         public virtual DbSet<PiranhaAlias> PiranhaAliases { get; set; }
         public virtual DbSet<PiranhaBlock> PiranhaBlocks { get; set; }
         public virtual DbSet<PiranhaBlockField> PiranhaBlockFields { get; set; }
@@ -77,6 +77,25 @@ namespace Librasoft.DataAccess.EFs
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<AdminAccount>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("Admin_Account");
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.IsDelete).HasColumnName("isDelete");
+
+                entity.Property(e => e.IsVirtualEmail).HasColumnName("isVirtualEmail");
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
             modelBuilder.Entity<PiranhaAlias>(entity =>
             {
                 entity.ToTable("Piranha_Aliases");

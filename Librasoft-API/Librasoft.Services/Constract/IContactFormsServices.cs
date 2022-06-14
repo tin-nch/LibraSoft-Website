@@ -11,9 +11,7 @@ namespace Librasoft.Services.Constract
     {
         public Task<IEnumerable<PiranhaContactForm>> GetContactFormlistAsync();
         Task<PiranhaContactForm> GetContactFormByIdAsync(string contactID);
-    
         Task<PiranhaContactForm> AddContactFormAsync(PiranhaContactForm contactForm);
         Task<PiranhaContactForm> UpdateContactFormAsync(PiranhaContactForm contactForm);
-    
     }
 }

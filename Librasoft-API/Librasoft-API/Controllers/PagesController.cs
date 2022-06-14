@@ -18,7 +18,7 @@ namespace Librasoft_API.Controllers
     public class PagesController : ControllerBase
     {
 
-        private readonly IPagesServices pagesServices ;
+        private readonly IPagesServices pagesServices;
         public PagesController(IPagesServices pagesServices)
         {
             this.pagesServices = pagesServices;
