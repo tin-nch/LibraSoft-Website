@@ -11,5 +11,7 @@ namespace Librasoft.Services.Constract
     {
 
         public Task<IEnumerable<PiranhaCfcountry>> GetCountrylistAsync();
+        public PiranhaCfcountry GetCountryById(int? id);
+
     }
 }

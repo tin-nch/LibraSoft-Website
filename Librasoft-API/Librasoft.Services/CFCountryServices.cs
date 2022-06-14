@@ -24,7 +24,10 @@ namespace Librasoft.Services
             this.mapper = mapper;
         }
 
-       
+        public PiranhaCfcountry GetCountryById(int? id)
+        {
+            return cfCountryRepository.GetCountryById(id);
+        }
 
         public async Task<IEnumerable<PiranhaCfcountry>> GetCountrylistAsync()
         {

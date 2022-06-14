@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace Librasoft.DataAccess.Repositorys.Constracts
 {
-    public interface ICFIndustryRepository:  IEfRepository<PiranhaCfindustry>
+    public interface ICFIndustryRepository: IEfRepository<PiranhaCfindustry>
     {
+        public PiranhaCfindustry GetIndustryById(int? id);
+
     }
 }

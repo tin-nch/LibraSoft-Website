@@ -15,5 +15,10 @@ namespace Librasoft.DataAccess.Repositorys
         public CFReasonReachingRepository(PiranhaCoreContext context) : base(context)
         {
         }
+
+        public PiranhaCfreasonReaching getRRbyId(int? id)
+        {
+            return _context.PiranhaCfreasonReachings.FirstOrDefault(a => a.ReasonReachingId == id);
+        }
     }
 }

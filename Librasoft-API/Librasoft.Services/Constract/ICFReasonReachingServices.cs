@@ -10,5 +10,6 @@ namespace Librasoft.Services.Constract
     public interface ICFReasonReachingServices
     {
         public Task<IEnumerable<PiranhaCfreasonReaching>> GetReasonReachinglistAsync();
+        public PiranhaCfreasonReaching GetRRById(int? id);
     }
 }
