@@ -18,6 +18,24 @@ namespace Librasoft.DataAccess.Repositorys
 
         }
 
-        
+        public PiranhaBlockField GetBlockFieldsByID(string id)
+        {
+            return _context.PiranhaBlockFields.FirstOrDefault(a => a.Id.ToString().Contains(id));
+        }
+
+        public List<string> GetListHTML(List<PiranhaBlock> listblk)
+        {
+            List<string> list = new List<string>();
+            foreach(PiranhaBlock block in listblk)
+            {
+                List<PiranhaBlockField> lst = _context.PiranhaBlockFields.Where(a => a.BlockId.Equals(block.Id)).ToList();
+                foreach(PiranhaBlockField f in lst)
+                {
+                    list.Add(f.Value);
+                }    
+               
+            }
+            return list;
+        }
     }
 }

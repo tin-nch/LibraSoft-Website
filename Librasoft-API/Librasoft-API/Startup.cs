@@ -59,6 +59,7 @@ namespace Librasoft_API
             services.AddScoped<IBlockFieldsRepository, BlockFieldsRepository>();
             services.AddScoped<IBlocksRepository, BlocksRepository>();
             services.AddScoped<IPageRevisionsRepository, PagesRevisionRepository>();
+            services.AddScoped<IPageBlocksRepository, PageBlocksRepository>();
 
             #endregion
 
@@ -72,6 +73,7 @@ namespace Librasoft_API
             services.AddScoped(typeof(IBlockFieldsServices), typeof(BlockFieldsServices));
             services.AddScoped(typeof(IBlocksServices), typeof(BlocksServices));
             services.AddScoped(typeof(IPageRevisionsServices), typeof(PageRevisionsServices));
+            services.AddScoped(typeof(IPageBlocksServices), typeof(PageBlockServices));
             #endregion
         }
 

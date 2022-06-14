@@ -10,5 +10,6 @@ namespace Librasoft.Services.Constract
 
 
         public Task<IEnumerable<PiranhaPage>> GetPagesListAsync();
+        public IEnumerable<PiranhaPage> GetPagesListWithHomeTitle();
     }
 }

@@ -25,8 +25,14 @@ namespace Librasoft.Services
 
         public async Task<IEnumerable<PiranhaPage>> GetPagesListAsync()
         {
-            IReadOnlyList<PiranhaPage> contactForms = await pagesRepository.ListAsync();
-            return mapper.Map<IEnumerable<PiranhaPage>>(contactForms);
+            IReadOnlyList<PiranhaPage> pages = await pagesRepository.ListAsync();
+            return mapper.Map<IEnumerable<PiranhaPage>>(pages);
+        }
+
+        public  IEnumerable<PiranhaPage> GetPagesListWithHomeTitle()
+        {
+            IReadOnlyList<PiranhaPage> pages =  pagesRepository.GetPagesListWithHomeTitle();
+            return mapper.Map<IEnumerable<PiranhaPage>>(pages);
         }
     }
 }

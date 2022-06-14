@@ -22,10 +22,20 @@ namespace Librasoft.Services
             this.mapper = mapper;
         }
 
+        public PiranhaBlockField GetBlockFieldByID(string id)
+        {
+            return blockFieldsRepository.GetBlockFieldsByID(id);
+        }
+
         public async Task<IEnumerable<PiranhaBlockField>> GetBlockFieldlistAsync()
         {
             IReadOnlyList<PiranhaBlockField> blockFields = await blockFieldsRepository.ListAsync();
             return mapper.Map<IEnumerable<PiranhaBlockField>>(blockFields);
+        }
+
+        public List<string> GetListHTML(List<PiranhaBlock> listblk)
+        {
+            return blockFieldsRepository.GetListHTML(listblk);
         }
     }
 }

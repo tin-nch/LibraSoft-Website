@@ -2,5 +2,7 @@
 {
     public interface IPageBlocksServices
     {
+        public string GetBlockIDBySortOrder(int order);
+
     }
 }

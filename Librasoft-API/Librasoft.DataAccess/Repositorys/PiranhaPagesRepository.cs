@@ -19,26 +19,14 @@ namespace Librasoft.DataAccess.Repositorys
         {
         }
 
-        public void getPageWithHomeTitle()
+        public  List<PiranhaPage> GetPagesListWithHomeTitle()
         {
-            throw new NotImplementedException();
+            List<PiranhaPage> source =_context.PiranhaPages.Where(a => a.NavigationTitle.Contains("Home")).ToList();
+       
+
+            return  source;
         }
 
-
-        //public virtual async Task<IReadOnlyList<PiranhaPage>> getPageWithHomeTitle(Expression<Func<PiranhaPage, bool>> filter = null, Func<IQueryable<PiranhaPage>, IOrderedQueryable<PiranhaPage>> orderBy = null)
-        //{
-        //    IQueryable<PiranhaPage> source = (IQueryable<PiranhaPage>)_context.PiranhaPages.Where(a => a.NavigationTitle.Contains("Home")).ToList();
-        //    if (filter != null)
-        //    {
-        //        source = source.Where(filter);
-        //    }
-
-        //    if (orderBy != null)
-        //    {
-        //        return await orderBy(source).to();
-        //    }
-
-        //    return await source.ToListAsync();
-        //}
+      
     }
 }

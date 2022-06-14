@@ -12,6 +12,7 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
     {
 
         public List<string> GetCLRTypeList();
-       
+        public List<PiranhaBlock> GetBlockListHaveParentID(string id);
+
     }
 }
