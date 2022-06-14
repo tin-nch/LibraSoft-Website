@@ -27,5 +27,10 @@ namespace Librasoft.Services
             IReadOnlyList<PiranhaCfreasonReaching> cfcountries = await cFReasonReachingRepository.ListAsync();
             return mapper.Map<IEnumerable<PiranhaCfreasonReaching>>(cfcountries);
         }
+
+        public PiranhaCfreasonReaching GetRRById(int? id)
+        {
+            return cFReasonReachingRepository.getRRbyId(id);
+        }
     }
 }

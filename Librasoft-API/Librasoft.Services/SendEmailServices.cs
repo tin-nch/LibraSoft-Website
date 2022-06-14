@@ -15,13 +15,23 @@ namespace Librasoft.Services
     public class SendEmailServices : ISendEmailServices
     {
         private readonly ISendEmailRepository sendEmailRepository;
+        private readonly ICFCountryRepository countryRepository;
+        private readonly ICFIndustryRepository industryRepository;
+        private readonly ICFReasonReachingRepository reasonReachingRepository;
 
         private readonly IMapper mapper;
 
-        public SendEmailServices(ISendEmailRepository sendEmailRepository, IMapper mapper)
+        public SendEmailServices(ISendEmailRepository sendEmailRepository, 
+            ICFCountryRepository countryRepository,
+            ICFIndustryRepository cFIndustryRepository, 
+            ICFReasonReachingRepository reachingRepository,
+            IMapper mapper)
         {
             this.sendEmailRepository = sendEmailRepository;
             this.mapper = mapper;
+            this.countryRepository = countryRepository;
+            industryRepository = cFIndustryRepository;
+            reasonReachingRepository = reachingRepository;  
         }
         public async Task<IEnumerable<AdminAccount>> GetVirtualAccountAsync()
         {
@@ -31,22 +41,32 @@ namespace Librasoft.Services
 
         public async Task<bool> SendEmail(PiranhaContactForm contactForm)
         {
+            //get virtual Email
             var virtualMail = await this.GetVirtualAccountAsync();
             var _virtualMail = virtualMail.FirstOrDefault();
-            
 
             // Create a message and set up the recipients.
             string virtualEmail = _virtualMail.Email;
             string password = _virtualMail.Password;
 
+            //country, industry, reasonReaching
+            PiranhaCfindustry cfindustry = industryRepository.GetIndustryById(contactForm.IndustyId);
+            PiranhaCfcountry cfCountry = countryRepository.GetCountryById(contactForm.CountryId);
+            PiranhaCfreasonReaching cfreasonReaching = reasonReachingRepository.getRRbyId(contactForm.ReasonReachingId);
+            string country = cfCountry.CountryName;
+            string industry = cfindustry.IndustyName;
+            string reasonReaching = cfreasonReaching.ReasonReachingContent;
+
             string nameCorp = "tan.ntm.librasoft@gmail.com";
 
             MailAddress _sender = new MailAddress(virtualEmail);
             MailAddress _receiver = new MailAddress(nameCorp);
-            string subject = "Có một thư mới từ " + contactForm.Email.ToString();
-            string body = "<h1> Với lời nhắn: " + contactForm.MessageContent.ToString() + "</h1> <br>" +
-                          "<div> Họ tên: " + contactForm.LastName + " " + contactForm.FirstName + "</div> <br>" +
-                          "<div> Số điện thoại: " + contactForm.Phone + "</div>";
+            string subject = reasonReaching.ToString();
+            string body = "<div> Name: " + contactForm.LastName.ToString() + " " + contactForm.FirstName.ToString() + "</div> <br>" +
+                          "<div> Phone Number: " + contactForm.Phone.ToString() + "</div>" + 
+                          "<div> Country: " + country + "</div>" + 
+                          "<div> Industry: " + industry + "</div>" +
+                            "<h1> Content: " + contactForm.MessageContent.ToString() + "</h1> <br>";
 
             MailMessage mail = new MailMessage(_sender, _receiver);
 

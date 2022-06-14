@@ -16,5 +16,11 @@ namespace Librasoft.DataAccess.Repositorys
         {
 
         }
+
+        public PiranhaCfcountry GetCountryById(int? id)
+        {
+            PiranhaCfcountry data = _context.PiranhaCfcountries.FirstOrDefault(a => a.CountryId == id);
+            return data;
+        }
     }
 }

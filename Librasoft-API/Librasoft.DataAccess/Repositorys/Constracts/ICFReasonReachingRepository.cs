@@ -10,5 +10,6 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
 {
     public interface ICFReasonReachingRepository : IEfRepository<PiranhaCfreasonReaching>
     {
+        public PiranhaCfreasonReaching getRRbyId(int? id);
     }
 }

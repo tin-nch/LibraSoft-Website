@@ -11,5 +11,7 @@ namespace Librasoft.Services.Constract
     public interface ICFIndustryServices
     {
         public Task<IEnumerable<PiranhaCfindustry>> GetCfIndustryListAsync();
+        public PiranhaCfindustry GetIndustryById(int? id);
+
     }
 }

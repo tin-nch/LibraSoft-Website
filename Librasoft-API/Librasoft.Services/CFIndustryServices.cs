@@ -27,6 +27,9 @@ namespace Librasoft.Services
             return mapper.Map<IEnumerable<PiranhaCfindustry>>(cfindustry);
         }
 
-       
+        public PiranhaCfindustry GetIndustryById(int? id)
+        {
+            return cFIndustryRepository.GetIndustryById(id);
+        }
     }
 }

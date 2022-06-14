@@ -10,7 +10,6 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
 {
     public interface ICFCountryRepository: IEfRepository<PiranhaCfcountry>
     {
-
-
+        public PiranhaCfcountry GetCountryById(int? id);
     }
 }
