@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Librasoft_API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class BlocksController : ControllerBase
     {
@@ -30,6 +30,41 @@ namespace Librasoft_API.Controllers
             try
             {
                 IEnumerable<PiranhaBlock> result = await blocksServices.GetBlocklistAsync();
+                if (result != null && result.Any())
+                {
+                    return new RequestResponse
+                    {
+                        ErrorCode = ErrorCode.Success,
+                        Content = JsonConvert.SerializeObject(result)
+                    };
+                }
+                return new RequestResponse
+                {
+                    ErrorCode = ErrorCode.GeneralFailure,
+                    Content = string.Empty
+                };
+            }
+            catch (Exception ex)
+            {
+                string errorDetail = ex.InnerException != null ? ex.InnerException.ToString() : ex.Message.ToString();
+                return new RequestResponse
+                {
+                    ErrorCode = ErrorCode.GeneralFailure,
+                    Content = errorDetail
+                };
+            }
+
+
+
+        }
+
+        [HttpGet]
+        public  RequestResponse GetListBlockCLRType()
+        {
+
+            try
+            {
+                List<string> result =  blocksServices.GetBlockCRLTypelist();
                 if (result != null && result.Any())
                 {
                     return new RequestResponse

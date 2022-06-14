@@ -22,6 +22,11 @@ namespace Librasoft.Services
             this.mapper = mapper;
         }
 
+        public List<string> GetBlockCRLTypelist()
+        {
+            return blocksRepository.GetCLRTypeList();
+        }
+
         public async Task<IEnumerable<PiranhaBlock>> GetBlocklistAsync()
         {
             IReadOnlyList<PiranhaBlock> block = await blocksRepository.ListAsync();

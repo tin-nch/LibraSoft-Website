@@ -15,5 +15,18 @@ namespace Librasoft.DataAccess.Repositorys
         public BlocksRepository(PiranhaCoreContext context) : base(context)
         {
         }
+
+        public List<string> GetCLRTypeList()
+        {
+            List<string> list = new List<string>();
+            List<PiranhaBlock> piranhaBlocks = new List<PiranhaBlock>();
+            piranhaBlocks = _context.PiranhaBlocks.ToList();
+            foreach(PiranhaBlock a in piranhaBlocks)
+            {
+                string crltype = a.Clrtype.Split('.').Last();
+                list.Add(crltype);
+            }
+            return list;
+        }
     }
 }

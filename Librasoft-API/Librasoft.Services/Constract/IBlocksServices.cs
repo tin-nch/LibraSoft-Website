@@ -8,5 +8,6 @@ namespace Librasoft.Services.Constract
     {
 
         public Task<IEnumerable<PiranhaBlock>> GetBlocklistAsync();
+        public List<string> GetBlockCRLTypelist();
     }
 }

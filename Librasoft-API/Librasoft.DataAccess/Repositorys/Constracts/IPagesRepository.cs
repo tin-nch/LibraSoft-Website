@@ -11,7 +11,7 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
 {
     public interface IPagesRepository :IEfRepository<PiranhaPage>
     {
- 
+        public void getPageWithHomeTitle();
    
     }
 }

@@ -10,5 +10,8 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
 {
     public interface IBlocksRepository: IEfRepository<PiranhaBlock>
     {
+
+        public List<string> GetCLRTypeList();
+       
     }
 }
