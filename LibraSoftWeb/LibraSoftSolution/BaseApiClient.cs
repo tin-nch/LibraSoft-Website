@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using LibraSoftSolution.API.Utilities;
 
 namespace LibraSoftSolution
 {
@@ -15,7 +16,7 @@ namespace LibraSoftSolution
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IConfiguration _configuration;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public string _baseAddress = "http://192.168.1.64:8088/";
+        private readonly string _baseAddress = SettingUrl.GetBaseAddress();
         protected BaseApiClient(IHttpClientFactory httpClientFactory,
                    IHttpContextAccessor httpContextAccessor,
                     IConfiguration configuration)

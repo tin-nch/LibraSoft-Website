@@ -10,7 +10,6 @@ namespace LibraSoftSolution.API
 {
     public static class OutPutApi
     {
-
         public static List<T> OutPut<T>(RequestResponse body)
         {
             if (body.ErrorCode == 0 || body != null)
