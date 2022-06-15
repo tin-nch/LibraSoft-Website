@@ -26,11 +26,18 @@ namespace Librasoft.DataAccess.Repositorys
         public List<string> GetListHTML(List<PiranhaBlock> listblk)
         {
             List<string> list = new List<string>();
-            foreach(PiranhaBlock block in listblk)
+
+            string root = _context.RootImages.FirstOrDefault().ToString();
+
+            foreach (PiranhaBlock block in listblk)
             {
                 List<PiranhaBlockField> lst = _context.PiranhaBlockFields.Where(a => a.BlockId.Equals(block.Id)).ToList();
                 foreach(PiranhaBlockField f in lst)
                 {
+                    string a = f.Value;
+                    string prefix = a.Substring(0, a.IndexOf("upload"));
+                    string postfix = a.Substring(a.IndexOf("upload"));
+                    string res = prefix + root + postfix;
                     list.Add(f.Value);
                 }    
                

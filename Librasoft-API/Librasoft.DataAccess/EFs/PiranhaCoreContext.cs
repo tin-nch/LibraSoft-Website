@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Librasoft.Entities.Entities;
+using Librasoft.Entities.NewModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -65,6 +66,8 @@ namespace Librasoft.DataAccess.EFs
         public virtual DbSet<PiranhaUserClaim> PiranhaUserClaims { get; set; }
         public virtual DbSet<PiranhaUserLogin> PiranhaUserLogins { get; set; }
         public virtual DbSet<PiranhaUserToken> PiranhaUserTokens { get; set; }
+        public virtual DbSet<RootImage> RootImages { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -1094,6 +1097,15 @@ namespace Librasoft.DataAccess.EFs
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.PiranhaUserTokens)
                     .HasForeignKey(d => d.UserId);
+            });
+
+            modelBuilder.Entity<RootImage>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.Root)
+                    .HasMaxLength(50)
+                    .HasColumnName("root");
             });
 
             OnModelCreatingPartial(modelBuilder);
