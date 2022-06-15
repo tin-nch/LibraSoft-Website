@@ -12,7 +12,7 @@ namespace LibraSoftSolution.API.Utilities
         public static string GetBaseAddress()
         {
             Dictionary<String, String> settings = GetSettings();
-            return settings["domain"]+ settings["port"]+"/";
+            return settings["domain"]+ ":" +settings["port"]+"/";
         }
         public static string GetDomain()
         {
@@ -28,25 +28,29 @@ namespace LibraSoftSolution.API.Utilities
         {
             string fileName = "\\settings.txt";
 
-            string currentPath = Directory.GetCurrentDirectory();
-            DirectoryInfo dir = new DirectoryInfo(currentPath);
-            List<DirectoryInfo> listDir = Split(dir);
+            string currentPath = Directory.GetCurrentDirectory()+fileName;
+            //DirectoryInfo dir = new DirectoryInfo(currentPath);
+            //List<DirectoryInfo> listDir = Split(dir);
 
-            string settingFilePath = listDir[listDir.Count - 5].ToString() + fileName;
+            //string settingFilePath = listDir[listDir.Count - 5].ToString() + fileName;
             Dictionary<String, String> MySettings = File
-                                                .ReadLines(settingFilePath)
+                                                .ReadLines(currentPath)
                                                 .ToDictionary(line => line.Substring(0, line.IndexOf('=')).Trim(),
                                                 line => line.Substring(line.IndexOf('=') + 1).Trim());
+            if (MySettings["domain"].Contains("http://"))
+            {
+                MySettings["domain"] = "sai ten domain";
+            }
             return MySettings;
         }
-        public static List<DirectoryInfo> Split(DirectoryInfo path)
-        {
-            if (path == null) throw new ArgumentNullException("path");
-            var ret = new List<DirectoryInfo>();
-            if (path.Parent != null) ret.AddRange(Split(path.Parent));
-            ret.Add(path);
-            return ret;
-        }
+        //public static List<DirectoryInfo> Split(DirectoryInfo path)
+        //{
+        //    if (path == null) throw new ArgumentNullException("path");
+        //    var ret = new List<DirectoryInfo>();
+        //    if (path.Parent != null) ret.AddRange(Split(path.Parent));
+        //    ret.Add(path);
+        //    return ret;
+        //}
     }
     
 }

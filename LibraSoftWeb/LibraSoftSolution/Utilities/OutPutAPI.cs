@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraSoftSolution.API
+namespace LibraSoftSolution.API.Utilities
 {
     public static class OutPutApi
     {

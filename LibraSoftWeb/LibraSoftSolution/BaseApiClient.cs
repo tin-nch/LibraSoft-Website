@@ -16,7 +16,7 @@ namespace LibraSoftSolution
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IConfiguration _configuration;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly string _baseAddress = SettingUrl.GetBaseAddress();
+        public string _baseAddress = SettingUrl.GetBaseAddress();
         protected BaseApiClient(IHttpClientFactory httpClientFactory,
                    IHttpContextAccessor httpContextAccessor,
                     IConfiguration configuration)
