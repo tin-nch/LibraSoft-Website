@@ -3,4 +3,12 @@
 *@
 @{
 }
+@using LibraSoftSolution.ViewModels.ContentWeb
+@model List<NavigationTitleVM>
 
+@foreach (var menu in Model)
+{
+     <li class="nav-item">
+        <a href="@menu.Slug" class="nav-link">@menu.NavigationTitle</a>
+     </li>
+}

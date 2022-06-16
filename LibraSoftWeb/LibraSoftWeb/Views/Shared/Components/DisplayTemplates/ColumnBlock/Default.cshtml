@@ -1,6 +1,11 @@
-﻿
-@{
-}
+﻿@*<div class="row">
+    @for (var n = 0; n < Model.Items.Count; n++)
+    {
+        <div class="col-md">
+            @Html.DisplayFor(m => Model.Items[n], Model.Items[n].GetType().Name)
+        </div>
+    }
+</div>*@
 
 <section class="section" id="services">
     <div class="container">
@@ -16,9 +21,9 @@
             </div>
         </div>
         <div class="row">
-@*            <div class="col-lg-3 col-md-4">
+            <div class="col-lg-3 col-md-4">
                 <div class="service-box p-4">
-                    <div class="service-icon icon-primary mb-4 mt-3">
+                    <div class="service-icon icon-primary mb-6 mt-5">
                         <img src="~/images/LibraSoftImg/life-insurance.png" alt="" class="img-fluid mx-auto d-block">
                     </div>
                     <h4 class="mb-4 service-title">Finance</h4>
@@ -51,15 +56,7 @@
                     <h4 class="mb-4 service-title">User Friendly</h4>
                     <p class="text-muted f-15">Traditional learning environments are becoming a thing of the past. fully integrated software applications are used to raise the quality of education and administration in schools, colleges and universities.</p>
                 </div>
-            </div>*@
-            @foreach(var item in Model)
-            {
-             <div class="col-lg-3 col-md-4">
-                <div class="service-box p-4">
-                    @Html.Raw(@item)
-                </div>
             </div>
-            }
         </div>
     </div>
 </section>

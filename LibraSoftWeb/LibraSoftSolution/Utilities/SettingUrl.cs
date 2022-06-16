@@ -12,7 +12,7 @@ namespace LibraSoftSolution.API.Utilities
         public static string GetBaseAddress()
         {
             Dictionary<String, String> settings = GetSettings();
-            return settings["domain"]+ ":" +settings["port"]+"/";
+            return settings["http"] +"://"+ settings["domain"]+ ":" +settings["port"]+"/";
         }
         public static string GetDomain()
         {
@@ -37,10 +37,7 @@ namespace LibraSoftSolution.API.Utilities
                                                 .ReadLines(currentPath)
                                                 .ToDictionary(line => line.Substring(0, line.IndexOf('=')).Trim(),
                                                 line => line.Substring(line.IndexOf('=') + 1).Trim());
-            if (MySettings["domain"].Contains("http://"))
-            {
-                MySettings["domain"] = "sai ten domain";
-            }
+            
             return MySettings;
         }
         //public static List<DirectoryInfo> Split(DirectoryInfo path)

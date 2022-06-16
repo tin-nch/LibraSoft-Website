@@ -13,13 +13,16 @@ namespace LibraSoftWeb.ViewComponents
         {
             _piranhaCoreContext = piranhaCoreContext;
         }
-        public async Task<IViewComponentResult> InvokeAsync(Guid id)
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            PiranhaPage pP = (from p in _piranhaCoreContext.PiranhaPages
-                             where p.Id.Equals(id)
-                             select p).FirstOrDefault();
-            ViewData["heroPage"] = pP;
-            return View();
+            var id = (from p in _piranhaCoreContext.PiranhaPages
+                      where p.NavigationTitle.Equals("Home")
+                      select p.Id).FirstOrDefault();
+            var contentPage = _piranhaCoreContext.PiranhaPages.FirstOrDefault(m => m.Id.Equals(id));
+            //PiranhaPage pP = (from p in _piranhaCoreContext.PiranhaPages
+            //                 where p.Id.Equals(id)
+            //                 select p).FirstOrDefault();
+            return View(contentPage);
         }
     }
 }

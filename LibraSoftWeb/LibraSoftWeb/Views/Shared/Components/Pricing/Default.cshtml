@@ -3,6 +3,7 @@
 *@
 @{
 }
+
 <section class="section" id="pricing">
     <div class="container">
         <div class="row justify-content-center">
@@ -18,48 +19,32 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4">
+@*            <div class="col-lg-4">
                 <div class="pricing-box rounded text-center position-relative px-4 py-5 mb-4">
-                    <img src="~/images/pricing/img-1.png" alt="" class="img-fluid mx-auto d-block">
-                    <h3 class="pricing-title title text-uppercase mt-5 mb-4">Basic</h3>
-                    <div class="text-muted py-3">
-                        <p class="">Bandwidth: <b class="highlight">1GB</b></p>
-                        <p class="">Support: <b class="highlight">No</b></p>
-                        <p class=""><b>No</b> Hidden Fees</p>
-                    </div>
-                    <p class="text-muted f-15 mb-4">All Extension Included <span class="d-block f-18"><b>$12.90/Year</b></span></p>
-                    <a href="" class="btn btn-outline-primary">Buy Now <span class="ml-2 right-icon">&#8594;</span></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="pricing-box rounded text-center position-relative active px-4 py-5 mb-4">
-                    <div class="ribbon">
-                        <p class="mb-0 text-white f-13">-25%</p>
-                    </div>
-                    <img src="~/images/pricing/img-2.png" alt="" class="img-fluid mx-auto d-block">
-                    <h3 class="pricing-title title text-uppercase mt-5 mb-4">Standard</h3>
-                    <div class="text-muted py-3">
-                        <p class="">Bandwidth: <b class="highlight">1.5GB</b></p>
-                        <p class="">Support: <b class="highlight">Yes</b></p>
-                        <p class=""><b>No</b> Hidden Fees</p>
-                    </div>
-                    <p class="text-muted f-15 mb-4">All Extension Included <span class="d-block f-18"><b>$49.99/Year</b></span></p>
-                    <a href="" class="btn btn-primary">Buy Now <span class="ml-2 right-icon">&#8594;</span></a>
+                    <img src="~/images/LibraSoftImg/save-time.png" alt="" class="img-fluid mx-auto d-block">
+                    <h3 class="pricing-title title  mt-5 mb-3">Reduce Processing Time</h3>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="pricing-box rounded text-center position-relative px-4 py-5 mb-4">
-                    <img src="~/images/pricing/img-3.png" alt="" class="img-fluid mx-auto d-block">
-                    <h3 class="pricing-title title text-uppercase mt-5 mb-4">Premium</h3>
-                    <div class="text-muted py-3">
-                        <p class="">Bandwidth: <b class="highlight">2GB</b></p>
-                        <p class="">Support: <b class="highlight">No</b></p>
-                        <p class=""><b>No</b> Hidden Fees</p>
-                    </div>
-                    <p class="text-muted f-15 mb-4">All Extension Included <span class="d-block f-18"><b>$89.99/Year</b></span></p>
-                    <a href="" class="btn btn-outline-primary">Buy Now <span class="ml-2 right-icon">&#8594;</span></a>
+                    <img src="~/images/LibraSoftImg/money-bag.png" alt="" class="img-fluid mx-auto d-block">
+                    <h3 class="pricing-title title  mt-5 mb-3">Reduce Business Operating Costs</h3>
                 </div>
             </div>
+            <div class="col-lg-4">
+                <div class="pricing-box rounded text-center position-relative px-4 py-5 mb-4">
+                    <img src="~/images/LibraSoftImg/hand-shake.png" alt="" class="img-fluid mx-auto d-block">
+                    <h3 class="pricing-title title mt-5 mb-3">Increase Cusomer Sastisfaction</h3>
+                </div>
+            </div>*@
+            @foreach(var item in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="pricing-box rounded text-center position-relative px-4 py-5 mb-4">
+                    @Html.Raw(@item)
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </section>

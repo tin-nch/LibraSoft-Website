@@ -1,13 +1,18 @@
-﻿
+﻿@model IEnumerable<LibraSoftWeb.Models.ViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
 
-@*<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-*@
+@*@foreach(var item in Model)
+{
+    <p>@item.PageBlock.Id</p>
+    <p>@item.Block.Clrtype</p>
+    <p>@item.Page.Id</p>
+    <p>@item.PageBlock.SortOrder</p>
+    <p>@item.Block.Clrtype</p>
+    @Html.Raw(@item.BlockField.Value) 
+    @await Component.InvokeAsync(@item.Block.Clrtype)
+}*@
     <!-- Hero Start -->
     @await Component.InvokeAsync("Hero")
     <!-- Hero End -->

@@ -20,10 +20,16 @@ namespace LibraSoftSolution.API.ContentWeb
         {
         }
 
-        public async Task<List<BlockFieldsVM>> gethtmlbysortorders(int id)
+        public async Task<List<string>> gethtmlbysortorders(int id)
         {
             var body = await GetAsync<RequestResponse>($"api/blockfields/gethtmlbysortorder/{id}");
-            return OutPutApi.OutPut<BlockFieldsVM>(body);
+            return OutPutApi.OutPut<string>(body);
+        }
+
+        public async Task<List<string>> gethtmlbysortordersWithImg(int id)
+        {
+            var body = await GetAsync<RequestResponse>($"api/blockfields/gethtmlbysortorderwithimg/{id}");
+            return OutPutApi.OutPut<string>(body);
         }
 
         public async Task<List<BlocksVM>> GetListBlocks()

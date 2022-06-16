@@ -1,7 +1,4 @@
-﻿@*
-For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
 <style>
     .item:hover .innerText 
@@ -24,7 +21,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-6">
+@*            <div class="col-lg-4 col-md-6">
                 <div class="feature-box text-center px-4 py-5">
                     <div class="text-primary feature-icon mb-3">
                         <i class="pe-7s-world"></i>
@@ -53,7 +50,18 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                     <p class="text-muted mb-0">Monday - Friday</p>
                     <p class="text-muted mb-0">9:00AM - 6:00PM</p>
                 </div>
+            </div>*@
+            @foreach(var item in Model)
+            {
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-box text-center px-4 py-5">
+@*                    <div class="text-primary feature-icon mb-3">
+                        <i class="pe-7s-cup"></i>
+                    </div>*@
+                    @Html.Raw(@item)
+                </div>
             </div>
+            }
         </div>
     </div>
 </section>

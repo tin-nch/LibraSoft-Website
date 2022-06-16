@@ -13,6 +13,7 @@ namespace LibraSoftSolution.API.ContentWeb
         Task<List<string>> GetListBlocksCLRType();
         Task<List<BlockFieldsVM>> GetListBlocksFields();
         Task<List<PagesVM>> GetListPages();
-        Task<List<BlockFieldsVM>> gethtmlbysortorders(int id);
+        Task<List<string>> gethtmlbysortorders(int id);
+        Task<List<string>> gethtmlbysortordersWithImg(int id);
     }
 }

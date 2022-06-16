@@ -12,10 +12,9 @@ using LibraSoftWeb.Models;
 using Microsoft.EntityFrameworkCore;
 using LibraSoftSolution.API;
 using Microsoft.AspNetCore.Http;
-using LibraSoftSolution.API.Test;
 using LibraSoftSolution.API.ReceiveMails;
-using LibraSoftSolution.API.ContentWeb;
 using LibraSoftSolution.API.ContactCustomer;
+using LibraSoftSolution.API.ContentWeb;
 
 namespace LibraSoftWeb
 {
@@ -32,7 +31,6 @@ namespace LibraSoftWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient();
-
             services.AddControllersWithViews();
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<INavigationTitleAPI, NavigationTitleAPI>();
@@ -40,7 +38,6 @@ namespace LibraSoftWeb
             services.AddTransient<ICFIndustryAPI, CFIndustryAPI>();
             services.AddTransient<ICFReasonReachingAPI, CFReasonReachingAPI>();
             services.AddTransient<IContactAPI, ContactAPI>();
-            services.AddTransient<ITestAPI, TestAPI>();
             services.AddTransient<IEmailAPI, EmailAPI>();
             services.AddTransient<IBlockAPI, BlockAPI>();
 
@@ -63,7 +60,7 @@ namespace LibraSoftWeb
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            
             app.UseRouting();
 
             app.UseAuthorization();
