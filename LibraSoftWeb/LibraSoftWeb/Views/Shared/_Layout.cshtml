@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>LibraSoft</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Bootstrap 4 Landing Page Template" />
+    <meta name="keywords" content="bootstrap 4, premium, marketing, multipurpose" />
+    <meta content="Themesdesign" name="author" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="~images/favicon.ico">
+    <!-- favicon -->
+    <!-- favicon -->
+    <link rel="shortcut icon" href="~/lib/" >
+    <link rel="stylesheet" type="text/css" href="~/css/pe-icon-7.css" />
+
+    <!--Slider-->
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css"  asp-append-version="true" />
+
+    <!-- css -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" asp-append-version="true" />
+    <link href="~/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" asp-append-version="true" />
+    <link href="~/css/style.min.css" rel="stylesheet" type="text/css" asp-append-version="true" />
+@*    <link rel="stylesheet" href="~/css/contact.css">*@
+</head>
+<body>
+
+
+
+    <!--Navbar Start-->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark nav-dark">
+        <div class="container">
+            <!-- LOGO -->
+            <a class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/images/LibraSoftImg/logo_LibraSoft_2.png" alt="" class="" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="mdi mdi-menu"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto navbar-center" id="mySidenav">
+                    @await Component.InvokeAsync("Piranha_PagesView")
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    @RenderBody()
+
+    
+
+    <!-- Footer Start -->
+    <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="mb-4">
+                        <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/LibraSoftImg/logo_LibraSoft_2.png" alt="" class="logo-light" height="60" /></a>
+                        <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/LibraSoftImg/logo_LibraSoft_2.png" alt="" class="logo-dark" height="60" /></a>
+                    </div>
+                    <ul class="footer-icons list-inline f-20 mt-4">
+                        <li class="list-inline-item mr-3"><a href="#" class=""><i class="mdi mdi-facebook"></i></a></li>
+                        <li class="list-inline-item mr-3"><a href="#" class=""><i class="mdi mdi-twitter"></i></a></li>
+                        <li class="list-inline-item mr-3"><a href="#" class=""><i class="mdi mdi-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-linkedin"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-7 offset-lg-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5 class="footer-list-title f-18 font-weight-normal mb-3">Company</h5>
+                            <ul class="list-unstyled company-sub-menu">
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#">Service</a></li>
+                                <li><a asp-area="" asp-controller="Contact" asp-action="Index">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="footer-list-title f-18 font-weight-normal mb-3">Further Information</h5>
+                            <ul class="list-unstyled company-sub-menu">
+                                <li><a href="#">Term & Condition</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+@*            <div class="row">
+                <div class="col-lg-12 mt-5">
+                    <div class="text-center footer-alt my-3">
+                        <p class="mb-0 f-15">2019 © Neloz. Design by Themesdesign</p>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+    </section>
+    <!-- Footer End -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+    <!-- javascript -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/scrollspy.min.js"></script>
+    <script src="~/js/jquery.easing.min.js"></script>
+    <!-- COUNTER -->
+    <script src="~/js/counter.int.js"></script>
+    <!-- carousel -->
+    <script src="~/js/owl.carousel.min.js"></script>
+    <!-- Main Js -->
+    <script src="~/js/app.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
