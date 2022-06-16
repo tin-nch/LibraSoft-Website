@@ -1,3 +1,0 @@
-http = https
-domain = localhost
-port = 44362
