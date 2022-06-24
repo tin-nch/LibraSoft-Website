@@ -52,10 +52,6 @@ namespace Librasoft_API.Controllers
                     Content = errorDetail
                 };
             }
-
-
-
         }
-
     }
 }
