@@ -50,22 +50,19 @@ namespace Librasoft.Services
             string password = _virtualMail.Password;
 
             //country, industry, reasonReaching
-            PiranhaCfindustry cfindustry = industryRepository.GetIndustryById(contactForm.IndustyId);
-            PiranhaCfcountry cfCountry = countryRepository.GetCountryById(contactForm.CountryId);
+        
             PiranhaCfreasonReaching cfreasonReaching = reasonReachingRepository.getRRbyId(contactForm.ReasonReachingId);
-            string country = cfCountry.CountryName;
-            string industry = cfindustry.IndustyName;
+        
             string reasonReaching = cfreasonReaching.ReasonReachingContent;
 
-            string nameCorp = "tan.ntm.librasoft@gmail.com";
+            string nameCorp = "Nghia.nd.librasoft@gmail.com";
 
             MailAddress _sender = new MailAddress(virtualEmail);
             MailAddress _receiver = new MailAddress(nameCorp);
             string subject = reasonReaching.ToString();
-            string body = "<div> Name: " + contactForm.LastName.ToString() + " " + contactForm.FirstName.ToString() + "</div> <br>" +
+            string body = "<div> Name: " + contactForm.FullName.ToString() +  "</div> <br>" +
                           "<div> Phone Number: " + contactForm.Phone.ToString() + "</div>" + 
-                          "<div> Country: " + country + "</div>" + 
-                          "<div> Industry: " + industry + "</div>" +
+                 
                             "<h1> Content: " + contactForm.MessageContent.ToString() + "</h1> <br>";
 
             MailMessage mail = new MailMessage(_sender, _receiver);

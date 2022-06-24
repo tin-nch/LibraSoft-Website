@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Librasoft.DataAccess.Repositorys.Constracts;
 using Librasoft.Entities.Entities;
+using Librasoft.Entities.Entities.Dtos;
 using Librasoft.Services.Constract;
 using System;
 using System.Collections.Generic;
@@ -33,9 +34,25 @@ namespace Librasoft.Services
             return mapper.Map<IEnumerable<PiranhaBlockField>>(blockFields);
         }
 
+        public BlockParentVM GetBlockParent()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<string> GetListHTML(List<PiranhaBlock> listblk)
         {
             return blockFieldsRepository.GetListHTML(listblk);
         }
+
+      
+
+
+
+        public List<string> GetListHTMLWithImg(List<PiranhaBlock> listblk)
+        {
+            return blockFieldsRepository.GetListHTMLWithImg(listblk);
+        }
+
+      
     }
 }

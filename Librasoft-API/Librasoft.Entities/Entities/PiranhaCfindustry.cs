@@ -1,18 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace Librasoft.Entities.Entities
 {
+    [Table("Piranha_CFIndustry")]
     public partial class PiranhaCfindustry
     {
         public PiranhaCfindustry()
         {
-            PiranhaContactForms = new HashSet<PiranhaContactForm>();
+            PiranhaEventParticipants = new HashSet<PiranhaEventParticipant>();
         }
 
+        [Key]
         public int IndustyId { get; set; }
+        [StringLength(500)]
         public string IndustyName { get; set; }
 
-        public virtual ICollection<PiranhaContactForm> PiranhaContactForms { get; set; }
+        [InverseProperty("IndustryNavigation")]
+        public virtual ICollection<PiranhaEventParticipant> PiranhaEventParticipants { get; set; }
     }
 }

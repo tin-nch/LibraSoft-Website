@@ -63,7 +63,6 @@ namespace Librasoft_API.Controllers
         }
         public RequestResponse GetHTMLBySortOrder(int id)
         {
-
             try
             {
                 string blockid = pageBlocksServices.GetBlockIDBySortOrder(id);
@@ -94,11 +93,43 @@ namespace Librasoft_API.Controllers
                     Content = errorDetail
                 };
             }
-
-
-
         }
 
+       
+
+        public RequestResponse GetHTMLBySortOrderWithImg(int id)
+        {
+            try
+            {
+                string blockid = pageBlocksServices.GetBlockIDBySortOrder(id);
+                List<PiranhaBlock> listblk = blocksServices.GetBlockListHaveParentID(blockid).ToList();
+
+
+                List<string> result = blockFieldsServices.GetListHTMLWithImg(listblk);
+                if (result != null)
+                {
+                    return new RequestResponse
+                    {
+                        ErrorCode = ErrorCode.Success,
+                        Content = JsonConvert.SerializeObject(result)
+                    };
+                }
+                return new RequestResponse
+                {
+                    ErrorCode = ErrorCode.GeneralFailure,
+                    Content = string.Empty
+                };
+            }
+            catch (Exception ex)
+            {
+                string errorDetail = ex.InnerException != null ? ex.InnerException.ToString() : ex.Message.ToString();
+                return new RequestResponse
+                {
+                    ErrorCode = ErrorCode.GeneralFailure,
+                    Content = errorDetail
+                };
+            }
+        }
 
         [HttpGet]
         public RequestResponse GetBlockFieldByID(string id)
@@ -134,5 +165,46 @@ namespace Librasoft_API.Controllers
 
 
         }
+
+        //public RequestResponse GetHTMLByPageID(string id)
+        //{
+        //    try
+        //    {
+             
+        //        List<PiranhaBlock> listblk = blocksServices.GetColumnBlocklistByPageID(id).ToList();
+                
+        //        List<PiranhaBlock> listblk1 = new List<PiranhaBlock>();
+              
+        //        foreach (PiranhaBlock a in listblk)
+        //        {
+        //            listblk1.AddRange( blocksServices.GetBlockListHaveParentID(a.Id.ToString()).ToList());
+                  
+        //        }
+                
+        //        List<string> result = blockFieldsServices.GetAllHTML(listblk1);
+        //        if (result != null)
+        //        {
+        //            return new RequestResponse
+        //            {
+        //                ErrorCode = ErrorCode.Success,
+        //                Content = JsonConvert.SerializeObject(result)
+        //            };
+        //        }
+        //        return new RequestResponse
+        //        {
+        //            ErrorCode = ErrorCode.GeneralFailure,
+        //            Content = string.Empty
+        //        };
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string errorDetail = ex.InnerException != null ? ex.InnerException.ToString() : ex.Message.ToString();
+        //        return new RequestResponse
+        //        {
+        //            ErrorCode = ErrorCode.GeneralFailure,
+        //            Content = errorDetail
+        //        };
+        //    }
+        //}
     }
 }

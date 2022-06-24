@@ -1,4 +1,5 @@
 ﻿using Librasoft.Entities.Entities;
+using Librasoft.Entities.Entities.Dtos;
 using Librasoft_API.Librasoft.DataAccess.Repositorys.Constracts;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,13 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
     {
 
         public PiranhaBlockField GetBlockFieldsByID(string id);
+        public List<string> GetListHTMLWithImg(List<PiranhaBlock> listblk);
         public List<string> GetListHTML(List<PiranhaBlock> listblk);
-            
+
+       
+
+
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Librasoft.Entities.Entities;
+using Librasoft.Entities.Entities.Dtos;
 using Librasoft.Services.Constract;
 using Librasoft_API.Entities.Dtos.Response;
 using Microsoft.AspNetCore.Http;
@@ -17,10 +18,12 @@ namespace Librasoft_API.Controllers
     {
 
         private readonly IBlocksServices blocksServices;
+        private readonly IBlockFieldsServices blockFieldsServices;
 
-        public BlocksController(IBlocksServices blocksServices)
+        public BlocksController(IBlocksServices blocksServices,IBlockFieldsServices blockFieldsServices)
         {
             this.blocksServices = blocksServices;
+            this.blockFieldsServices = blockFieldsServices;
         }
 
         [HttpGet]
@@ -58,6 +61,8 @@ namespace Librasoft_API.Controllers
 
         }
 
+
+
         [HttpGet]
         public  RequestResponse GetListBlockCLRType()
         {
@@ -65,6 +70,92 @@ namespace Librasoft_API.Controllers
             try
             {
                 List<string> result =  blocksServices.GetBlockCRLTypelist();
+                if (result != null && result.Any())
+                {
+                    return new RequestResponse
+                    {
+                        ErrorCode = ErrorCode.Success,
+                        Content = JsonConvert.SerializeObject(result)
+                    };
+                }
+                return new RequestResponse
+                {
+                    ErrorCode = ErrorCode.GeneralFailure,
+                    Content = string.Empty
+                };
+            }
+            catch (Exception ex)
+            {
+                string errorDetail = ex.InnerException != null ? ex.InnerException.ToString() : ex.Message.ToString();
+                return new RequestResponse
+                {
+                    ErrorCode = ErrorCode.GeneralFailure,
+                    Content = errorDetail
+                };
+            }
+
+
+
+        }
+        [HttpGet]
+        public RequestResponse GetListColumnBLock()
+        {
+
+            try
+            {
+                IEnumerable<PiranhaBlock> result = blocksServices.GetColumnBlocklist();
+                if (result != null && result.Any())
+                {
+                    return new RequestResponse
+                    {
+                        ErrorCode = ErrorCode.Success,
+                        Content = JsonConvert.SerializeObject(result)
+                    };
+                }
+                return new RequestResponse
+                {
+                    ErrorCode = ErrorCode.GeneralFailure,
+                    Content = string.Empty
+                };
+            }
+            catch (Exception ex)
+            {
+                string errorDetail = ex.InnerException != null ? ex.InnerException.ToString() : ex.Message.ToString();
+                return new RequestResponse
+                {
+                    ErrorCode = ErrorCode.GeneralFailure,
+                    Content = errorDetail
+                };
+            }
+
+
+
+        }
+
+        
+
+        [HttpGet]
+        public RequestResponse GetListColumnBLockByPageID(string id)
+        {
+
+            try
+            {
+                List<PiranhaBlock> lst = blocksServices.GetColumnBlocklistByPageID(id).ToList();
+                List<BlockParentVM> result = new List<BlockParentVM>();
+                if(lst != null)
+                {
+                    foreach (PiranhaBlock block in lst)
+                    {
+                        BlockParentVM blockParentVM = new BlockParentVM(block);
+                        List<BlockChildVM> h = new List<BlockChildVM>();
+                        blockParentVM.blockChildVMs = new List<BlockChildVM>();
+                        h = blocksServices.GetBlockChildListByParentID(block.Id.ToString()).ToList();
+                        blockParentVM.blockChildVMs.AddRange(h);
+                        result.Add(blockParentVM);
+                    }
+                }
+              
+              
                 if (result != null && result.Any())
                 {
                     return new RequestResponse
