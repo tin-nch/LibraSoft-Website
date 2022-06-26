@@ -1,0 +1,76 @@
+﻿@{
+}
+@model LibraSoftSolution.ViewModels.ContactForm.ContactVM
+
+
+<section id="contact" class="contact-area black-bg pt-20 pb-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 offset-xl-3">
+                <div class="section-title white-text text-center mb-15">
+                    <h1 style="color:#ff4b57">Get In Touch</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="contact-wrapper">
+                    <form asp-controller="Home" asp-action="Index"  method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-lg-6 mb-20">
+                                <div class=" c-icon">
+									<label asp-for ="FullName">Full Name</label>
+									<input id="FullName" type="text"  asp-for="FullName"  placeholder="Full Name">
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-20">
+                                <div class=" c-icon">
+                                    <label  asp-for="Phone">Phone</label>																																					
+									<input type="tel"  asp-for="Phone" id="phone" placeholder="Phone">
+                                    <span asp-validation-for="Phone" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-20">
+                                <div class=" c-icon">
+                                    <label  asp-for="Email">Email</label>																								
+									<input  type="email"  asp-for="Email" id="email" placeholder="Email">
+                                    <span asp-validation-for="Email" class="text-danger"></span>  
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-20">
+                                <div class="c-icon">
+									<label asp-for="ReasonReachingId">Reason for reaching out:</label>
+									<select asp-for="ReasonReachingId" asp-items="@(new SelectList(ViewBag.ListOfReasonReaching,"ReasonReachingId", "ReasonReachingContent"))">
+									    <option value="">--Please select--</option>
+                                    </select>
+                                    <span asp-validation-for="ReasonReachingId" class="text-danger"></span>  
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-20">
+                                <div class="c-icon">
+                                    <label  asp-for="MessageContent">How can we help you?</label>																																					
+									<textarea  asp-for="MessageContent" id="message" cols="30" rows="5" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-20">
+                                <div class="contact-butoon text-center">
+                                    <button class="btn btn-green alert" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="form-message"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+@*<script>
+    document.querySelector(".alert").addEventListener('click', function(){
+      Swal.fire("Success!!!", "Thank you for your email, we will respond as soon as possible", "success");
+    });
+</script>*@

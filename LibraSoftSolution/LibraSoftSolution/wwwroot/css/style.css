@@ -566,7 +566,9 @@ label {
 }
 
 .services-wrapper {
-	padding: 70px 45px;
+	width: 60%;
+	height: 210px;
+	padding: 30px;
 	border: 2px solid #151a33;
 	transition: .3s;
 }
@@ -590,7 +592,7 @@ label {
 }
 
 .services-text h2 {
-	font-size: 30px;
+	font-size: 15px;
 	font-weight: 700;
 	margin-bottom: 24px;
 	color: #fff;
@@ -948,7 +950,7 @@ label {
 }
 
 .team-content {
-	padding: 50px 0;
+	padding: 25px 0;
 	transition: .3s;
 }
 
@@ -996,7 +998,6 @@ label {
 
 .fact-area {
 	margin: 40px;
-	margin-bottom: 0;
 	background-size: cover;
 	background-position: center center;
 }
@@ -1070,6 +1071,10 @@ label {
 .contact-area {
 	background-repeat: no-repeat;
 	background-position: center center;
+}
+
+.contact-wrapper {
+	padding: 0 150px 0 150px;
 }
 
 .contact-wrapper label {
@@ -1173,7 +1178,7 @@ label {
 }
 
 .contact-map {
-	min-height: 300px;
+	min-height: 200px;
 	width: 100%;
 }
 
@@ -1185,7 +1190,7 @@ label {
 
 .contact-list {
 	border-bottom: 4px solid #ff4b57;
-	padding: 80px 30px;
+	padding: 30px 30px;
 	background: #fff;
 	box-shadow: 0px 8px 16px 0px rgba(222, 222, 222, 0.4);
 }
@@ -1260,7 +1265,7 @@ label {
 }
 
 .footer-icon {
-	margin-top: 41px;
+	margin-top:-25px;
 }
 
 .footer-icon a {
@@ -2303,6 +2308,26 @@ ul.cat li a:hover {
 	margin-bottom: 20px;
 	padding: 0 20px;
 	width: 100%;
+	font-size: 14px;
+	color: #a7a7c1;
+}
+
+#checkbox-ev{
+	margin-bottom:15px;
+}
+
+#checkbox-ev input {
+	height: 15px;
+	margin-bottom: 0px;
+	padding: 0px;
+	width: 5%;
+	font-size: 14px;
+	color: #a7a7c1;
+}
+
+
+.conatct-post-form label {
+	margin-bottom: 20px;
 	font-size: 14px;
 	color: #a7a7c1;
 }

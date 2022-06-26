@@ -1,4 +1,16 @@
+using LibraSoftSolution.API.ContactCustomer;
+using LibraSoftSolution.API.Event;
+using LibraSoftSolution.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddHttpClient();
+builder.Services.AddTransient<IContactAPI, ContactAPI>();
+builder.Services.AddTransient<ICFReasonReachingAPI, CFReasonReachingAPI>();
+builder.Services.AddTransient<IRegistersApi, RegistersApi>();
+
+builder.Services.AddDbContext<PiranhaCoreContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

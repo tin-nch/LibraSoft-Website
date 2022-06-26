@@ -71,9 +71,9 @@
                             <nav id="basic-nav">
                                 <ul class="basic-menu">
                                     <li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
-                                    <li><a href="#about">About Us</a></li>
+                                    <li><a asp-controller="Home" asp-action="Index" asp-fragment="about">About Us</a></li>
                                     <li><a href="#">Our Projects</a></li>
-                                    <li><a href="#service">Our Services</a></li>
+                                    <li><a asp-controller="Home" asp-action="Index" asp-fragment="service">Our Services</a></li>
                                     <li><a asp-controller="Event" asp-action="Index">News - Events</a></li>
                                     <li><a asp-controller="Career" asp-action="Index">Career</a></li>
                                 </ul>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-xl-2 col-lg-2 d-none d-xl-block pl-0">
                         <div class="header-btn">
-                            <a href="#contact" class="btn btn-red">Contact Us</a>
+                            <a asp-controller="Home" asp-action="Index" asp-fragment="contact" class="btn btn-red">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -97,13 +97,13 @@
 
     <!-- footer-area-start -->
     <footer>
-        <div class="footer-area black-bg pt-120 pb-120">
+        <div class="footer-area black-bg pt-10 pb-10">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-8 col-lg-8 offset-lg-2 offset-xl-2">
                         <div class="footer-wrapper text-center">
                             <div class="footer-logo">
-                                <a  asp-controller="Home" asp-action="Index"><img src="~/img/LibraSoftImg/logo_LibraSoft_2.png" width=60% alt="" /></a>
+                                <a  asp-controller="Home" asp-action="Index"><img src="~/img/LibraSoftImg/logo_LibraSoft_2.png" width=40% alt="" /></a>
                             </div>
                             <div class="footer-icon">
                                 <a href="https://www.facebook.com/librasoft.vn" target="_blank"><i class="fab fa-facebook-f"></i></a>

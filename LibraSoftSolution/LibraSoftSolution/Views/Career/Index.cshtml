@@ -1,8 +1,6 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
+@model LibraSoftSolution.ViewModels.Candidate_CV.CandidateFormVM
 
 <section id="career" class="about-area pt-120 pb-80">
     <div class="container" >
@@ -10,7 +8,6 @@
             <div class="col-lg-6">
                 <div class="about-text mb-40">
                     <div class="section-title mb-25">
-                        <p><span></span> Our value</p>
                         <h1>Why would you love working at LibraSoft?</h1>
                     </div>
                     <p>Because we don't just follow trends, we create them.</p>
@@ -50,8 +47,7 @@
                 <div>
                     <div class="section-title mb-25">
                         <p>.Net Developer</p>
-                        <h1 style="color:white">We Provide Innovative
-                        Solution For You.</h1>
+                        <h1 style="color:white">Your Journey Starts Here.</h1>
                     </div>
                     <div id="accordion" class="mt-40">
                         <div class="card">
@@ -123,30 +119,30 @@
             </div>
             <div class="col-xl-6">
                 <div class="contact-wrapper" style="padding:35px">
-                    <form action="mail.php" id="contact-form" method="POST">
+                    <form asp-controller="Career" asp-action="Index" enctype="multipart/form-data" method="post">
                         <div class="row">
                             <div class="col-lg-12 mb-45">
                                 <div class="contact-name c-icon">
-                                    <label for="name">Enter your name</label>
-                                    <input id="name" name="name" placeholder="Your name :" type="text">
+                                    <label asp-for="FullName">Enter your name</label>
+                                    <input id="FullName" type="text"  asp-for="FullName"  placeholder="Your name :">
                                 </div>
                             </div>
                             <div class="col-lg-12 mb-45">
                                 <div class="contact-email c-icon">
-                                    <label for="email">Enter your email</label>
-                                    <input id="email" name="email" placeholder="info@gmail.com :" type="email">
+                                    <label asp-for="Email">Enter your email</label>
+                                    <input  type="email"  asp-for="Email" id="email" placeholder="info@gmail.com :">
                                 </div>
                             </div>
                             <div class="col-lg-12 mb-45">
                                 <div class="contact-phone c-icon">
-                                    <label for="phone">Enter your phone</label>
-                                    <input id="phone" name="phone" placeholder="your phone number :" type="text">
+                                    <label asp-for="Phone">Enter your phone</label>
+                                    <input  type="tel"  asp-for="Phone" id="phone" placeholder="your phone number :">
                                 </div>
                             </div>
                             <div class="col-lg-12 mb-45">
                                 <div>
-                                    <label class="form-label" for="cvFile">CV</label>
-                                    <input type="file" class="form-control text-center" id="cvFile" />
+                                    <label class="form-label" asp-for="File">CV</label>
+                                    <input type="file" class="form-control text-center" id="cvFile" asp-for="File"/>
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -164,35 +160,5 @@
 </section>
 
 <!-- map-area start -->
-<section  class="map-area pb-80">
-    @*<div id="contact-map" class="contact-map"></div> *@ 
-    <div class="container">
-        <div class="row contact-info">
-            <div class="col-lg-4">
-                <div class="contact-list text-center mb-40">
-                    <i class="pe-7s-global"></i>
-                    <h3>Our Address</h3>
-                    <p class="text-truncate">Block 18, 2nd Floor, Newton Residence Building</p>
-                    <p class="text-truncate">38 Truong Quoc Dung Str., Ward 8, Phu Nhuan Dist</p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="contact-list text-center mb-40">
-                    <i class="pe-7s-global"></i>
-                    <h3>Phone & Email</h3>
-                    <p>(+84) 028.73006696</p>
-                    <p>info@librasoft.vn</p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="contact-list text-center mb-40">
-                    <i class="pe-7s-global"></i>
-                    <h3>Time</h3>
-                    <p>Monday – Friday</p>
-                    <p>9:00 AM - 6:00 PM</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@await Component.InvokeAsync("Map")
 <!-- map-area end -->

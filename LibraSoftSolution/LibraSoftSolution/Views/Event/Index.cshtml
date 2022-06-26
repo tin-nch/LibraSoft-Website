@@ -3,6 +3,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
 *@
 @{
 }
+@model LibraSoftSolution.ViewModels.Event.RegistersVM
+
 <style>
     .center {
       display: block;
@@ -32,13 +34,13 @@ For more information on enabling MVC for empty projects, visit https://go.micros
 <!-- page-title-area end -->
 
 <!-- blog-area start -->
-<div class="blog-area grey-bg pt-120 pb-80">
+<div class="blog-area grey-bg pt-20 pb-20">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <article class="postbox post format-image mb-40">
                     <div class="postbox__thumb">
-                        <img src="~/img/blog/img1.jpg" alt="event image" class="center">
+                        <img src="~/img/bg/event.jpg" alt="event image" class="center" width="45%" >
                     </div>
                 </article>
             </div>
@@ -81,59 +83,43 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                 <article class="postbox post format-image mb-40">
                     <div class="postbox__text p-50">
                         <div class="post-comments-form">
-                            <form id="contacts-form" class="conatct-post-form" action="#">
+                            <form id="contacts-form" asp-controller="Event" asp-action="Index" class="conatct-post-form" method="post">
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="contact-icon">
-                                            <input type="text" placeholder="Your Name.... ">
+                                            <input  asp-for="Name"  type="text" placeholder="Your Name.... ">
+                                        <span asp-validation-for="Name" class="text-danger"></span>  
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="contact-icon">
-                                            <input type="tel" placeholder="Your Phone....">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="contact-icon">
-                                            <input type="email" placeholder="Your Email....">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="contact-icon">
-                                            <input type="text" placeholder="Company Name.... ">
+                                            <input  asp-for="Phone"  type="tel" placeholder="Your Phone....">
+                                        <span asp-validation-for="Phone" class="text-danger"></span>  
                                         </div>
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="contact-icon">
-                                            <input type="email" placeholder="Company Address....">
+                                            <input id="emailev" asp-for="Email" type="email" placeholder="Your Email....">
+                                            <label for="emailev">* To obtain the invitation letter and the link to attend the webinar, please provide the correct email address</label>
+                                            <span asp-validation-for="Email" class="text-danger"></span>                                      
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
-                                        <div class="contact-icon ">
-                                          <select>
-                                            <option value="">--Province--</option>
-                                            <option value="1">An Giang</option>
-                                            <option value="2">Ba Ria - Vung Tau</option>
-                                          </select>
+                                        <div class="contact-icon">
+                                            <input asp-for="CompanyName" type="text" placeholder="Company Name.... ">
+                                            <span asp-validation-for="CompanyName" class="text-danger"></span>  
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
-                                        <div class="contact-icon ">
-                                          <select>
-                                            <option value="0">--Field Services--</option>
-                                            <option value="1">Healthcare</option>
-                                            <option value="2">Manufacturing</option>
-                                            <option value="3">Media & Entertainment</option>
-                                            <option value="4">Retail</option>
-                                            <option value="8">Technology</option>
-                                            <option value="9">Transport & Logistics</option>
-                                            <option value="10">Other</option>
-                                          </select>
+                                        <div class="contact-icon">
+                                            <input asp-for="Position" type="text" placeholder="Your Position....">
+                                            <span asp-validation-for="Position" class="text-danger"></span>  
                                         </div>
                                     </div>
                                     <div class="col-xl-12">
-                                        <div class="contact-icon contacts-website">
-                                            <input type="text" placeholder="Your Position....">
+                                        <div id="checkbox-ev">
+                                              <input type="checkbox" id="cbagree" name="agree" value="agree">
+                                              <label for="cbagree">I Agree To Attend The Webinar</label>
                                         </div>
                                     </div>
                                     <div class="col-xl-12">
