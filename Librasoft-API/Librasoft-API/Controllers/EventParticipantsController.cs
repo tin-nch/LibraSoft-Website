@@ -18,10 +18,12 @@ namespace Librasoft_API.Controllers
     {
 
         private readonly IEventParticipantsServices eventParticipants;
+        private readonly ISendEmailServices sendEmail;
 
-        public EventParticipantsController(IEventParticipantsServices eventParticipants)
+        public EventParticipantsController(IEventParticipantsServices eventParticipants, ISendEmailServices sendEmailServices)
         {
             this.eventParticipants = eventParticipants;
+            sendEmail = sendEmailServices;
         }
         [HttpGet]
         public async Task<RequestResponse> GetListParticipants()
@@ -53,9 +55,18 @@ namespace Librasoft_API.Controllers
                     Content = errorDetail
                 };
             }
+        }
 
-
-
+        [HttpPost("test")]
+        public async Task<bool> test(PiranhaEventParticipant participant)
+        {
+            if (ModelState.IsValid)
+            {
+                var body = "as";
+                await sendEmail.SendConFirmEmail(participant);
+                return true;
+            }
+            return false;
         }
 
         [HttpPost("add")]
@@ -114,6 +125,5 @@ namespace Librasoft_API.Controllers
                 };
             }
         }
-
     }
 }

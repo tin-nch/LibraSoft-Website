@@ -23,7 +23,7 @@ namespace Librasoft_API.Controllers
             this._applicationFormService = _applicationFormService;
             this._sendEmailServices = _sendEmailServices;
         }
-      
+
 
         [HttpPost("add")]
         public async Task<RequestResponse> Add(ApplicationFormDto applicationForm)
@@ -33,6 +33,7 @@ namespace Librasoft_API.Controllers
                 if (ModelState.IsValid)
                 {
 
+
                         if(_applicationFormService.checkExistsEmail(applicationForm))
                         {
                             return new RequestResponse
@@ -41,18 +42,18 @@ namespace Librasoft_API.Controllers
                                 Content = "Email exists"
                             };
                          }    
-
+    
                     PiranhaApplicationForm a = new PiranhaApplicationForm();
                     a.FullName = applicationForm.FullName;
                     a.Phone = applicationForm.Phone;
                     a.Email = applicationForm.Email;
                     a.FilePath = UploadFile(applicationForm.File).ToString();
-                   
+
                     //add contact to dtb
                     PiranhaApplicationForm add = await _applicationFormService.AddApplicationFormAsync(a);
                     //send email
                     // var a = await _sendEmailServices.SendEmail(applicationForm);
-                   
+
                     if (add != null /*&& add == true*/)
                     {
                         return new RequestResponse
@@ -89,18 +90,18 @@ namespace Librasoft_API.Controllers
         }
 
         [HttpPost("upload")]
-        public  RequestResponse Upload(IFormFile file)
+        public RequestResponse Upload(IFormFile file)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
 
-                 
-                    string rs =  UploadFile(file).ToString();
+
+                    string rs = UploadFile(file).ToString();
 
                     //add contact to dtb
-                 
+
                     //send email
                     // var a = await _sendEmailServices.SendEmail(applicationForm);
 
@@ -109,7 +110,7 @@ namespace Librasoft_API.Controllers
                         return new RequestResponse
                         {
                             ErrorCode = ErrorCode.Success,
-                            Content =  rs
+                            Content = rs
                         };
                     }
 
@@ -139,44 +140,41 @@ namespace Librasoft_API.Controllers
             }
         }
 
-
-
-
-
-
         public string UploadFile(IFormFile file)
         {
-            string path = "";
-            string filepath = "";
-       
+            DateTime now = DateTime.Now;
+            var baseDate = new DateTime(1970, 1, 1, 1, 1, 0, 0);
+            var toDate = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second, now.Millisecond);
+            Int32 dateId = (int)toDate.Subtract(baseDate).TotalSeconds;
+
+
+            string currentPath = Directory.GetCurrentDirectory() + @"\Upload\Images\CV\" + now.ToString("yyyyMMdd");
+
             try
             {
-                if(file.Length>0)
+                if (file.Length > 0)
                 {
-                  
-                    string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                    filepath = Directory.GetCurrentDirectory() + "/Upload";
-                    if (!System.IO.Directory.Exists(filepath))
+                    string filename = "CV_" + Path.GetFileNameWithoutExtension(file.FileName) + "_" + dateId.ToString() + Path.GetExtension(file.FileName);
+
+                    // If directory does not exist, create it
+                    if (!Directory.Exists(currentPath))
                     {
-                        Directory.CreateDirectory(filepath);
+                        Directory.CreateDirectory(currentPath);
                     }
-                    filepath = Directory.GetCurrentDirectory() + "/Upload" + "/" + filename;
-                    path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "Upload"));
-                    
-                    using (var filestream = new FileStream(Path.Combine(path, filename), FileMode.Create))
+
+                    using (var filestream = new FileStream(Path.Combine(currentPath, filename), FileMode.Create))
                     {
-                         file.CopyToAsync(filestream);
+                        file.CopyToAsync(filestream);
                     }
-                  
-                  
+                    return Path.Combine(currentPath, file.FileName);
                 }
-                return filepath;
-                
+                return "NO path";
+
             }
-            catch(Exception)
+            catch (Exception e)
             {
-                throw;
-            } 
+                throw new Exception(e.Message.ToString());
+            }
         }
     }
 }
