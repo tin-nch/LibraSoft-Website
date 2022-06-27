@@ -14,6 +14,15 @@ namespace Librasoft.DataAccess.Repositorys
     {
         public EventRepository(PiranhaCoreContext context) : base(context)
         {
+
+        }
+
+        public PiranhaEvent GetPiranhaEventByID(string id)
+        {
+            PiranhaEvent a = _context.PiranhaEvents.FirstOrDefault(b => b.Id.Equals(id));
+            if (a != null)
+                return a;
+            return null;
         }
     }
 }

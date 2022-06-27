@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace Librasoft.DataAccess.Repositorys
 {
-    public class CFCountryRepository : GenericRepository<PiranhaCfcountry>, ICFCountryRepository
-    {
-        public CFCountryRepository(PiranhaCoreContext context) : base(context)
-        {
+    //public class CFCountryRepository : GenericRepository<PiranhaCfcountry>, ICFCountryRepository
+    //{
+    //    public CFCountryRepository(PiranhaCoreContext context) : base(context)
+    //    {
 
-        }
+    //    }
 
-        public PiranhaCfcountry GetCountryById(int? id)
-        {
-            PiranhaCfcountry data = _context.PiranhaCfcountries.FirstOrDefault(a => a.CountryId == id);
-            return data;
-        }
-    }
+    //    public PiranhaCfcountry GetCountryById(int? id)
+    //    {
+    //       // PiranhaCfcountry data = _context.PiranhaCfcountries.FirstOrDefault(a => a.CountryId == id);
+    //      //  return data;
+    //    }
+    //}
 }

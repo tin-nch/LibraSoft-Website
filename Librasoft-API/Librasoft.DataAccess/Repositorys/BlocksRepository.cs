@@ -85,7 +85,11 @@ namespace Librasoft.DataAccess.Repositorys
                     if (g != null && q != null)
                     {
                         BlockChildVM v = new BlockChildVM(x);
-                        v.HtmlValue = g.Value.ToString();
+                        if(!String.IsNullOrEmpty(g.Value))
+                        {
+                            v.HtmlValue = g.Value.ToString();
+                        }    
+                      
                         v.SortOrder = q.SortOrder;
                         a.Add(v);
                     }

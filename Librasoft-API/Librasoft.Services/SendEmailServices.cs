@@ -15,22 +15,22 @@ namespace Librasoft.Services
     public class SendEmailServices : ISendEmailServices
     {
         private readonly ISendEmailRepository sendEmailRepository;
-        private readonly ICFCountryRepository countryRepository;
-        private readonly ICFIndustryRepository industryRepository;
+        //private readonly ICFCountryRepository countryRepository;
+        //private readonly ICFIndustryRepository industryRepository;
         private readonly ICFReasonReachingRepository reasonReachingRepository;
 
         private readonly IMapper mapper;
 
         public SendEmailServices(ISendEmailRepository sendEmailRepository, 
-            ICFCountryRepository countryRepository,
-            ICFIndustryRepository cFIndustryRepository, 
+            //ICFCountryRepository countryRepository,
+            //ICFIndustryRepository cFIndustryRepository, 
             ICFReasonReachingRepository reachingRepository,
             IMapper mapper)
         {
             this.sendEmailRepository = sendEmailRepository;
             this.mapper = mapper;
-            this.countryRepository = countryRepository;
-            industryRepository = cFIndustryRepository;
+            //this.countryRepository = countryRepository;
+            //industryRepository = cFIndustryRepository;
             reasonReachingRepository = reachingRepository;  
         }
         public async Task<IEnumerable<AdminAccount>> GetVirtualAccountAsync()
@@ -94,5 +94,7 @@ namespace Librasoft.Services
             }
             return false;
         }
+
+     
     }
 }

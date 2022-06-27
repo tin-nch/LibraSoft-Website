@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Librasoft.DataAccess.Repositorys.Constracts;
 using Librasoft.Entities.Entities;
+using Librasoft.Entities.Entities.Dtos;
 using Librasoft.Services.Constract;
 using System;
 using System.Collections.Generic;
@@ -34,10 +35,22 @@ namespace Librasoft.Services
             return null;
         }
 
+        public bool AddParticipants(EventParticipantDto e)
+        {
+          
+         
+            return eventParticipantsRepository.AddParticipants(e);
+        }
+
         public async Task<IEnumerable<PiranhaEventParticipant>> GetlistParticipantsAsync()
         {
             IReadOnlyList<PiranhaEventParticipant> evt = await eventParticipantsRepository.ListAsync();
             return mapper.Map<IEnumerable<PiranhaEventParticipant>>(evt);
+        }
+
+        public bool checkExistsEmail(PiranhaEventParticipant eventParticipant)
+        {
+            return eventParticipantsRepository.CheckExistsEmail(eventParticipant);
         }
     }
 }

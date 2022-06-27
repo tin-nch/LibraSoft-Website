@@ -1,4 +1,5 @@
 ﻿using Librasoft.Entities.Entities;
+using Librasoft.Entities.Entities.Dtos;
 using Librasoft_API.Librasoft.DataAccess.Repositorys.Constracts;
 using System;
 using System.Collections.Generic;
@@ -10,5 +11,7 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
 {
     public interface IEventParticipantsRepository : IEfRepository<PiranhaEventParticipant>
     {
+        public bool CheckExistsEmail(PiranhaEventParticipant eventParticipant);
+        public bool AddParticipants(EventParticipantDto eventParticipant);
     }
 }

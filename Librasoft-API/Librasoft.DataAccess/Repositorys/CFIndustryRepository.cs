@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace Librasoft.DataAccess.Repositorys
 {
-    public class CFIndustryRepository : GenericRepository<PiranhaCfindustry>, ICFIndustryRepository
+    //public class CFIndustryRepository : GenericRepository<PiranhaCfindustry>, ICFIndustryRepository
 
-    {
-        public CFIndustryRepository(PiranhaCoreContext context) : base(context)
-        {
-        }
+    //{
+    //    public CFIndustryRepository(PiranhaCoreContext context) : base(context)
+    //    {
+    //    }
 
-        public PiranhaCfindustry GetIndustryById(int? id)
-        {
-            PiranhaCfindustry data = _context.PiranhaCfindustries.FirstOrDefault(a => a.IndustyId == id);
-            return data;
-        }
-    }
+    //    public PiranhaCfindustry GetIndustryById(int? id)
+    //    {
+    //        PiranhaCfindustry data = _context.PiranhaCfindustries.FirstOrDefault(a => a.IndustyId == id);
+    //        return data;
+    //    }
+    //}
 }

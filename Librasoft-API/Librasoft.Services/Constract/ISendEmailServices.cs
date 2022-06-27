@@ -11,5 +11,10 @@ namespace Librasoft.Services.Constract
     {
         Task<IEnumerable<AdminAccount>> GetVirtualAccountAsync();
         Task<bool> SendEmail(PiranhaContactForm contactForm);
+     //   Task<bool> SendEmail(PiranhaEventParticipant eventParticipant);
+     //   Task<bool> SendEmail(PiranhaApplicationForm applicationForm);
+
+
+
     }
 }

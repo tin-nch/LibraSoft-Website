@@ -53,8 +53,8 @@ namespace Librasoft_API
             services.AddScoped<IAliasRepository, PiranhaAliasRepository>();
             services.AddScoped<IPagesRepository, PiranhaPagesRepository>();
             services.AddScoped<IContactFormRepository, ContactFormRepository>();
-            services.AddScoped<ICFCountryRepository, CFCountryRepository>();
-            services.AddScoped<ICFIndustryRepository, CFIndustryRepository>();
+            //services.AddScoped<ICFCountryRepository, CFCountryRepository>();
+            //services.AddScoped<ICFIndustryRepository, CFIndustryRepository>();
             services.AddScoped<ICFReasonReachingRepository, CFReasonReachingRepository>();
             services.AddScoped<IBlockFieldsRepository, BlockFieldsRepository>();
             services.AddScoped<IBlocksRepository, BlocksRepository>();
@@ -65,6 +65,7 @@ namespace Librasoft_API
             services.AddScoped<IPageBlocksRepository, PageBlocksRepository>();
             services.AddScoped<IApplicationFormRepository, ApplicationFormRepository>();
             services.AddScoped<IEventRepository, EventRepository>();
+            services.AddScoped<IEventParticipantsRepository, EventParticipantsRepository>();
 
             #endregion
 
@@ -72,8 +73,8 @@ namespace Librasoft_API
 
             services.AddScoped(typeof(IPagesServices), typeof(PagesServices));
             services.AddScoped(typeof(IContactFormsServices), typeof(ContactFormService));
-            services.AddScoped(typeof(ICFCountryServices), typeof(CFCountryServices));
-            services.AddScoped(typeof(ICFIndustryServices), typeof(CFIndustryServices));
+            //services.AddScoped(typeof(ICFCountryServices), typeof(CFCountryServices));
+            //services.AddScoped(typeof(ICFIndustryServices), typeof(CFIndustryServices));
             services.AddScoped(typeof(ICFReasonReachingServices), typeof(CFReasonReachingServices));
             services.AddScoped(typeof(IBlockFieldsServices), typeof(BlockFieldsServices));
             services.AddScoped(typeof(IBlocksServices), typeof(BlocksServices));
@@ -84,6 +85,7 @@ namespace Librasoft_API
             services.AddScoped(typeof(IPageBlocksServices), typeof(PageBlockServices));
             services.AddScoped(typeof(IApplicationFormServices), typeof(ApplicationFormServices));
             services.AddScoped(typeof(IEventServices), typeof(EventServices));
+            services.AddScoped(typeof(IEventParticipantsServices), typeof(EventParticipantsServices));
             #endregion
         }
 

@@ -1,4 +1,5 @@
 ﻿using Librasoft.Entities.Entities;
+using Librasoft.Entities.Entities.Dtos;
 using Librasoft.Services.Constract;
 using Librasoft_API.Entities.Dtos.Response;
 using Microsoft.AspNetCore.Http;
@@ -55,6 +56,63 @@ namespace Librasoft_API.Controllers
 
 
 
+        }
+
+        [HttpPost("add")]
+        public async Task<RequestResponse> Add(EventParticipantDto participant)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+
+                    //if (eventParticipants.checkExistsEmail(participant))
+                    //{
+                    //    return new RequestResponse
+                    //    {
+                    //        ErrorCode = ErrorCode.Success,
+                    //        Content = "Email exists"
+                    //    };
+                    //}
+                    //add contact to dtb
+                    //  PiranhaEventParticipant add = await eventParticipants.AddParticipantsAsync(participant);
+                    //send email
+                    //  var a = await _sendEmailServices.SendEmail(contactForm);
+                    bool rs = eventParticipants.AddParticipants(participant);
+
+                    if (rs /*&& a == true*/)
+                    {
+                        return new RequestResponse
+                        {
+                            ErrorCode = ErrorCode.Success,
+                            Content = "submit successfully"
+                        };
+                    }
+
+                    return new RequestResponse
+                    {
+                        ErrorCode = ErrorCode.GeneralFailure,
+                        Content = string.Empty
+                    };
+                }
+                else
+                {
+                    return new RequestResponse
+                    {
+                        ErrorCode = ErrorCode.GeneralFailure,
+                        Content = "Model invalid"
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorDetail = ex.InnerException != null ? ex.InnerException.ToString() : ex.Message.ToString();
+                return new RequestResponse
+                {
+                    ErrorCode = ErrorCode.GeneralFailure,
+                    Content = errorDetail
+                };
+            }
         }
 
     }

@@ -26,6 +26,8 @@ namespace Librasoft_API.Controllers
 
             try
             {
+
+            
                 IEnumerable<PiranhaEvent> result = await eventServices.GetListEvents();
                 if (result != null && result.Any())
                 {

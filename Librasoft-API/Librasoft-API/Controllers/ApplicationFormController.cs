@@ -32,9 +32,7 @@ namespace Librasoft_API.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    
 
-                  
                         if(_applicationFormService.checkExistsEmail(applicationForm))
                         {
                             return new RequestResponse
@@ -43,10 +41,6 @@ namespace Librasoft_API.Controllers
                                 Content = "Email exists"
                             };
                          }    
-                        
-
-
-
 
                     PiranhaApplicationForm a = new PiranhaApplicationForm();
                     a.FullName = applicationForm.FullName;
