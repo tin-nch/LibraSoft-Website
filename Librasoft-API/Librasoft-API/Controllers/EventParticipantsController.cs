@@ -61,6 +61,7 @@ namespace Librasoft_API.Controllers
         {
             if (ModelState.IsValid)
             {
+                var body = "as";
                 await sendEmail.SendConFirmEmail(participant);
                 return true;
             }
