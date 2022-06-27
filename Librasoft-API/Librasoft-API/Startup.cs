@@ -65,6 +65,7 @@ namespace Librasoft_API
             services.AddScoped<IPageBlocksRepository, PageBlocksRepository>();
             services.AddScoped<IApplicationFormRepository, ApplicationFormRepository>();
             services.AddScoped<IEventRepository, EventRepository>();
+            services.AddScoped<IEventParticipantsRepository, EventParticipantsRepository>();
 
             #endregion
 
@@ -84,6 +85,7 @@ namespace Librasoft_API
             services.AddScoped(typeof(IPageBlocksServices), typeof(PageBlockServices));
             services.AddScoped(typeof(IApplicationFormServices), typeof(ApplicationFormServices));
             services.AddScoped(typeof(IEventServices), typeof(EventServices));
+            services.AddScoped(typeof(IEventParticipantsServices), typeof(EventParticipantsServices));
             #endregion
         }
 
