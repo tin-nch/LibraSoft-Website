@@ -58,13 +58,13 @@ namespace Librasoft_API.Controllers
         }
 
         [HttpPost("test")]
-        public async Task<bool> test(PiranhaEventParticipant participant)
+        public async Task<bool> test(EventParticipantDto participant)
         {
             if (ModelState.IsValid)
             {
                 var body = "as";
-                await sendEmail.SendConFirmEmail(participant);
-                return true;
+
+                return await sendEmail.SendConFirmEmail(participant); ;
             }
             return false;
         }

@@ -41,11 +41,12 @@ namespace Librasoft.Services
          
         }
 
-        public  PiranhaEvent GetEventsByID(string id)
-        {
-          PiranhaEvent evt =  eventRepository.GetPiranhaEventByID(id);
-            return mapper.Map<PiranhaEvent>(evt);
+     
 
+        public PiranhaEvent GetEventByID(int id)
+        {
+            PiranhaEvent evt = eventRepository.GetPiranhaEventByID(id);
+            return mapper.Map<PiranhaEvent>(evt);
         }
     }
 }

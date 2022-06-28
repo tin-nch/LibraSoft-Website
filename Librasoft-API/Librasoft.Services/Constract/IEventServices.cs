@@ -11,5 +11,6 @@ namespace Librasoft.Services.Constract
     {
         public Task<IEnumerable<PiranhaEvent>> GetListEvents();
         public  Task<PiranhaEvent> AddEventAsync(PiranhaEvent e);
+        public PiranhaEvent GetEventByID(int id);
     }
 }

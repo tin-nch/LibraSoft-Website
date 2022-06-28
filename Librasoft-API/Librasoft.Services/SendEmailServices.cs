@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Librasoft.DataAccess.Repositorys.Constracts;
 using Librasoft.Entities.Entities;
+using Librasoft.Entities.Entities.Dtos;
 using Librasoft.Services.Constract;
 using Librasoft_API.Utils;
 using System;
@@ -20,14 +21,17 @@ namespace Librasoft.Services
         private readonly ISendEmailRepository sendEmailRepository;
         private readonly ICFReasonReachingRepository reasonReachingRepository;
         private readonly IMapper mapper;
+        private readonly IEventRepository eventRepository;
 
         public SendEmailServices(ISendEmailRepository sendEmailRepository, 
             ICFReasonReachingRepository reachingRepository,
-            IMapper mapper)
+            IMapper mapper,
+            IEventRepository eventRepository)
         {
             this.sendEmailRepository = sendEmailRepository;
             this.mapper = mapper;
-            reasonReachingRepository = reachingRepository;  
+            reasonReachingRepository = reachingRepository;
+            this.eventRepository = eventRepository;
         }
         public async Task<IEnumerable<AdminAccount>> GetVirtualAccountAsync()
         {
@@ -89,7 +93,7 @@ namespace Librasoft.Services
             return false;
         }
 
-        public async Task<bool> SendConFirmEmail(PiranhaEventParticipant participant)
+        public async Task<bool> SendConFirmEmail(EventParticipantDto  participant)
         {
             //get virtual Email va event 
             var virtualMail = await this.GetVirtualAccountAsync();
@@ -102,7 +106,7 @@ namespace Librasoft.Services
             string password = _virtualMail.Password;
 
             //ten nguoi nhan //participant.Email
-            string nameCorp = "tan.ntm.librasoft@gmail.com";
+            string nameCorp = participant.Email;
 
             MailAddress _sender = new MailAddress(virtualEmail);
             MailAddress _receiver = new MailAddress(nameCorp);
@@ -135,7 +139,10 @@ namespace Librasoft.Services
             listAtt.Add(att2);
 
             //body email  --- truyen thong tin event
-            string body = BodyMailing.EventConfirm(listAtt);
+
+            PiranhaEvent event1 =    eventRepository.GetPiranhaEventByID(participant.IDEvent);
+         
+            string body = BodyMailing.EventConfirm(listAtt,event1);
             //attach file ex : img, ...
             AlternateView view = AlternateView.CreateAlternateViewFromString(body, null, MediaTypeNames.Text.Html);
             AlternateView view1 = AlternateView.CreateAlternateViewFromString(body, null, MediaTypeNames.Text.Html);

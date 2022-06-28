@@ -10,6 +10,6 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
 {
     public interface IEventRepository : IEfRepository<PiranhaEvent>
     {
-        public PiranhaEvent GetPiranhaEventByID(string id);
+        public PiranhaEvent GetPiranhaEventByID(int id);
     }
 }

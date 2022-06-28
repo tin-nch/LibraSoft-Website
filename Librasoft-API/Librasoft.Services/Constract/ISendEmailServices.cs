@@ -1,4 +1,5 @@
 ﻿using Librasoft.Entities.Entities;
+using Librasoft.Entities.Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace Librasoft.Services.Constract
     {
         Task<IEnumerable<AdminAccount>> GetVirtualAccountAsync();
         Task<bool> SendEmail(PiranhaContactForm contactForm);
-        Task<bool> SendConFirmEmail(PiranhaEventParticipant participant);
+        Task<bool> SendConFirmEmail(EventParticipantDto participant);
     }
 }

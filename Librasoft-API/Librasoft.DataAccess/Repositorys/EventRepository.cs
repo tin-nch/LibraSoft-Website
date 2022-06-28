@@ -17,7 +17,7 @@ namespace Librasoft.DataAccess.Repositorys
 
         }
 
-        public PiranhaEvent GetPiranhaEventByID(string id)
+        public PiranhaEvent GetPiranhaEventByID(int id)
         {
             PiranhaEvent a = _context.PiranhaEvents.FirstOrDefault(b => b.Id.Equals(id));
             if (a != null)
