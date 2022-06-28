@@ -17,6 +17,7 @@ namespace LibraSoftSolution.ViewModels.Candidate_CV
         public string Email { get; set; }
         [Required(ErrorMessage = "Please enter phone number")]
         public string Phone { get; set; }
+        
         public string FilePath { get; set; }
     }
 }

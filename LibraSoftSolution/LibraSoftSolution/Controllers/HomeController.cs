@@ -26,30 +26,34 @@ namespace LibraSoftSolution.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var reasonList = (from r in _piranhaCoreContext.PiranhaCfreasonReachings
-                              select new SelectListItem()
-                              {
-                                  Text = r.ReasonReachingContent
-                              }).ToList();
-
-            reasonList.Insert(0, new SelectListItem()
-            {
-                Text = "----Select----",
-                Value = string.Empty
-            });
-
-            ReasonReachingViewModel reasonReachingViewModel = new ReasonReachingViewModel();
-            reasonReachingViewModel.ListofReason = reasonList;
-
             var reasonReachingList = await _ReasonReachingAPI.GetReasonReaching();
             ViewBag.ListOfReasonReaching = reasonReachingList;
             return View();
         }
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> OnPostIndexAsync( ContactVM piranha_ContactForm)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            var check = await this._ContactAPI.AddContactForm(piranha_ContactForm);
+
+        //            return RedirectToAction();
+        //        }
+        //        catch (Exception e) { };
+        //    }
+        //    return View(piranha_ContactForm);
+        //}
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index( ContactVM piranha_ContactForm)
         {
+            var reasonReachingList = await _ReasonReachingAPI.GetReasonReaching();
+            ViewBag.ListOfReasonReaching = reasonReachingList;
 
             if (ModelState.IsValid)
             {
@@ -59,7 +63,8 @@ namespace LibraSoftSolution.Controllers
 
                     return View();
                 }
-                catch (Exception e) { };
+                catch (Exception e) {
+                };
             }
             return View();
         }

@@ -16,7 +16,6 @@
             <div class="col-xl-12">
                 <div class="contact-wrapper">
                     <form asp-controller="Home" asp-action="Index"  method="post">
-                        <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="row">
                             <div class="col-lg-6 mb-20">
                                 <div class=" c-icon">
@@ -43,7 +42,7 @@
                                 <div class="c-icon">
 									<label asp-for="ReasonReachingId">Reason for reaching out:</label>
 									<select asp-for="ReasonReachingId" asp-items="@(new SelectList(ViewBag.ListOfReasonReaching,"ReasonReachingId", "ReasonReachingContent"))">
-									    <option value="">--Please select--</option>
+                                        <option value="">Select..</option>
                                     </select>
                                     <span asp-validation-for="ReasonReachingId" class="text-danger"></span>  
                                 </div>

@@ -30,12 +30,135 @@ ViewData["Title"] = "Home Page";
 @await Component.InvokeAsync("Client")
 <!-- clients end -->
 
-<!-- contact start -->
+@*<!-- contact start -->
 @await Component.InvokeAsync("Contact")
-<!-- contact end -->
+<!-- contact end -->*@
+
+@model LibraSoftSolution.ViewModels.ContactForm.ContactVM
+
+
+<section id="contact" class="contact-area black-bg pt-20 pb-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 offset-xl-3">
+                <div class="section-title white-text text-center mb-15">
+                    <h1 style="color:#ff4b57">Get In Touch</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <button id="example">Click me</button>
+                <div class="contact-wrapper" id="updateDiv">
+                    <form method="post" asp-controller="Home" asp-action="Index">  
+                        <div class="row">
+                            <div class="col-lg-6 mb-20">
+                                <div class=" c-icon">
+									<label asp-for ="FullName">Full Name</label>
+									<input id="FullName" type="text"  asp-for="FullName"  placeholder="Full Name">
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-20">
+                                <div class=" c-icon">
+                                    <label  asp-for="Phone">Phone</label>																																					
+									<input type="tel"  asp-for="Phone" id="phone" placeholder="Phone">
+                                    <span asp-validation-for="Phone" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-20">
+                                <div class=" c-icon">
+                                    <label  asp-for="Email">Email</label>																								
+									<input  type="email"  asp-for="Email" id="email" placeholder="Email">
+                                    <span asp-validation-for="Email" class="text-danger"></span>  
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-20">
+                                <div class="c-icon">
+									<label asp-for="ReasonReachingId" id="Reason">Reason for reaching out:</label>
+									<select asp-for="ReasonReachingId" id="Reason" asp-items="@(new SelectList(ViewBag.ListOfReasonReaching,"ReasonReachingId", "ReasonReachingContent"))">
+                                        <option value="">Select..</option>
+                                    </select>
+                                    <span asp-validation-for="ReasonReachingId" class="text-danger"></span>  
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-20">
+                                <div class="c-icon">
+                                    <label  asp-for="MessageContent">How can we help you?</label>																																					
+									<textarea  asp-for="MessageContent" id="message" cols="30" rows="5" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-20">
+                                <div class="contact-butoon text-center">
+                                    <button class="btn btn-green alert" type="submit" id="btnSubmit" onclick="myFunction()">Submit
+                                        <span id="loading" style="display:none;"> <i class="fas fa-spinner fa-spin"></i></span>
+                                    </button>
+                                    <p id="demo"></p>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <p class="form-message"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- map-area start -->
 @await Component.InvokeAsync("Map")
 <!-- map-area end -->
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ajax-unobtrusive@3.2.6/dist/jquery.unobtrusive-ajax.min.js"></script>
+
+    <script>
+
+
+    $("#btnSubmit").submit(function(d))
+    {
+        d.preventDefault();
+        var FullName  = $('#FullName').val();
+        var Phone = $('#phone').val();
+        var Email = $('#email').val();
+        var Message = $('#message').val();
+
+        var piranha_ContactForm = { FullName = FullName, Phone = phone ,Email = email, Message = message}
+        $.ajax({
+        type: "POST",
+        url: '@Url.Action("Index", "Home")',
+        contentType: "application/json; charset=utf-8",
+        data: { data: piranha_ContactForm },
+        dataType: "json",
+        success: function(recData) { alert('Success'); },
+        error: function() { alert('A error'); }
+        return false
+    }
+
+    function myFunction(e){
+        e.preventDefault();
+        var FullName  = $('#FullName').val();
+        var Phone = $('#phone').val();
+        var Email = $('#email').val();
+        var Message = $('#message').val();
+
+        var piranha_ContactForm = { FullName = FullName, Phone = phone ,Email = email, Message = message}
+        $.ajax({
+        type: "POST",
+        url: '@Url.Action("Index", "Home")',
+        contentType: "application/json; charset=utf-8",
+        data: { data: piranha_ContactForm },
+        dataType: "json",
+        success: function(recData) { alert('Success'); },
+        error: function() { alert('A error'); }
+        return false;
+    });}
+</script>
+}
+
 
 

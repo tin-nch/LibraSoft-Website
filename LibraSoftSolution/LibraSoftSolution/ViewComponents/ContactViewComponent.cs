@@ -7,8 +7,18 @@ namespace LibraSoftSolution.ViewComponents
 
     public class ContactViewComponent : ViewComponent
     {
+        private readonly IContactAPI _ContactAPI;
+        private readonly ICFReasonReachingAPI _ReasonReachingAPI;
+
+        public ContactViewComponent(IContactAPI contactAPI, ICFReasonReachingAPI cFReasonReachingAPI)
+        {
+            _ContactAPI = contactAPI;
+            _ReasonReachingAPI = cFReasonReachingAPI;
+        }
         public async Task<IViewComponentResult> InvokeAsync()
         {
+            var reasonReachingList = await _ReasonReachingAPI.GetReasonReaching();
+            ViewBag.ListOfReasonReaching = reasonReachingList;
             return View();
         }
     }
