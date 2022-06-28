@@ -16,6 +16,6 @@ namespace Librasoft.Entities.Entities.Dtos
         public string Phone { get; set; }
         public string CompanyName { get; set; }
         public string Position { get; set; }
-        public string IDEvent { get; set; }
+        public int IDEvent { get; set; }
     }
 }

@@ -48,7 +48,7 @@ namespace Librasoft.Services
             return mapper.Map<IEnumerable<PiranhaEventParticipant>>(evt);
         }
 
-        public bool checkExistsEmail(PiranhaEventParticipant eventParticipant)
+        public bool checkExistsEmail(EventParticipantDto eventParticipant)
         {
             return eventParticipantsRepository.CheckExistsEmail(eventParticipant);
         }

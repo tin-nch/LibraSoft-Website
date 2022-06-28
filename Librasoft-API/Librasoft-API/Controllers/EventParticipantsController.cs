@@ -77,14 +77,14 @@ namespace Librasoft_API.Controllers
                 if (ModelState.IsValid)
                 {
 
-                    //if (eventParticipants.checkExistsEmail(participant))
-                    //{
-                    //    return new RequestResponse
-                    //    {
-                    //        ErrorCode = ErrorCode.Success,
-                    //        Content = "Email exists"
-                    //    };
-                    //}
+                    if (eventParticipants.checkExistsEmail(participant))
+                    {
+                        return new RequestResponse
+                        {
+                            ErrorCode = ErrorCode.Success,
+                            Content = "Email exists"
+                        };
+                    }
                     //add contact to dtb
                     //  PiranhaEventParticipant add = await eventParticipants.AddParticipantsAsync(participant);
                     //send email

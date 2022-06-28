@@ -11,7 +11,7 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
 {
     public interface IEventParticipantsRepository : IEfRepository<PiranhaEventParticipant>
     {
-        public bool CheckExistsEmail(PiranhaEventParticipant eventParticipant);
+        public bool CheckExistsEmail(EventParticipantDto eventParticipant);
         public bool AddParticipants(EventParticipantDto eventParticipant);
     }
 }

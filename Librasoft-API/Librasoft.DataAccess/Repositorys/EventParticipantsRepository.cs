@@ -18,7 +18,7 @@ namespace Librasoft.DataAccess.Repositorys
 
 
         }
-        public bool CheckExistsEmail(PiranhaEventParticipant eventParticipant)
+        public bool CheckExistsEmail(EventParticipantDto eventParticipant)
         {
             PiranhaEventParticipant a = _context.PiranhaEventParticipants.FirstOrDefault(x => x.Email.Trim().Equals(eventParticipant.Email.Trim()));
             if (a != null)
