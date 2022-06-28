@@ -20,5 +20,6 @@ namespace LibraSoftSolution.ViewModels.Event
         public string CompanyName { get; set; }
         [Required(ErrorMessage = "Please enter your position")]
         public string Position { get; set; }
+        public int IDEvent { get; set; }
     }
 }

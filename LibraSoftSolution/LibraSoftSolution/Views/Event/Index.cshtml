@@ -88,6 +88,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <div class="col-xl-6">
                                         <div class="contact-icon">
                                             <input  asp-for="Name"  type="text" placeholder="Your Name.... ">
+
                                         <span asp-validation-for="Name" class="text-danger"></span>  
                                         </div>
                                     </div>
@@ -123,6 +124,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                         </div>
                                     </div>
                                     <div class="col-xl-12">
+                                          <input  asp-for="IDEvent" hidden  type="text" value="1">
                                         <button class="btn btn-red" type="submit">Submit</button>
                                     </div>
                                 </div>
