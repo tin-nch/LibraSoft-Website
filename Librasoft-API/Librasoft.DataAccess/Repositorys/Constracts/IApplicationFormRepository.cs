@@ -12,6 +12,6 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
     public interface IApplicationFormRepository : IEfRepository<PiranhaApplicationForm>
     {
 
-        public bool CheckExistsEmail(ApplicationFormDto applicationForm);
+        public bool CheckExistsEmail(PiranhaApplicationForm applicationForm);
     }
 }

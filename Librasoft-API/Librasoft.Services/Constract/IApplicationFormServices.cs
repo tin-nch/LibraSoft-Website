@@ -12,7 +12,7 @@ namespace Librasoft.Services.Constract
     {
 
         public Task<List<PiranhaApplicationForm>> GetApplicaitionFormlistAsync();
-        public bool checkExistsEmail(ApplicationFormDto applicationForm);
+        public bool checkExistsEmail(PiranhaApplicationForm applicationForm);
 
         public Task<PiranhaApplicationForm> AddApplicationFormAsync(PiranhaApplicationForm applicationForm);
     }

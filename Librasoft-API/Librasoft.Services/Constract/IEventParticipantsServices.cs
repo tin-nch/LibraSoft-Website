@@ -13,6 +13,7 @@ namespace Librasoft.Services.Constract
         public Task<IEnumerable<PiranhaEventParticipant>> GetlistParticipantsAsync();
         public Task<PiranhaEventParticipant> AddParticipantsAsync(PiranhaEventParticipant e);
         public bool checkExistsEmail(EventParticipantDto eventParticipant);
+        public bool checkRegistedEmail(EventParticipantDto eventParticipant);
         public bool AddParticipants(EventParticipantDto e);
     }
 }

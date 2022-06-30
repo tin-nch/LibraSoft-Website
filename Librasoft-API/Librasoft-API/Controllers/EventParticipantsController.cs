@@ -62,8 +62,7 @@ namespace Librasoft_API.Controllers
         {
             if (ModelState.IsValid)
             {
-                var body = "as";
-
+               
                 return await sendEmail.SendConFirmEmail(participant); ;
             }
             return false;
@@ -79,19 +78,36 @@ namespace Librasoft_API.Controllers
 
                     if (eventParticipants.checkExistsEmail(participant))
                     {
-                        return new RequestResponse
+                        if(eventParticipants.checkRegistedEmail(participant))
+                         {
+                            return new RequestResponse
+                            {
+                                ErrorCode = ErrorCode.Success,
+                                Content = "Email đã tồn tại"
+                            };
+                         }
+                        else
                         {
-                            ErrorCode = ErrorCode.Success,
-                            Content = "Email exists"
-                        };
+                            var l = await sendEmail.SendConFirmEmail(participant);
+                            if (l)
+                            {
+                                return new RequestResponse
+                                {
+                                    ErrorCode = ErrorCode.Success,
+                                    Content = "submit successfully"
+                                };
+                            }
+                        }
+
+                     
                     }
                     //add contact to dtb
-                    //  PiranhaEventParticipant add = await eventParticipants.AddParticipantsAsync(participant);
-                    //send email
-                    //  var a = await _sendEmailServices.SendEmail(contactForm);
+              
+             
                     bool rs = eventParticipants.AddParticipants(participant);
-
-                    if (rs /*&& a == true*/)
+                  //  send email
+                      var a = await sendEmail.SendConFirmEmail(participant); 
+                    if (rs && a == true)
                     {
                         return new RequestResponse
                         {

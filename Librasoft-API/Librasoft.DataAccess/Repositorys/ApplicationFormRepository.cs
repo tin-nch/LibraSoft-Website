@@ -19,7 +19,7 @@ namespace Librasoft.DataAccess.Repositorys
 
         }
 
-        public bool CheckExistsEmail(ApplicationFormDto applicationForm)
+        public bool CheckExistsEmail(PiranhaApplicationForm applicationForm)
         {
            PiranhaApplicationForm a = _context.PiranhaApplicationForms.FirstOrDefault(x=>x.Email.Trim().Equals(applicationForm.Email.Trim()));
             if (a != null)

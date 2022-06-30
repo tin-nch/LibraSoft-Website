@@ -1,6 +1,7 @@
 ﻿using Librasoft.DataAccess.EFs;
 using Librasoft.DataAccess.Repositorys.Constracts;
 using Librasoft.Entities.Entities;
+using Librasoft.Entities.Entities.Dtos;
 using Librasoft_API.Librasoft.DataAccess.Repositorys;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,13 @@ namespace Librasoft.DataAccess.Repositorys
     {
         public SendEmailRepository(PiranhaCoreContext context) : base(context)
         {
+        }
+
+        public PiranhaApplicationForm GetPiranhaApplicationForm(PiranhaApplicationForm application)
+        {
+          return _context.PiranhaApplicationForms.FirstOrDefault(a => a.Id == application.Id);
+            
+
         }
 
         public AdminAccount GetVirtualEmail()

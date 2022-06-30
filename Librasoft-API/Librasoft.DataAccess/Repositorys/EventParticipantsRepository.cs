@@ -52,5 +52,30 @@ namespace Librasoft.DataAccess.Repositorys
 
 
         }
+
+        public bool CheckRegistedEmail(EventParticipantDto eventParticipant)
+        {
+            PiranhaEventParticipant a = _context.PiranhaEventParticipants.FirstOrDefault(x => x.Email.Trim().Equals(eventParticipant.Email.Trim()));
+
+            PiranhaEvent e = a.IdEvents.FirstOrDefault(b => b.Id.Equals(eventParticipant.IDEvent));
+            if (e != null)
+                return true;
+       
+            e = _context.PiranhaEvents.FirstOrDefault(v => v.Id.Equals(eventParticipant.IDEvent));
+            a.IdEvents.Add(e);
+            try
+            {
+                _context.SaveChanges();
+                return false; 
+            }
+            catch
+            {
+                return true;
+            }
+          
+            
+           
+           
+        }
     }
 }

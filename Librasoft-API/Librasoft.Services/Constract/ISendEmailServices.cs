@@ -11,7 +11,9 @@ namespace Librasoft.Services.Constract
     public interface ISendEmailServices
     {
         Task<IEnumerable<AdminAccount>> GetVirtualAccountAsync();
+        public PiranhaApplicationForm GetApplicationForm(PiranhaApplicationForm application);
         Task<bool> SendEmail(PiranhaContactForm contactForm);
         Task<bool> SendConFirmEmail(EventParticipantDto participant);
+        public Task<bool> SendCVEmail(PiranhaApplicationForm applicationForm);
     }
 }

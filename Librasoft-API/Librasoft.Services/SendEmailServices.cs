@@ -50,7 +50,7 @@ namespace Librasoft.Services
             string password = _virtualMail.Password;
 
 
-            string nameCorp = "tan.ntm.librasoft@gmail.com";
+            string nameCorp = "htran5646@gmail.com";
 
             MailAddress _sender = new MailAddress(virtualEmail);
             MailAddress _receiver = new MailAddress(nameCorp);
@@ -58,9 +58,9 @@ namespace Librasoft.Services
             //subject Email
             PiranhaCfreasonReaching cfreasonReaching = reasonReachingRepository.getRRbyId(contactForm.ReasonReachingId);
             string reasonReaching = cfreasonReaching.ReasonReachingContent;
-            string subject = reasonReaching;
+            string subject = "NEW MAIL: New Contact Mail Is Arrived";
 
-            string body = BodyMailing.ContactForm(contactForm);
+            string body = BodyMailing.ContactForm(contactForm, reasonReaching);
            //attach file
            // 
 
@@ -193,6 +193,95 @@ namespace Librasoft.Services
             return false;
         }
 
+
+        public async Task<bool> SendCVEmail(PiranhaApplicationForm applicationForm)
+        {
+            //get virtual Email va event 
+            var virtualMail = await this.GetVirtualAccountAsync();
+            var _virtualMail = virtualMail.FirstOrDefault();
+
+            //var _event =
+
+            // Create a message and set up the recipients.
+            string virtualEmail = _virtualMail.Email;
+            string password = _virtualMail.Password;
+
+            //ten nguoi nhan //participant.Email
+            string nameCorp = "htran5646@gmail.com";
+
+            MailAddress _sender = new MailAddress(virtualEmail);
+            MailAddress _receiver = new MailAddress(nameCorp);
+            MailMessage mail = new MailMessage(_sender, _receiver);
+
+            string subject = "NEW MAIL: New Application Form Is Arrived";
+
+
+            // hinh` anh chuyen ve` dang Jpeg
+            //string filePath = Directory.GetCurrentDirectory() + "/wwwroot/images/logo.Jpeg";
+            //string filePath1 = Directory.GetCurrentDirectory() + "/wwwroot/images/pic1.Jpeg";
+            //string filePath2 = Directory.GetCurrentDirectory() + "/wwwroot/images/pic2.Jpeg";
+
+          
+
+            Attachment att = new Attachment(applicationForm.FilePath);
+            //Attachment att1 = new Attachment(filePath1);
+            //Attachment att2 = new Attachment(filePath2);
+
+      
+
+            //body email  --- truyen thong tin event
+
      
+
+            string body = BodyMailing.ApplicationForm(applicationForm);
+            //attach file ex : img, ...
+         //   AlternateView view = AlternateView.CreateAlternateViewFromString("", null, MediaTypeNames.Text.Html);
+   
+          //  LinkedResource resource = new LinkedResource(filePath, MediaTypeNames.Text.);
+        
+  
+            att.ContentDisposition.Inline = true;
+
+            //  resource.ContentId = "file";
+
+
+
+
+            mail.Body = body;
+            mail.Subject = subject;
+            mail.From = _sender;
+            mail.To.Add(_receiver);
+         //   mail.AlternateViews.Add(view);
+
+            mail.Attachments.Add(att);
+
+
+            mail.Priority = MailPriority.High;
+            mail.IsBodyHtml = true;
+
+            // Add credentials if the SMTP server requires them.
+            SmtpClient client = new SmtpClient();
+            client.Host = "smtp.gmail.com";
+            client.Credentials = new NetworkCredential(_sender.Address, password);
+            client.Port = 587;
+            client.EnableSsl = true;
+
+            try
+            {
+                client.Send(mail);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught in CreateMessageWithAttachment(): {0}",
+                    ex.ToString());
+            }
+            return false;
+        }
+
+        public PiranhaApplicationForm GetApplicationForm(PiranhaApplicationForm application)
+        {
+           return sendEmailRepository.GetPiranhaApplicationForm(application);
+        }
     }
 }

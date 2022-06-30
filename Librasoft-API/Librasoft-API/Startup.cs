@@ -21,6 +21,7 @@ using Librasoft.DataAccess.Repositorys.Constracts;
 using Librasoft.DataAccess.Repositorys;
 using Librasoft.Services;
 using System.Reflection;
+using Microsoft.OpenApi.Models;
 
 namespace Librasoft_API
 {
@@ -48,6 +49,10 @@ namespace Librasoft_API
             services.AddDbContext<PiranhaCoreContext>(options => { options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")); });
             services.AddControllersWithViews();
             services.AddAutoMapper(typeof(Startup));
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger Librasoft", Version = "v1" });
+            });
             #region Repositories
             services.AddTransient(typeof(IRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IAliasRepository, PiranhaAliasRepository>();
@@ -102,7 +107,7 @@ namespace Librasoft_API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+          
 
             app.UseHttpsRedirection();
 
@@ -113,13 +118,18 @@ namespace Librasoft_API
             app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger LibrasoftAPI v1");
+            });
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
     }
 }

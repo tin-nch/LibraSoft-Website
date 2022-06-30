@@ -52,5 +52,10 @@ namespace Librasoft.Services
         {
             return eventParticipantsRepository.CheckExistsEmail(eventParticipant);
         }
+
+        public bool checkRegistedEmail(EventParticipantDto eventParticipant)
+        {
+            return eventParticipantsRepository.CheckRegistedEmail(eventParticipant);
+        }
     }
 }

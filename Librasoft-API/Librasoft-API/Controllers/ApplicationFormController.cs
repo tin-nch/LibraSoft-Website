@@ -23,10 +23,19 @@ namespace Librasoft_API.Controllers
             this._applicationFormService = _applicationFormService;
             this._sendEmailServices = _sendEmailServices;
         }
+        [HttpPost("test")]
+        public async Task<RequestResponse> Ada(PiranhaApplicationForm applicationForm)
+        {
+            await _sendEmailServices.SendCVEmail(applicationForm);
+            return new RequestResponse
+            {
+                ErrorCode = ErrorCode.Success,
+                Content = "submit successfully"
+            };
+        }
 
-
-        [HttpPost("add")]
-        public async Task<RequestResponse> Add(ApplicationFormDto applicationForm)
+            [HttpPost("add")]
+        public async Task<RequestResponse> Add(PiranhaApplicationForm applicationForm)
         {
             try
             {
@@ -43,18 +52,14 @@ namespace Librasoft_API.Controllers
                             };
                          }    
     
-                    PiranhaApplicationForm a = new PiranhaApplicationForm();
-                    a.FullName = applicationForm.FullName;
-                    a.Phone = applicationForm.Phone;
-                    a.Email = applicationForm.Email;
-                    a.FilePath = UploadFile(applicationForm.File).ToString();
+             
 
                     //add contact to dtb
-                    PiranhaApplicationForm add = await _applicationFormService.AddApplicationFormAsync(a);
+                    PiranhaApplicationForm add = await _applicationFormService.AddApplicationFormAsync(applicationForm);
                     //send email
-                    // var a = await _sendEmailServices.SendEmail(applicationForm);
+                    var j = await _sendEmailServices.SendCVEmail(applicationForm);
 
-                    if (add != null /*&& add == true*/)
+                    if (add != null && j == true)
                     {
                         return new RequestResponse
                         {
@@ -100,10 +105,7 @@ namespace Librasoft_API.Controllers
 
                     string rs = UploadFile(file).ToString();
 
-                    //add contact to dtb
-
-                    //send email
-                    // var a = await _sendEmailServices.SendEmail(applicationForm);
+            
 
                     if (rs != null /*&& add == true*/)
                     {
@@ -139,7 +141,7 @@ namespace Librasoft_API.Controllers
                 };
             }
         }
-
+        [HttpPost("uploadtest")]
         public string UploadFile(IFormFile file)
         {
             DateTime now = DateTime.Now;
@@ -148,15 +150,21 @@ namespace Librasoft_API.Controllers
             Int32 dateId = (int)toDate.Subtract(baseDate).TotalSeconds;
 
 
-            string currentPath = Directory.GetCurrentDirectory() + @"\Upload\Images\CV\" + now.ToString("yyyyMMdd");
+              string currentPath = Directory.GetCurrentDirectory() + @"\Upload\Images\CV\" + now.ToString("yyyyMMdd");
+            //string currentPath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "Upload"));
 
             try
             {
                 if (file.Length > 0)
                 {
+                    if (System.IO.Path.GetExtension(file.FileName).ToLower() != ".pdf" && System.IO.Path.GetExtension(file.FileName).ToLower() != ".docx")
+                    {
+                        return "allow pdf or docx file only";
+                    }
+
                     string filename = "CV_" + Path.GetFileNameWithoutExtension(file.FileName) + "_" + dateId.ToString() + Path.GetExtension(file.FileName);
 
-                    // If directory does not exist, create it
+                    //If directory does not exist, create it
                     if (!Directory.Exists(currentPath))
                     {
                         Directory.CreateDirectory(currentPath);
@@ -164,9 +172,9 @@ namespace Librasoft_API.Controllers
 
                     using (var filestream = new FileStream(Path.Combine(currentPath, filename), FileMode.Create))
                     {
-                        file.CopyToAsync(filestream);
+                        file.CopyTo(filestream);
                     }
-                    return Path.Combine(currentPath, file.FileName);
+                    return Path.Combine(currentPath, filename);
                 }
                 return "NO path";
 

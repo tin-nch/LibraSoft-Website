@@ -65,11 +65,21 @@ namespace Librasoft.DataAccess.Repositorys
 
             string root = (from r in _context.RootImages
                           select r.Root).FirstOrDefault();
-            //string example = "https://localhost:44337/";
+         
 
             foreach (PiranhaBlock block in listblk)
             {
                 List<PiranhaBlockField> lst = _context.PiranhaBlockFields.Where(a => a.BlockId.Equals(block.Id)).ToList();
+                foreach (PiranhaBlockField s in lst)
+                {
+                    List<PiranhaPageBlock> listpageblock = new List<PiranhaPageBlock>();
+                    foreach(PiranhaPageBlock k in listpageblock)
+                    {
+                        if (k.BlockId == s.BlockId)
+                            continue;
+                        else lst.Remove(s);
+                    }    
+                }    
                 foreach(PiranhaBlockField f in lst)
                 {
                     if (!f.Value.Contains("/upload"))

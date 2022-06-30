@@ -35,7 +35,7 @@ namespace Librasoft.Services
             return null;
         }
 
-        public bool checkExistsEmail(ApplicationFormDto applicationForm)
+        public bool checkExistsEmail(PiranhaApplicationForm applicationForm)
         {
             return  applicationFormRepository.CheckExistsEmail(applicationForm);
         }

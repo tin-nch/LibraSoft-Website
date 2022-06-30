@@ -18,9 +18,9 @@ namespace Librasoft.Entities.Entities
         [Key]
         public int Id { get; set; }
         public string EventTitle { get; set; }
-        [Column(TypeName = "date")]
+        [Column(TypeName = "datetime")]
         public DateTime? StartDate { get; set; }
-        [Column(TypeName = "date")]
+        [Column(TypeName = "datetime")]
         public DateTime? EndDate { get; set; }
         public bool? Active { get; set; }
         [Column("ZoomID")]
@@ -31,9 +31,12 @@ namespace Librasoft.Entities.Entities
         [Column("URL")]
         [StringLength(50)]
         public string Url { get; set; }
-        public string Note { get; set; }
+        [Column("NoteENG")]
+        public string NoteEng { get; set; }
         [Column("IDIMG")]
         public int? Idimg { get; set; }
+        [Column("NoteVN")]
+        public string NoteVn { get; set; }
 
         [InverseProperty("IdNavigation")]
         public virtual ICollection<PiranhaEventImage> PiranhaEventImages { get; set; }
