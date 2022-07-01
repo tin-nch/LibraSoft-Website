@@ -43,8 +43,8 @@ namespace LibraSoftSolution.Controllers
         //}
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SaveContactForm(ContactVM piranha_ContactForm)
+        
+        public async Task<bool> SaveContactForm(ContactVM piranha_ContactForm)
         {
             var reasonReachingList = await _ReasonReachingAPI.GetReasonReaching();
             ViewBag.ListOfReasonReaching = reasonReachingList;
@@ -56,11 +56,11 @@ namespace LibraSoftSolution.Controllers
                     var check = await this._ContactAPI.AddContactForm(piranha_ContactForm);
                     ModelState.Clear();
                     ViewBag.SuccessMsg = "successfully added";
-                    return PartialView("_ContactForm");
+                    return true;
                 }
                 catch (Exception e) { };
             }
-            return View(piranha_ContactForm);
+            return false;
         }
 
         //[HttpPost]
