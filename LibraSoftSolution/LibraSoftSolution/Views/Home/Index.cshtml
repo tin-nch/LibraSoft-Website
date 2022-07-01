@@ -34,7 +34,7 @@ ViewData["Title"] = "Home Page";
 @await Component.InvokeAsync("Contact")
 <!-- contact end -->*@
 
-@model LibraSoftSolution.ViewModels.ContactForm.ContactVM
+@*@model LibraSoftSolution.ViewModels.ContactForm.ContactVM
 
 
 <section id="contact" class="contact-area black-bg pt-20 pb-20">
@@ -48,7 +48,6 @@ ViewData["Title"] = "Home Page";
         </div>
         <div class="row">
             <div class="col-xl-12">
-                <button id="example">Click me</button>
                 <div class="contact-wrapper" id="updateDiv">
                     <form method="post" asp-controller="Home" asp-action="Index">  
                         <div class="row">
@@ -105,6 +104,12 @@ ViewData["Title"] = "Home Page";
             </div>
         </div>
     </div>
+</section>*@
+
+<section id="contact" class="contact-area black-bg pt-20 pb-20">
+    <div id="ContactFormPar">
+        <partial name="_ContactForm" model="Model"/>        
+    </div>
 </section>
 
 <!-- map-area start -->
@@ -112,53 +117,8 @@ ViewData["Title"] = "Home Page";
 <!-- map-area end -->
 
 
-@section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-ajax-unobtrusive@3.2.6/dist/jquery.unobtrusive-ajax.min.js"></script>
-
-    <script>
 
 
-    $("#btnSubmit").submit(function(d))
-    {
-        d.preventDefault();
-        var FullName  = $('#FullName').val();
-        var Phone = $('#phone').val();
-        var Email = $('#email').val();
-        var Message = $('#message').val();
-
-        var piranha_ContactForm = { FullName = FullName, Phone = phone ,Email = email, Message = message}
-        $.ajax({
-        type: "POST",
-        url: '@Url.Action("Index", "Home")',
-        contentType: "application/json; charset=utf-8",
-        data: { data: piranha_ContactForm },
-        dataType: "json",
-        success: function(recData) { alert('Success'); },
-        error: function() { alert('A error'); }
-        return false
-    }
-
-    function myFunction(e){
-        e.preventDefault();
-        var FullName  = $('#FullName').val();
-        var Phone = $('#phone').val();
-        var Email = $('#email').val();
-        var Message = $('#message').val();
-
-        var piranha_ContactForm = { FullName = FullName, Phone = phone ,Email = email, Message = message}
-        $.ajax({
-        type: "POST",
-        url: '@Url.Action("Index", "Home")',
-        contentType: "application/json; charset=utf-8",
-        data: { data: piranha_ContactForm },
-        dataType: "json",
-        success: function(recData) { alert('Success'); },
-        error: function() { alert('A error'); }
-        return false;
-    });}
-</script>
-}
 
 
 

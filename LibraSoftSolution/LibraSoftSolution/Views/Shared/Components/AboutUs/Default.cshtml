@@ -1,14 +1,37 @@
 ﻿@{
 }
+@using LibraSoftSolution.ViewModel
+
+@model AboutUsDataModel
+
 
 <section id="about" class="about-area pt-40">
     <div class="container">
         <div class="row">
+
+            @foreach(var Item in Model.About1)
+            {
+               <div class="col-lg-6">
+                    <div class="about-thumb mb-40">
+                        @Html.Raw(@Item.ImgPath)
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text mb-40">
+                        <div class="servces-icon2">
+                            <h3>@Item.Title <span><i class="@Item.IconCode"></i></span></h3>
+                        </div>
+                        @Html.Raw(@Item.Content)
+                    </div>
+                </div>                
+            }
+
             <div class="col-lg-6">
                 <div class="about-thumb mb-40">
                     <img src="~/img/bg/About1.jpg" alt="">
                 </div>
             </div>
+
             <div class="col-lg-6">
                 <div class="about-text mb-40">
                     <div class="servces-icon2">
@@ -19,6 +42,7 @@
                     <p>We are flat, quick, and efficient. We combine the industry knowledge with technology competence to deliver the highend quality solutions in a cost effective manner to maximize your competitive advantage and increase your business productivity.</p>
                 </div>
             </div>
+
             <div class="col-lg-6">
                 <div class="about-text mb-40">
                     <div class="servces-icon2">
@@ -40,6 +64,24 @@
                     <img src="~/img/bg/About2.jpg" alt="">
                 </div>
             </div>
+
+            @foreach(var Item in Model.About3)
+            {
+               <div class="col-lg-6">
+                    <div class="about-thumb mb-40">
+                        @Html.Raw(@Item.ImgPath)
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text mb-40">
+                        <div class="servces-icon2">
+                            <h3>@Item.Title <span><i class="@Item.IconCode"></i></span></h3>
+                        </div>
+                        @Html.Raw(@Item.Content)
+                    </div>
+                </div>                
+            }
+
             <div class="col-lg-6">
                 <div class="about-thumb mb-40">
                     <img src="~/img/bg/About3.jpg" alt="">

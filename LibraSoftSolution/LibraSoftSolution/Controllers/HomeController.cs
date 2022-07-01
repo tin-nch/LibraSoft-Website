@@ -28,29 +28,23 @@ namespace LibraSoftSolution.Controllers
         {
             var reasonReachingList = await _ReasonReachingAPI.GetReasonReaching();
             ViewBag.ListOfReasonReaching = reasonReachingList;
-            return View();
+
+            ContactVM ct = new ContactVM();
+            return View(ct);
         }
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> OnPostIndexAsync( ContactVM piranha_ContactForm)
+        //public async Task<IActionResult> SaveContactForm(ContactVM piranha_ContactForm)
         //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            var check = await this._ContactAPI.AddContactForm(piranha_ContactForm);
+        //    var check = await this._ContactAPI.AddContactForm(piranha_ContactForm);
 
-        //            return RedirectToAction();
-        //        }
-        //        catch (Exception e) { };
-        //    }
-        //    return View(piranha_ContactForm);
+        //    return PartialView("_SubmitSuccess", piranha_ContactForm);
         //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index( ContactVM piranha_ContactForm)
+        public async Task<IActionResult> SaveContactForm(ContactVM piranha_ContactForm)
         {
             var reasonReachingList = await _ReasonReachingAPI.GetReasonReaching();
             ViewBag.ListOfReasonReaching = reasonReachingList;
@@ -60,14 +54,35 @@ namespace LibraSoftSolution.Controllers
                 try
                 {
                     var check = await this._ContactAPI.AddContactForm(piranha_ContactForm);
-
-                    return View();
+                    ModelState.Clear();
+                    ViewBag.SuccessMsg = "successfully added";
+                    return PartialView("_ContactForm");
                 }
-                catch (Exception e) {
-                };
+                catch (Exception e) { };
             }
-            return View();
+            return View(piranha_ContactForm);
         }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Index( ContactVM piranha_ContactForm)
+        //{
+        //    var reasonReachingList = await _ReasonReachingAPI.GetReasonReaching();
+        //    ViewBag.ListOfReasonReaching = reasonReachingList;
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            var check = await this._ContactAPI.AddContactForm(piranha_ContactForm);
+
+        //            return View();
+        //        }
+        //        catch (Exception e) {
+        //        };
+        //    }
+        //    return View();
+        //}
 
         public IActionResult Privacy()
         {

@@ -11,26 +11,40 @@ namespace LibraSoftSolution.ViewModels.ContactForm
 {
     public class ContactVM
     {
+        //[Key]
+        //public int Id { get; set; }
+        //[Required(ErrorMessage = "Please enter name")]
+        //[StringLength(100)]
+        //public string FullName { get; set; }
+        //[Required(ErrorMessage = "Please enter email address")]
+        //[Display(Name = "Email")]
+        //[EmailAddress]
+        //public string Email { get; set; }
+        //[Required(ErrorMessage = "Please enter phone number")]
+        //[Display(Name = "Phone")]
+        //[Phone]
+        //public string Phone { get; set; }
+        //[Required(ErrorMessage = "Select a reason")]
+        //[Display(Name = "ReasonReachingId")]
+        //[BindRequired]
+        //public int? ReasonReachingId { get; set; }
+        //public SelectList ListOfReasonReaching { get; set; }
+        //[Required(ErrorMessage = "Please enter phone number")]
+        //[Display(Name = "MessageContent")]
+        //public string MessageContent { get; set; }
+
         [Key]
         public int Id { get; set; }
-        [Required(ErrorMessage = "Please enter name")]
-        [StringLength(100)]
+        [Required]
         public string FullName { get; set; }
-        [Required(ErrorMessage = "Please enter email address")]
-        [Display(Name = "Email")]
-        [EmailAddress]
+        [Required]
+        [DataType(DataType.EmailAddress, ErrorMessage ="Email is not valid")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Please enter phone number")]
-        [Display(Name = "Phone")]
-        [Phone]
+        [Required]
+        [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
-        [Required(ErrorMessage = "Select a reason")]
-        [Display(Name = "ReasonReachingId")]
-        [BindRequired]
+        [Required]
         public int? ReasonReachingId { get; set; }
-        public SelectList ListOfReasonReaching { get; set; }
-        [Required(ErrorMessage = "Please enter phone number")]
-        [Display(Name = "MessageContent")]
         public string MessageContent { get; set; }
     }
 }

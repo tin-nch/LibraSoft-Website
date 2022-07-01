@@ -1,13 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LibraSoftSolution.API.ContentBlock;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 namespace LibraSoftSolution.ViewComponents
 {
     [ViewComponent(Name = "Work")]
     public class WorkViewComponent : ViewComponent
     {
+        private readonly IWorkCTAPI _HtmlSOAPI;
+        public WorkViewComponent(IWorkCTAPI partnerCTAPI)
+        {
+            _HtmlSOAPI = partnerCTAPI;
+        }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var Item = await _HtmlSOAPI.gethtmlbysortordersWithImgWork(43);
+            return View(Item);
         }
     }
 }

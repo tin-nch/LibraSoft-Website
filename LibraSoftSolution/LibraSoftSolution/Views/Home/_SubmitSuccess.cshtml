@@ -1,0 +1,25 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model LibraSoftSolution.ViewModels.ContactForm.ContactVM
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-6 offset-xl-3">
+            <div class="section-title white-text text-center mb-15">
+                <h1 style="color:#ff4b57">Get In Touch</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+            <h1>Congratulation</h1>
+            <p>@Model.FullName</p>
+            <p>@Model.Email</p>
+        </div>
+        <button type="Submit" >Continue</button>
+    </div>
+</div>

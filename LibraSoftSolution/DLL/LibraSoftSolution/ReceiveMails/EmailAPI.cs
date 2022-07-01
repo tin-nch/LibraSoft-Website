@@ -22,7 +22,7 @@ namespace LibraSoftSolution.API.ReceiveMails
         {
             // Create a message and set up the recipients.
             string virtualEmail = "duachuthoi25@gmail.com";
-            string nameCorp = "tan.ntm.librasoft@gmail.com";
+            string nameCorp = "nghia.nd.librasoft@gmail.com";
             MailAddress _sender = new MailAddress(virtualEmail);
             MailAddress _receiver = new MailAddress(nameCorp);
             string Subject = "this is subject";

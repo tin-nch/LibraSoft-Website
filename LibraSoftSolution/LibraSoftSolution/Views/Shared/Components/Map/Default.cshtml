@@ -1,10 +1,25 @@
 ﻿@{
 }
 
+@model List<LibraSoftSolution.ViewModels.ContentBlock.MapCTVM>
+
+
 <section  class="map-area pb-20 pt-65">
     <div class="container">
         <div class="row contact-info">
-            <div class="col-lg-4">
+
+            @foreach(var Item in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="contact-list text-center mb-20">
+                        <i class="@Item.IconCode"></i>
+                        <h3>@Item.Title</h3>
+                        @Html.Raw(@Item.Content)
+                    </div>
+                </div>                
+            }
+
+@*            <div class="col-lg-4">
                 <div class="contact-list text-center mb-20">
                     <i class="pe-7s-map-marker"></i>
                     <h3>Our Address</h3>
@@ -27,7 +42,7 @@
                     <p>Monday – Friday</p>
                     <p>9:00 AM - 6:00 PM</p>
                 </div>
-            </div>
+            </div>*@
         </div>
     </div>
     <div class="contact-map">

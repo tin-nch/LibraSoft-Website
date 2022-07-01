@@ -31,28 +31,6 @@
         <div class="loader"></div>
     </div>
 
-@*    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LibraSoftSolution</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>*@
-
     <!-- header -->
     <header>
         <div id="header-sticky" class="header-area">
@@ -76,6 +54,9 @@
                                     <li><a asp-controller="Home" asp-action="Index" asp-fragment="service">Our Services</a></li>
                                     <li><a asp-controller="Event" asp-action="Index">News - Events</a></li>
                                     <li><a asp-controller="Career" asp-action="Index">Career</a></li>
+                                    <li>
+
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
@@ -114,24 +95,15 @@
                 </div>
             </div>
         </div>
-@*        <div class="copyright-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="copyright text-center">
-                            <p>© 2019 BasicTheme, All Rights Reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
     </footer>
-@*    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>*@
     @await RenderSectionAsync("Scripts", required: false)
 
     <!-- JS here -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js" integrity="sha512-DedNBWPF0hLGUPNbCYfj8qjlEnNE92Fqn7xd3Sscfu7ipy7Zu33unHdugqRD3c4Vj7/yLv+slqZhMls/4Oc7Zg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.js" integrity="sha512-f04GBpoqEZhbyjlRTuXeg8FIHDb+xfCJ0LVdqiN1fEl5B3jz3Z0SPe9IxDumOVdTeeXmKMcMJhb26VuGf1Laqw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="~/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="~/js/popper.min.js"></script>
