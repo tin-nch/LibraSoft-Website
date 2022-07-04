@@ -1,8 +1,4 @@
-﻿@*
-For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
 @model LibraSoftSolution.ViewModels.Event.RegistersVM
 
 <style>
@@ -40,7 +36,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
             <div class="col-lg-12">
                 <article class="postbox post format-image mb-40">
                     <div class="postbox__thumb">
-                        <img src="~/img/bg/event.jpg" alt="event image" class="center" width="45%" >
+                        <img src="~/img/bg/WebinarBanner.png" alt="event image" class="center" width="50%" >
                     </div>
                 </article>
             </div>
@@ -49,13 +45,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                     <div class="postbox__text p-50">
                         <div class="post-meta mb-15"></div>
                         <h3 class="blog-title text-uppercase">
-                            Give Superpowers to Your Workers and Business with Smart Data Capture
+                            Smart Data Capture Superpowers To Your Business
                         </h3>
-@*                        <div class="post-meta mb-15">
-                            <span><i class="far fa-calendar-check"></i> Date: </span>
-                            <span><a href="#"><i class="far fa-user"></i> Time: </a></span>
-                            <span><a href="#"><i class="far fa-comments"></i> Platform: Zoom </a></span>
-                        </div>*@
                         <div class="post-text mb-20">
                             <p>Most logistic companies are concerned about operational excellence of the company and the operations executives have 
                                 tough times ensuring efficiency and reliability of operations while keeping costs low. Improving operational processes and 
@@ -83,37 +74,36 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                 <article class="postbox post format-image mb-40">
                     <div class="postbox__text p-50">
                         <div class="post-comments-form">
-                            <form id="contacts-form" asp-controller="Event" asp-action="Index" class="conatct-post-form" method="post">
+                            <form id="contacts-form"  class="conatct-post-form">
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="contact-icon">
-                                            <input  asp-for="Name"  type="text" placeholder="Your Name.... ">
-
-                                        <span asp-validation-for="Name" class="text-danger"></span>  
+                                            <input  asp-for="FullName" id="txtName"  type="text" placeholder="Your Name.... ">
+                                        <span asp-validation-for="FullName" class="text-danger"></span>  
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
-                                        <div class="contact-icon">
-                                            <input  asp-for="Phone"  type="tel" placeholder="Your Phone....">
+                                        <div class="contact-icon"> 
+                                            <input  asp-for="Phone" id="txtPhone" type="tel" placeholder="Your Phone....">
                                         <span asp-validation-for="Phone" class="text-danger"></span>  
                                         </div>
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="contact-icon">
-                                            <input id="emailev" asp-for="Email" type="email" placeholder="Your Email....">
+                                            <input  asp-for="Email" id="txtEmail" type="email" placeholder="Your Email....">
                                             <span asp-validation-for="Email" class="text-danger"></span>                                      
                                             <label for="emailev">* To obtain the invitation letter and the link to attend the webinar, please provide the correct email address</label>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="contact-icon">
-                                            <input asp-for="CompanyName" type="text" placeholder="Company Name.... ">
+                                            <input asp-for="CompanyName" id="txtCompanyName" type="text" placeholder="Company Name.... ">
                                             <span asp-validation-for="CompanyName" class="text-danger"></span>  
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="contact-icon">
-                                            <input asp-for="Position" type="text" placeholder="Your Position....">
+                                            <input asp-for="Position" type="text" id="txtPosition" placeholder="Your Position....">
                                             <span asp-validation-for="Position" class="text-danger"></span>  
                                         </div>
                                     </div>
@@ -124,8 +114,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                         </div>
                                     </div>
                                     <div class="col-xl-12">
-                                          <input  asp-for="IDEvent" hidden  type="text" value="1">
-                                        <button class="btn btn-red" type="submit">Submit</button>
+                                          <input asp-for="IDEvent" id="txtIDEvent" type="text" hidden value="1">
+                                        <button class="btn btn-red" id="btnEventSubmit" type="button">Submit</button>
                                     </div>
                                 </div>
                             </form>
@@ -137,3 +127,4 @@ For more information on enabling MVC for empty projects, visit https://go.micros
     </div>
 </div>
 <!-- blog-area end -->
+ 

@@ -33,7 +33,6 @@ namespace LibraSoftSolution.ViewModels.ContactForm
         //[Display(Name = "MessageContent")]
         //public string MessageContent { get; set; }
 
-        [Key]
         public int Id { get; set; }
         [Required]
         public string FullName { get; set; }

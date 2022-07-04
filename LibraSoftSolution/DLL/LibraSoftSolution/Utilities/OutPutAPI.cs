@@ -27,6 +27,17 @@ namespace LibraSoftSolution.API.Utilities
             }
             return null;
         }
+
+        public static string OutPutString<T>(RequestResponse body)
+        {
+            if (body.ErrorCode == 0 || body != null)
+            {
+                return body.Content;
+            }
+            return null;
+        }
+
+
         public static bool OutPutBool<T>(RequestResponse body)
         {
             if (body.ErrorCode == 0 && body != null)

@@ -18,7 +18,6 @@ namespace LibraSoftSolution.API.ContentBlock
         {
             _httpClientFactory = httpClientFactory;
         }
-
         public async Task<List<PartnerCTVM>> gethtmlbysortordersWithImgPartner(int id)
         {
             var body = await GetAsync<RequestResponse>($"api/blockfields/gethtmlbysortorderwithimgpartner/{id}");

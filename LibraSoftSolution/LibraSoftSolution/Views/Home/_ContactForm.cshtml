@@ -17,33 +17,33 @@
     <div class="row">
         <div class="col-xl-12">
             <div class="contact-wrapper">
-                <form >
+                <form id="formContactVal">
                     <div class="row">
                         <div class="col-lg-6 mb-20">
                             <div class=" c-icon">
 							    <label asp-for ="FullName">Full Name</label>
-							    <input id="FullName" type="text"  asp-for="FullName"  placeholder="Full Name">
+							    <input id="cfFullName" type="text"  asp-for="FullName" name="txtcfFullName" placeholder="Full Name">
                                 <span asp-validation-for="FullName" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-lg-6 mb-20">
                             <div class=" c-icon">
                                 <label  asp-for="Phone">Phone</label>																																					
-							    <input type="tel"  asp-for="Phone" id="Phone" placeholder="Phone">
+							    <input type="tel"  asp-for="Phone" name="txtcfPhone" id="cfPhone" placeholder="Phone">
                                 <span asp-validation-for="Phone" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-lg-6 mb-20">
                             <div class=" c-icon">
                                 <label  asp-for="Email">Email</label>																								
-							    <input  type="email"  asp-for="Email" id="Email" placeholder="Email">
+							    <input  type="email"  asp-for="Email" id="cfEmail" name="txtcfEmail" placeholder="Email">
                                 <span asp-validation-for="Email" class="text-danger"></span>  
                             </div>
                         </div>
                         <div class="col-lg-6 mb-20">
                             <div class="c-icon">
 							    <label asp-for="ReasonReachingId">Reason for reaching out:</label>
-							    <select asp-for="ReasonReachingId" asp-items="@(new SelectList(ViewBag.ListOfReasonReaching,"ReasonReachingId", "ReasonReachingContent"))">
+							    <select id="cfReason" name="txtcfReason" asp-for="ReasonReachingId" asp-items="@(new SelectList(ViewBag.ListOfReasonReaching,"ReasonReachingId", "ReasonReachingContent"))">
                                     <option value="">Select..</option>
                                 </select>
                                 <span asp-validation-for="ReasonReachingId" class="text-danger"></span>  
@@ -52,12 +52,12 @@
                         <div class="col-lg-12 mb-20">
                             <div class="c-icon">
                                 <label  asp-for="MessageContent">How can we help you?</label>																																					
-							    <textarea  asp-for="MessageContent" id="message" cols="30" rows="5" placeholder="Message"></textarea>
+							    <textarea  asp-for="MessageContent" id="cfMessage" cols="30" rows="5" placeholder="Message"></textarea>
                             </div>
                         </div>
                         <div class="col-lg-12 mb-20">
                             <div class="contact-butoon text-center">
-                                <button id="btnConfirm" class="btn btn-green alert" type="submit">Submit</button>
+                                <button class="btn btn-green" id="btnContactSubmit" type="submit">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -69,73 +69,8 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
-<!-- Jquery needed -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script type="text/javascript">
-        //GETAPI
-        function getAPI(url) {
-            resultCallAPI = $.ajax({
-                url: url,
-                method: 'GET',
-                contentType: 'application/json',
-                dataType: 'json',
-            })
-        }
-
-        //POSTAPI
-        function postAPI(url, object) {
-            resultCallAPI = $.ajax({
-                url: url,
-                method: "post",
-                data: JSON.stringify(object),
-                contentType: "application/json",
-            })
-        }
-        
-        $('#btnConfirm').click(function () {
-            console.log('123');
-            var data = {
-                FullName: 'tin',
-                Phone: '123',
-                Email:'tin@gmail.com',
-                Phone: 0123,
-                ReasonReachingId:2,
-                MessageContent: ''
-            }
-            postAPI("/Home/SaveContactForm", data)
-            resultCallAPI.done(function (data) {
-                if (data === false) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Sai mã xác thực',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
-                else {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Kích hoạt tài khoản thành công',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                    modalConfirm.style.display = "none";
-                }
-            })
-        })
 
 
-    var message = '@message';
-    if(message){
-        Swal.fire("Success!!!", "Thank you for your email, we will respond as soon as possible", "success");
-    }
-</script>
-@*<script>
-    document.querySelector(".alert").addEventListener('click', function(){
-        Swal.fire("Success!!!", "Thank you for your email, we will respond as soon as possible", "success");
-    });
-</script>*@
 
 
 

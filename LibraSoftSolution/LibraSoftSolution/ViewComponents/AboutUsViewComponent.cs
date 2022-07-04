@@ -15,8 +15,8 @@ namespace LibraSoftSolution.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             AboutUsDataModel aboutDataModel = new AboutUsDataModel();
-            aboutDataModel.About1 = await _HtmlSOAPI.gethtmlbysortordersWithImgAboutUs1(0);
-            aboutDataModel.About3 = await _HtmlSOAPI.gethtmlbysortordersWithImgAboutUs3(4);
+            aboutDataModel.About1 = await _HtmlSOAPI.gethtmlbysortordersWithImgAboutUs(1);
+            aboutDataModel.About3 = await _HtmlSOAPI.gethtmlbysortordersWithImgAboutUs(5);
             return View(aboutDataModel);
         }
     }

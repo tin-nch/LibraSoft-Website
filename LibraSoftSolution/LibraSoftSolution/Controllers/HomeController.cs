@@ -32,57 +32,30 @@ namespace LibraSoftSolution.Controllers
             ContactVM ct = new ContactVM();
             return View(ct);
         }
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> SaveContactForm(ContactVM piranha_ContactForm)
-        //{
-        //    var check = await this._ContactAPI.AddContactForm(piranha_ContactForm);
-
-        //    return PartialView("_SubmitSuccess", piranha_ContactForm);
-        //}
-
-        [HttpPost]
-        
-        public async Task<bool> SaveContactForm(ContactVM piranha_ContactForm)
+        public async Task<JsonResult> SaveContactForm(ContactVM piranha_ContactForm)
         {
-            var reasonReachingList = await _ReasonReachingAPI.GetReasonReaching();
-            ViewBag.ListOfReasonReaching = reasonReachingList;
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var check = await this._ContactAPI.AddContactForm(piranha_ContactForm);
+                    bool check = await this._ContactAPI.AddContactForm(piranha_ContactForm);
                     ModelState.Clear();
-                    ViewBag.SuccessMsg = "successfully added";
-                    return true;
+                    if (check)
+                    {
+                        return Json(1);
+                    }
+                    else
+                        return Json(0);
+
                 }
-                catch (Exception e) { };
+                catch (Exception e)
+                {
+
+                };
             }
-            return false;
+            return Json(-1);
         }
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Index( ContactVM piranha_ContactForm)
-        //{
-        //    var reasonReachingList = await _ReasonReachingAPI.GetReasonReaching();
-        //    ViewBag.ListOfReasonReaching = reasonReachingList;
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            var check = await this._ContactAPI.AddContactForm(piranha_ContactForm);
-
-        //            return View();
-        //        }
-        //        catch (Exception e) {
-        //        };
-        //    }
-        //    return View();
-        //}
 
         public IActionResult Privacy()
         {

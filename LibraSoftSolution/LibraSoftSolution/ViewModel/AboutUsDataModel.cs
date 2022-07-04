@@ -4,7 +4,7 @@ namespace LibraSoftSolution.ViewModel
 {
     public class AboutUsDataModel
     {
-        public List<About1CTVM> About1 { get; set; }
-        public List<About3CTVM> About3 { get; set; }
+        public List<AboutCTVM> About1 { get; set; }
+        public List<AboutCTVM> About3 { get; set; }
     }
 }

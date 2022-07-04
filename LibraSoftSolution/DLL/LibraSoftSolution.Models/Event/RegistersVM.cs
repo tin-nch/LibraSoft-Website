@@ -11,7 +11,7 @@ namespace LibraSoftSolution.ViewModels.Event
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Please enter name")]
-        public string Name { get; set; }
+        public string FullName { get; set; }
         [Required(ErrorMessage = "Please enter email address")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Please enter phone number")]

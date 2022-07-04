@@ -9,8 +9,6 @@ namespace LibraSoftSolution.API.ContentBlock
 {
     public interface IClientCTAPI
     {
-        Task<List<Client1CTVM>> gethtmlbysortordersWithImgClient1(int id);
-        Task<List<Client2CTVM>> gethtmlbysortordersWithImgClient2(int id);
-
+        Task<List<ClientCTVM>> gethtmlbysortordersWithImgClient(int id);
     }
 }

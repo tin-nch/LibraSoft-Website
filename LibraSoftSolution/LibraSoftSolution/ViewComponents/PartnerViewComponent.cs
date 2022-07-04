@@ -1,5 +1,6 @@
 ﻿using LibraSoftSolution.API.ContentBlock;
 using LibraSoftSolution.API.ContentWeb;
+using LibraSoftSolution.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 namespace LibraSoftSolution.ViewComponents
@@ -14,7 +15,9 @@ namespace LibraSoftSolution.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var Item = await _HtmlSOAPI.gethtmlbysortordersWithImgPartner(36);
+            PartnerDataModel Item = new PartnerDataModel();
+            Item.PartnerMain = await _HtmlSOAPI.gethtmlbysortordersWithImgPartner(45);
+            Item.Partner = await _HtmlSOAPI.gethtmlbysortordersWithImgPartner(42);
             return View(Item);
         }
     }

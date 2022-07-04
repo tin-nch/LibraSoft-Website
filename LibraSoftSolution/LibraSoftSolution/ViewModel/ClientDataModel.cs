@@ -4,8 +4,8 @@ namespace LibraSoftSolution.ViewModel
 {
     public class ClientDataModel
     {
-        public List<Client1CTVM> Client1 { get; set; }
-        public List<Client2CTVM> Client2 { get; set; }
+        public List<ClientCTVM> Client1 { get; set; }
+        public List<ClientCTVM> Client2 { get; set; }
 
     }
 }

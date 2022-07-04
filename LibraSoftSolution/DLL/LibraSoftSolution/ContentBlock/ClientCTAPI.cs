@@ -18,15 +18,10 @@ namespace LibraSoftSolution.API.ContentBlock
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<List<Client1CTVM>> gethtmlbysortordersWithImgClient1(int id)
+        public async Task<List<ClientCTVM>> gethtmlbysortordersWithImgClient(int id)
         {
             var body = await GetAsync<RequestResponse>($"api/blockfields/gethtmlbysortorderwithimgclient/{id}");
-            return OutPutApi.OutPut<Client1CTVM>(body);
-        }
-        public async Task<List<Client2CTVM>> gethtmlbysortordersWithImgClient2(int id)
-        {
-            var body = await GetAsync<RequestResponse>($"api/blockfields/gethtmlbysortorderwithimgclient/{id}");
-            return OutPutApi.OutPut<Client2CTVM>(body);
+            return OutPutApi.OutPut<ClientCTVM>(body);
         }
     }
 }

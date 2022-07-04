@@ -1,4 +1,5 @@
 ﻿using LibraSoftSolution.API.Event;
+using LibraSoftSolution.Models;
 using LibraSoftSolution.ViewModels.Event;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,22 +17,29 @@ namespace LibraSoftSolution.Controllers
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(RegistersVM registerForm)
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        public async Task<JsonResult> RegisterEvent(RegistersVM registerForm)
         {
-
+           
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var check = await this._registersApi.AddRegister(registerForm);
+                    string check = await this._registersApi.AddRegister(registerForm);
+                    if(check.Contains("submit success"))
+                    {
+                        return Json(1);
+                    }  
+                    else
+                        return Json(0);
 
-                    return RedirectToAction("Index");
                 }
-                catch (Exception e) { };
+                catch (Exception e) {
+                  
+                };
             }
-            return View(registerForm);
+            return Json(-1);
         }
     }
 }

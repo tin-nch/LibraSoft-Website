@@ -15,7 +15,7 @@ namespace LibraSoftSolution.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var Item = await _HtmlSOAPI.gethtmlbysortordersWithImgService(6);
+            var Item = await _HtmlSOAPI.gethtmlbysortordersWithImgService(8);
             return View(Item);
         }
     }

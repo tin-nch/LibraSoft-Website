@@ -19,11 +19,11 @@ namespace LibraSoftSolution.API.Event
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<bool> AddRegister(RegistersVM register)
+        public async Task<string> AddRegister(RegistersVM register)
         {
             var body = await AddAsync<RequestResponse, RegistersVM>("/api/EventParticipants/add", register);
 
-            return OutPutApi.OutPutBool<bool>(body);
+            return OutPutApi.OutPutString<string>(body);
         }
     }
 }
