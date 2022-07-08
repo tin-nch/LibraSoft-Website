@@ -23,9 +23,6 @@ public partial class PiranhaCoreContext : DbContext
     public virtual DbSet<PiranhaBlock> PiranhaBlocks { get; set; }
     public virtual DbSet<PiranhaBlockField> PiranhaBlockFields { get; set; }
     public virtual DbSet<PiranhaCategory> PiranhaCategories { get; set; }
-    public virtual DbSet<PiranhaCfcountry> PiranhaCfcountries { get; set; }
-    public virtual DbSet<PiranhaCfindustry> PiranhaCfindustries { get; set; }
-    public virtual DbSet<PiranhaCfpartnerImg> PiranhaCfpartnerImgs { get; set; }
     public virtual DbSet<PiranhaCfreasonReaching> PiranhaCfreasonReachings { get; set; }
     public virtual DbSet<PiranhaContactForm> PiranhaContactForms { get; set; }
     public virtual DbSet<PiranhaContent> PiranhaContents { get; set; }
@@ -72,15 +69,13 @@ public partial class PiranhaCoreContext : DbContext
     public virtual DbSet<PiranhaUserLogin> PiranhaUserLogins { get; set; }
     public virtual DbSet<PiranhaUserToken> PiranhaUserTokens { get; set; }
     public virtual DbSet<RootImage> RootImages { get; set; }
-    public virtual DbSet<Temp> Temps { get; set; }
-    public virtual DbSet<Temp1> Temp1s { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
         {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-            optionsBuilder.UseSqlServer("server=192.168.1.187;Database=PiranhaCore;User ID=sa;Password=Sa2019;Integrated Security=false;");
+            optionsBuilder.UseSqlServer("server=192.168.1.187;Database=LibraSoftCMS;User ID=sa;Password=Sa2019;Integrated Security=false;");
         }
     }
 
@@ -111,28 +106,10 @@ public partial class PiranhaCoreContext : DbContext
             entity.Property(e => e.Id).ValueGeneratedNever();
         });
 
-        modelBuilder.Entity<PiranhaCfcountry>(entity =>
-        {
-            entity.HasKey(e => e.CountryId)
-                .HasName("PK__Piranha___10D1609F9FFE3BDC");
-        });
-
-        modelBuilder.Entity<PiranhaCfindustry>(entity =>
-        {
-            entity.HasKey(e => e.IndustyId)
-                .HasName("PK__Piranha___101795B3EAC23AD4");
-        });
-
-        modelBuilder.Entity<PiranhaCfpartnerImg>(entity =>
-        {
-            entity.HasKey(e => e.PartnerImgId)
-                .HasName("PK__Piranha___0F211E7882A697BA");
-        });
-
         modelBuilder.Entity<PiranhaCfreasonReaching>(entity =>
         {
             entity.HasKey(e => e.ReasonReachingId)
-                .HasName("PK__Piranha___350A614E74328257");
+                .HasName("PK__Piranha___350A614E65FCDA6C");
         });
 
         modelBuilder.Entity<PiranhaContactForm>(entity =>
@@ -142,7 +119,7 @@ public partial class PiranhaCoreContext : DbContext
             entity.HasOne(d => d.ReasonReaching)
                 .WithMany(p => p.PiranhaContactForms)
                 .HasForeignKey(d => d.ReasonReachingId)
-                .HasConstraintName("FK__Piranha_C__Reaso__339FAB6E");
+                .HasConstraintName("FK__Piranha_C__Reaso__25518C17");
         });
 
         modelBuilder.Entity<PiranhaContent>(entity =>

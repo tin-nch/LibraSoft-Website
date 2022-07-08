@@ -14,5 +14,10 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
     {
         AdminAccount GetVirtualEmail();
         PiranhaApplicationForm GetPiranhaApplicationForm(PiranhaApplicationForm a);
+
+        public int GenerateOPTCode();
+        
+        
+       
     }
 }

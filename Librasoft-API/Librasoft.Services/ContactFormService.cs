@@ -51,5 +51,10 @@ namespace Librasoft.Services
         {
             throw new NotImplementedException();
         }
+
+        public bool ValidateContactForm(PiranhaContactForm contactForm)
+        {
+           return contactFormRepository.ValidateContactForm(contactForm);
+        }
     }
 }

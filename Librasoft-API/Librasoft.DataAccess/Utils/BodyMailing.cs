@@ -22,12 +22,12 @@ namespace Librasoft_API.Utils
 
                 + "\r\n\t<div style=\"text-align: left\">\r\n\t\t<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:175%;font-size:15px;font-family:\"Calibri\",sans-serif;'><span style='font-size:12px;line-height:175%;font-family:\"Arial\",sans-serif;color:#202020;'>Thank you for signing up for our webinar." +
                 "<br> <strong>Time | "+ piranhaEvent.StartDate.Value.TimeOfDay + ", "+ piranhaEvent.StartDate.Value.DayOfWeek + ", "+ piranhaEvent.StartDate.Value.ToShortDateString()+ " via " 
-                + "Zoom</strong><br>&nbsp;(Zoom ID: " + piranhaEvent.ZoomId + " and Password: " + piranhaEvent.ZoomPassword+")<br>&nbsp;" 
+              
                 + "Link:"+piranhaEvent.Url+"<br>&nbsp;Can&rsquo;t wait to see you on the event!<br> <em><u>" 
-                + "Note:</u><br>&nbsp;"+piranhaEvent.NoteEng+"</em></span></p>\r\n\t\t<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:175%;font-size:15px;font-family:\"Calibri\",sans-serif;'><br></p>\r\n\t\t<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:175%;font-size:15px;font-family:\"Calibri\",sans-serif;'><span style='font-size:12px;line-height:175%;font-family:\"Arial\",sans-serif;color:navy;'>Cảm ơn bạn đ&atilde; đăng k&iacute; tham gia hội thảo trực tuyến của ch&uacute;ng t&ocirc;i.<br> <strong>" +
-                "Thời gian | "+piranhaEvent.StartDate.Value.TimeOfDay+", " + convertToVietNameseDay(piranhaEvent.StartDate.Value.DayOfWeek.ToString()) + " , " + piranhaEvent.StartDate.Value.ToShortDateString() + " qua Zoom&nbsp;</strong><br>&nbsp;(" 
-                +"Zoom ID: " + piranhaEvent.ZoomId + "; Password: " + piranhaEvent.ZoomPassword + ")<br>&nbsp;" +
-                "Link:" + piranhaEvent.Url + " </a><br>&nbsp;Hẹn gặp lại c&aacute;c bạn tại buổi hội thảo!<br> <em><u>Ghi ch&uacute;:</u><br>"+piranhaEvent.NoteVn+"</em></span></p>\r\n\t</div>\r\n\t\r\n\t<div border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse;min-width:100%\" align: \"center\" class=\"child\">\r\n\t\t"
+                + "Note:</u><br>&nbsp;"+piranhaEvent.NoteEng+ "</em></span></p>\r\n\t\t<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:175%;font-size:15px;font-family:\"Calibri\",sans-serif;'><br></p>\r\n\t\t<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:175%;font-size:15px;font-family:\"Calibri\",sans-serif;'><span style='font-size:12px;line-height:175%;font-family:\"Arial\",sans-serif;color:navy;'>Cảm ơn bạn đ&atilde; đăng k&iacute; tham gia hội thảo trực tuyến của ch&uacute;ng t&ocirc;i.<br> <strong>" +
+                "Thời gian | "+piranhaEvent.StartDate.Value.TimeOfDay+", " + convertToVietNameseDay(piranhaEvent.StartDate.Value.DayOfWeek.ToString()) + " , " + piranhaEvent.StartDate.Value.ToShortDateString() 
+                +
+                "<br>Link:" + piranhaEvent.Url + " </a><br>&nbsp;Hẹn gặp lại c&aacute;c bạn tại buổi hội thảo!<br> <em><u>Ghi ch&uacute;:</u><br>"+piranhaEvent.NoteVn+"</em></span></p>\r\n\t</div>\r\n\t\r\n\t<div border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse;min-width:100%\" align: \"center\" class=\"child\">\r\n\t\t"
 
             + String.Format(@"<img width=""{0}"" style=""{1}"" src=""cid:{2}"" />", 600, "max-height: 100%;", att1[1].ContentId)
                 + "</br>"
@@ -96,6 +96,20 @@ namespace Librasoft_API.Utils
                 default: return null;
                     
             }    
+        }
+
+        public static string OTPMail(int otp)
+        {
+
+
+            string body = "<div>To verify your email address, please use the following One Time Password (OTP):<br>" +
+                "<h4>" + otp + "</h4></div> <br>";
+
+
+              
+
+
+            return body;
         }
     }
 }

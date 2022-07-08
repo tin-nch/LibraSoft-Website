@@ -236,7 +236,7 @@ namespace Librasoft_API.Controllers
                         p.imgpath = a[0];
 
                         p.imgpath = p.imgpath.Substring(3);
-                        string g = p.imgpath.Remove(p.imgpath.Length - 4);
+                        string g = p.imgpath.Remove(p.imgpath.Length - 5);
                         p.imgpath = g;
                     }
                     else
@@ -249,13 +249,13 @@ namespace Librasoft_API.Controllers
                         p.imgpath = a[0];
 
                         p.imgpath = p.imgpath.Substring(3);
-                        string g = p.imgpath.Remove(p.imgpath.Length - 4);
+                        string g = p.imgpath.Remove(p.imgpath.Length - 5);
                         p.imgpath = g;
 
                         p.url = a[1];
 
                         p.url = p.url.Substring(3);
-                        string x = p.url.Remove(p.url.Length - 4);
+                        string x = p.url.Remove(p.url.Length - 5);
                         p.url = x;
                     }
 
@@ -310,11 +310,11 @@ namespace Librasoft_API.Controllers
                    
                     p.ImgPath = a[0];
                     p.ImgPath = p.ImgPath.Substring(3);
-                    string g = p.ImgPath.Remove(p.ImgPath.Length - 4);
+                    string g = p.ImgPath.Remove(p.ImgPath.Length - 5);
                     p.ImgPath = g;
                     p.Title = a[2];
                     p.Title = p.Title.Substring(4);
-                    g = p.Title.Remove(p.Title.Length - 11);
+                    g = p.Title.Remove(p.Title.Length - 12);
                     p.Title = g;
 
                     p.IconCode = a[a.Length-1];
@@ -444,7 +444,7 @@ namespace Librasoft_API.Controllers
                     if(p.Title.StartsWith("<h"))
                     {
                         p.Title = p.Title.Substring(4);
-                        string g = p.Title.Remove(p.Title.Length - 5);
+                        string g = p.Title.Remove(p.Title.Length - 6);
                         p.Title = g;
                     }    
 
@@ -587,14 +587,23 @@ namespace Librasoft_API.Controllers
                     if (a[0].StartsWith("<p"))
                     {
                        temp = a[0].Substring(3);
-                        temp = temp.Remove(temp.Length - 4);
+                        temp = temp.Remove(temp.Length - 5);
                         p.Content = temp;
                     }
                     if (a[1].StartsWith("<p"))
                     {
                         temp = a[1].Substring(3);
-                        temp = temp.Remove(temp.Length - 4);
-                        p.NumberOrder = Convert.ToInt32(temp);
+                        temp = temp.Remove(temp.Length - 5);
+                        try
+                        {
+                            p.NumberOrder = Convert.ToInt32(temp);
+                        }
+                        catch(Exception e)
+                        {
+                            p.NumberOrder = 1;
+                        }
+                        
+                       
                     }
 
                    

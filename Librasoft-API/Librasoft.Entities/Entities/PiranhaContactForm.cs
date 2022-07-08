@@ -20,6 +20,8 @@ namespace Librasoft.Entities.Entities
         public string Phone { get; set; }
         public int? ReasonReachingId { get; set; }
         public string MessageContent { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime? Time { get; set; }
 
         [ForeignKey("ReasonReachingId")]
         [InverseProperty("PiranhaContactForms")]

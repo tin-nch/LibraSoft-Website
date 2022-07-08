@@ -48,7 +48,7 @@ namespace Librasoft.Services
             return mapper.Map<IEnumerable<PiranhaEventParticipant>>(evt);
         }
 
-        public bool checkExistsEmail(EventParticipantDto eventParticipant)
+        public int checkExistsEmail(EventParticipantDto eventParticipant)
         {
             return eventParticipantsRepository.CheckExistsEmail(eventParticipant);
         }
@@ -56,6 +56,16 @@ namespace Librasoft.Services
         public bool checkRegistedEmail(EventParticipantDto eventParticipant)
         {
             return eventParticipantsRepository.CheckRegistedEmail(eventParticipant);
+        }
+
+        public bool UpdateParticipants(EventParticipantDto e)
+        {
+            return eventParticipantsRepository.UpdateParticipants(e);
+        }
+
+        public bool AddParticipantsToEvent(EventParticipantDto eventParticipant,int idevent)
+        {
+            return eventParticipantsRepository.AddParticipantsToEvent(eventParticipant,idevent);
         }
     }
 }

@@ -5,13 +5,13 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Librasoft-API", "Librasoft-API\Librasoft-API.csproj", "{A59F3686-D048-4671-879D-6659BEE77BAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Librasoft.Services", "Librasoft.Services\Librasoft.Services.csproj", "{0685D66F-E180-4EDE-8B8F-9CF19E598431}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Librasoft.Services", "Librasoft.Services\Librasoft.Services.csproj", "{0685D66F-E180-4EDE-8B8F-9CF19E598431}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Librasoft.DataAccess", "Librasoft.DataAccess\Librasoft.DataAccess.csproj", "{4C32A7A1-EBAA-4B6A-90AE-0D9EC4278CB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Librasoft.DataAccess", "Librasoft.DataAccess\Librasoft.DataAccess.csproj", "{4C32A7A1-EBAA-4B6A-90AE-0D9EC4278CB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Librasoft.Entities", "Librasoft.Entities\Librasoft.Entities.csproj", "{755DC377-26C4-4976-9420-D6C24F8671DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Librasoft.Entities", "Librasoft.Entities\Librasoft.Entities.csproj", "{755DC377-26C4-4976-9420-D6C24F8671DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Librasoft.Infrastructure", "Librasoft.Infrastructure\Librasoft.Infrastructure.csproj", "{7D9D142B-A1A5-45A4-A1AF-032302B1F321}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Librasoft.Infrastructure", "Librasoft.Infrastructure\Librasoft.Infrastructure.csproj", "{7D9D142B-A1A5-45A4-A1AF-032302B1F321}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

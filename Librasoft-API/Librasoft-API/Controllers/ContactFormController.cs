@@ -68,7 +68,17 @@ namespace Librasoft_API.Controllers
             {
                 if (ModelState.IsValid)
                 {
+
+                    if(_contactFormService.ValidateContactForm(contactForm))
+                    {
+                        return new RequestResponse
+                        {
+                            ErrorCode = ErrorCode.Success,
+                            Content = "contact exists"
+                        };
+                    }
                     //add contact to dtb
+                    contactForm.Time = DateTime.Now;
                     PiranhaContactForm add = await _contactFormService.AddContactFormAsync(contactForm);
                     //send email
                     var a = await _sendEmailServices.SendEmail(contactForm);

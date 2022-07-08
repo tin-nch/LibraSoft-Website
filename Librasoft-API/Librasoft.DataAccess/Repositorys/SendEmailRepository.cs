@@ -17,6 +17,13 @@ namespace Librasoft.DataAccess.Repositorys
         {
         }
 
+        public int GenerateOPTCode()
+        {
+            Random rnd = new Random();
+            int otp = rnd.Next(1000, 9999);
+            return otp;
+        }
+
         public PiranhaApplicationForm GetPiranhaApplicationForm(PiranhaApplicationForm application)
         {
           return _context.PiranhaApplicationForms.FirstOrDefault(a => a.Id == application.Id);

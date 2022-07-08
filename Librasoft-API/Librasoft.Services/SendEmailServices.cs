@@ -11,6 +11,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -50,8 +52,8 @@ namespace Librasoft.Services
             string password = _virtualMail.Password;
 
 
-            string nameCorp = "htran5646@gmail.com";
-
+            string nameCorp = "tam.tln@librasoft.vn";
+           
             MailAddress _sender = new MailAddress(virtualEmail);
             MailAddress _receiver = new MailAddress(nameCorp);
             
@@ -75,14 +77,21 @@ namespace Librasoft.Services
 
             // Add credentials if the SMTP server requires them.
             SmtpClient client = new SmtpClient();
-            client.Host = "smtp.gmail.com";
+            // client.Host = "smtp.gmail.com";
+            client.Host = "mail.librasoft.vn";
+            client.UseDefaultCredentials = false;
             client.Credentials = new NetworkCredential(_sender.Address, password);
             client.Port = 587;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.EnableSsl = true;
 
             try
             {
+                ServicePointManager.ServerCertificateValidationCallback =
+        delegate (object s, X509Certificate certificate, X509Chain chain,
+        SslPolicyErrors sslPolicyErrors) { return true; };
                 client.Send(mail);
+          
                 return true;
             }
             catch (Exception ex)
@@ -112,17 +121,9 @@ namespace Librasoft.Services
             MailAddress _receiver = new MailAddress(nameCorp);
             MailMessage mail = new MailMessage(_sender, _receiver);
 
-            string subject = "Fwd:CONFIRMATION OF REGISTRATION TO WEBIBAR";
+            string subject = "CONFIRMATION OF REGISTRATION TO WEBINAR";
             
-            //Info Event tao obj event de test
-            //PiranhaEvent obj = new PiranhaEvent
-            //{
-            //    Active = true,
-            //    EndDate = DateTime.Now,
-            //    EventTitle = "This is even title",
-            //    Id = 1,
-            //    StartDate = DateTime.Now
-            //};
+       
 
             // hinh` anh chuyen ve` dang Jpeg
             string filePath = Directory.GetCurrentDirectory() + "/wwwroot/images/logo.Jpeg";
@@ -163,9 +164,9 @@ namespace Librasoft.Services
             mail.Subject = subject;
             mail.From = _sender;
             mail.To.Add(_receiver);
-            mail.AlternateViews.Add(view);
-            mail.AlternateViews.Add(view1);
-            mail.AlternateViews.Add(view2);
+           // mail.AlternateViews.Add(view);
+       //     mail.AlternateViews.Add(view1);
+          //  mail.AlternateViews.Add(view2);
             mail.Attachments.Add(att);
             mail.Attachments.Add(att1);
             mail.Attachments.Add(att2);
@@ -175,13 +176,18 @@ namespace Librasoft.Services
 
             // Add credentials if the SMTP server requires them.
             SmtpClient client = new SmtpClient();
-            client.Host = "smtp.gmail.com";
+            client.Host = "mail.librasoft.vn";
+            client.UseDefaultCredentials = false;
             client.Credentials = new NetworkCredential(_sender.Address, password);
             client.Port = 587;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.EnableSsl = true;
 
             try
             {
+                ServicePointManager.ServerCertificateValidationCallback =
+      delegate (object s, X509Certificate certificate, X509Chain chain,
+      SslPolicyErrors sslPolicyErrors) { return true; };
                 client.Send(mail);
                 return true;
             }
@@ -207,7 +213,8 @@ namespace Librasoft.Services
             string password = _virtualMail.Password;
 
             //ten nguoi nhan //participant.Email
-            string nameCorp = "htran5646@gmail.com";
+             string nameCorp = "tam.tln@librasoft.vn";
+           
 
             MailAddress _sender = new MailAddress(virtualEmail);
             MailAddress _receiver = new MailAddress(nameCorp);
@@ -261,6 +268,69 @@ namespace Librasoft.Services
 
             // Add credentials if the SMTP server requires them.
             SmtpClient client = new SmtpClient();
+            client.Host = "mail.librasoft.vn";
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential(_sender.Address, password);
+            client.Port = 587;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.EnableSsl = true;
+
+            try
+            {
+                ServicePointManager.ServerCertificateValidationCallback =
+      delegate (object s, X509Certificate certificate, X509Chain chain,
+      SslPolicyErrors sslPolicyErrors) { return true; };
+                client.Send(mail);
+          
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught in CreateMessageWithAttachment(): {0}",
+                    ex.ToString());
+            }
+            return false;
+        }
+
+        public PiranhaApplicationForm GetApplicationForm(PiranhaApplicationForm application)
+        {
+           return sendEmailRepository.GetPiranhaApplicationForm(application);
+        }
+
+        public async Task<bool> SendOPT(string email, string usertype)
+        {
+            var virtualMail = await this.GetVirtualAccountAsync();
+            var _virtualMail = virtualMail.FirstOrDefault();
+
+            // Create a message and set up the recipients.
+            string virtualEmail = _virtualMail.Email;
+            string password = _virtualMail.Password;
+
+
+            string nameCorp = email;
+
+            MailAddress _sender = new MailAddress(virtualEmail);
+            MailAddress _receiver = new MailAddress(nameCorp);
+
+            //subject Email
+            int otp = sendEmailRepository.GenerateOPTCode();
+            string subject = "Verify your submit event";
+
+            string body = BodyMailing.OTPMail(otp);
+            //attach file
+            // 
+
+            MailMessage mail = new MailMessage(_sender, _receiver);
+            mail.Body = body;
+            mail.Subject = subject;
+            mail.From = _sender;
+            mail.To.Add(_receiver);
+
+            mail.Priority = MailPriority.High;
+            mail.IsBodyHtml = true;
+
+            // Add credentials if the SMTP server requires them.
+            SmtpClient client = new SmtpClient();
             client.Host = "smtp.gmail.com";
             client.Credentials = new NetworkCredential(_sender.Address, password);
             client.Port = 587;
@@ -277,11 +347,6 @@ namespace Librasoft.Services
                     ex.ToString());
             }
             return false;
-        }
-
-        public PiranhaApplicationForm GetApplicationForm(PiranhaApplicationForm application)
-        {
-           return sendEmailRepository.GetPiranhaApplicationForm(application);
         }
     }
 }

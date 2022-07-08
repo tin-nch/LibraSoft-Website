@@ -21,6 +21,23 @@ namespace Librasoft.DataAccess.Repositorys
         {
         }
 
- 
+        public bool ValidateContactForm(PiranhaContactForm contactForm)
+        {
+            // lấy danh sách contact form trong ngày hiện tại
+            // lấy thông tin contact với email đưa vào
+            // so sánh nội dung message với từng contact
+            // nếu trùng trả về true
+            List<PiranhaContactForm> lst = _context.PiranhaContactForms.Where(a => a.Time.Value.Date.Equals(DateTime.Now.Date)&& a.Email.Equals(contactForm.Email)).ToList();
+            foreach(PiranhaContactForm x in lst)
+            {
+                if(x.MessageContent.Equals(contactForm.MessageContent))
+                {
+                    return true;
+                }    
+            }    
+
+            return false;
+
+        }
     }
 }

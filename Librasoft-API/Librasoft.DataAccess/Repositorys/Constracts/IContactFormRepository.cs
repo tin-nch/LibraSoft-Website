@@ -13,6 +13,7 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
     public interface IContactFormRepository: IEfRepository<PiranhaContactForm>
     {
 
-      
+      public bool ValidateContactForm(PiranhaContactForm contactForm);
+
     }
 }

@@ -15,5 +15,7 @@ namespace Librasoft.Services.Constract
         Task<bool> SendEmail(PiranhaContactForm contactForm);
         Task<bool> SendConFirmEmail(EventParticipantDto participant);
         public Task<bool> SendCVEmail(PiranhaApplicationForm applicationForm);
+        public Task<bool> SendOPT(string email,string usertype);
+       
     }
 }
