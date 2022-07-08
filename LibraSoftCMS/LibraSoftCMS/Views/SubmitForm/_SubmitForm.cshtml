@@ -1,0 +1,22 @@
+﻿
+@model LibraSoftSolution.ViewModels.Event.RegistersVM
+
+
+<div class="post-comments-form">
+    <form id="submit-form">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="contact-icon">
+                    <div class="search-form">
+                        <input asp-for="IDEvent" id="txtIDEvent" type="text" hidden value="1">
+                        <input class="submitinput"  asp-for="Email" id="sfEmail" type="email" placeholder="Your Email....">
+                        <button id="btnSubmitForm" type="button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <label for="emailev">* Please enter your email to attend</label>
+                    <br/>
+                    <span asp-validation-for="Email" class="text-danger"></span>                                      
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

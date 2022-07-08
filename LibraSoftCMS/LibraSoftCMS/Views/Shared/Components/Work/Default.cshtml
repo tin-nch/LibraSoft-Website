@@ -1,0 +1,33 @@
+﻿@{
+}
+
+@model List<LibraSoftSolution.ViewModels.ContentBlock.WorkCTVM>
+
+<section id="work" class="work-process-area grey-bg pt-20 pb-20" data-background="img/bg/line.png">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 offset-xl-3">
+                <div class="section-title text-center mb-15">
+                    <h1>Why Choose Us?</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach(var Item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="single__process text-center mb-30">
+                        <div class="single__process-icon mb-40">
+                            <span class="@Item.IconCode"></span>
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="single__process-content">
+                            <div class="number">@Item.NumberOrder</div>
+                            <h4>@Item.Content</h4>
+                        </div>
+                    </div>
+                </div>                
+            }
+        </div>
+    </div>
+</section>

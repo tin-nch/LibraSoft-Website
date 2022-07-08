@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_FELayout.cshtml";
+}
+
+<main>
+    <!-- slider-area strat -->
+    @await Component.InvokeAsync("Slider")
+    <!-- slider-area end -->
+
+    <!-- About us Start -->
+    @await Component.InvokeAsync("AboutUs")
+    <!-- About us End -->
+
+    <!-- services-area-start -->
+    @await Component.InvokeAsync("Service")
+    <!-- services-area-end -->
+    
+    <!-- work-process-area -->
+    @await Component.InvokeAsync("Work")
+    <!-- work-process-area-end -->
+
+    <!-- fact-area start -->
+    @await Component.InvokeAsync("Fact")
+    <!-- fact-area end -->
+
+    <!-- partner start -->  
+    @await Component.InvokeAsync("Partner")
+    <!-- partner end -->
+
+    <!-- clients start -->
+    @await Component.InvokeAsync("Client")
+    <!-- clients end -->
+
+    <section id="contact" class="contact-area black-bg pt-20 pb-20">
+        <div id="ContactFormPar">
+            <partial name="_ContactForm" model="Model"/>        
+        </div>
+    </section>
+
+    <!-- map-area start -->
+    @await Component.InvokeAsync("Map")
+    <!-- map-area end -->
+</main>
+
