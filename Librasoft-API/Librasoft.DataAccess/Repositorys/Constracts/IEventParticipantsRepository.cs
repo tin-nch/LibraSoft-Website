@@ -16,5 +16,7 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
         public bool AddParticipants(EventParticipantDto eventParticipant);
         public bool UpdateParticipants(EventParticipantDto eventParticipant);
         public bool AddParticipantsToEvent(EventParticipantDto eventParticipant,int idevent);
+
+        public bool CheckOTP(int  otp);
     }
 }

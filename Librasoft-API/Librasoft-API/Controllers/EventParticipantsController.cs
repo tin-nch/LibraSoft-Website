@@ -19,11 +19,13 @@ namespace Librasoft_API.Controllers
 
         private readonly IEventParticipantsServices eventParticipants;
         private readonly ISendEmailServices sendEmail;
+        private readonly IOtpServices otpServices;
 
-        public EventParticipantsController(IEventParticipantsServices eventParticipants, ISendEmailServices sendEmailServices)
+        public EventParticipantsController(IEventParticipantsServices eventParticipants, ISendEmailServices sendEmailServices, IOtpServices otpServices)
         {
             this.eventParticipants = eventParticipants;
             sendEmail = sendEmailServices;
+            this.otpServices = otpServices;
         }
         [HttpGet]
         public async Task<RequestResponse> GetListParticipants()
@@ -85,6 +87,7 @@ namespace Librasoft_API.Controllers
                             //  var l = await sendEmail.SendConFirmEmail(participant);
                         //    eventParticipants.UpdateParticipants(participant);
                             eventParticipants.AddParticipantsToEvent(participant,participant.IDEvent);
+                            var b = await sendEmail.SendNotifyMail(participant);
                             return new RequestResponse
                                 {
                                     ErrorCode = ErrorCode.Success,
@@ -117,7 +120,8 @@ namespace Librasoft_API.Controllers
              
                     bool rs = eventParticipants.AddParticipants(participant);
                   //  send email
-                      var a = await sendEmail.SendConFirmEmail(participant); 
+                      var a = await sendEmail.SendConFirmEmail(participant);
+                   
                     if (rs && a == true)
                     {
                         return new RequestResponse
@@ -153,78 +157,6 @@ namespace Librasoft_API.Controllers
             }
         }
 
-        [HttpPost("update")]
-        public async Task<RequestResponse> Update(EventParticipantDto participant)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
 
-                    if (eventParticipants.checkExistsEmail(participant)==1)
-                    {
-                        //if(eventParticipants.checkRegistedEmail(participant))
-                        // {
-                        //    return new RequestResponse
-                        //    {
-                        //        ErrorCode = ErrorCode.Success,
-                        //        Content = "Email đã tồn tại"
-                        //    };
-                        // }
-                        //else
-                        //{
-                        //var l = await sendEmail.SendConFirmEmail(participant);
-                        //if (l)
-                        //{
-                        //    return new RequestResponse
-                        //    {
-                        //        ErrorCode = ErrorCode.Success,
-                        //        Content = "submit successfully"
-                        //    };
-                        //}
-                        // }
-
-
-                    }
-                    //add contact to dtb
-
-
-                    bool rs = eventParticipants.UpdateParticipants(participant);
-                    //  send email
-                 //   var a = await sendEmail.SendConFirmEmail(participant);
-                    if (rs == true)
-                    {
-                        return new RequestResponse
-                        {
-                            ErrorCode = ErrorCode.Success,
-                            Content = "submit successfully"
-                        };
-                    }
-
-                    return new RequestResponse
-                    {
-                        ErrorCode = ErrorCode.GeneralFailure,
-                        Content = string.Empty
-                    };
-                }
-                else
-                {
-                    return new RequestResponse
-                    {
-                        ErrorCode = ErrorCode.GeneralFailure,
-                        Content = "Model invalid"
-                    };
-                }
-            }
-            catch (Exception ex)
-            {
-                string errorDetail = ex.InnerException != null ? ex.InnerException.ToString() : ex.Message.ToString();
-                return new RequestResponse
-                {
-                    ErrorCode = ErrorCode.GeneralFailure,
-                    Content = errorDetail
-                };
-            }
-        }
     }
 }

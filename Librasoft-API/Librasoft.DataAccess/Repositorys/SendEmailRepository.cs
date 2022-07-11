@@ -20,7 +20,12 @@ namespace Librasoft.DataAccess.Repositorys
         public int GenerateOPTCode()
         {
             Random rnd = new Random();
-            int otp = rnd.Next(1000, 9999);
+            int otp = rnd.Next(100000, 999999);
+            PiranhaOtp a = _context.PiranhaOtps.FirstOrDefault(b => b.Otp.Equals(otp));
+            if (a != null)
+            {
+             return GenerateOPTCode();
+            }    
             return otp;
         }
 

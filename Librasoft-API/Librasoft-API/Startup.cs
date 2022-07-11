@@ -71,6 +71,7 @@ namespace Librasoft_API
             services.AddScoped<IApplicationFormRepository, ApplicationFormRepository>();
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IEventParticipantsRepository, EventParticipantsRepository>();
+            services.AddScoped<IOtpRepository, OtpRepository>();
 
             #endregion
 
@@ -91,6 +92,7 @@ namespace Librasoft_API
             services.AddScoped(typeof(IApplicationFormServices), typeof(ApplicationFormServices));
             services.AddScoped(typeof(IEventServices), typeof(EventServices));
             services.AddScoped(typeof(IEventParticipantsServices), typeof(EventParticipantsServices));
+            services.AddScoped(typeof(IOtpServices), typeof(OtpServices));
             #endregion
         }
 
@@ -125,6 +127,10 @@ namespace Librasoft_API
             });
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                  name: "Admin",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

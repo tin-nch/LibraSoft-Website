@@ -128,5 +128,10 @@ namespace Librasoft.DataAccess.Repositorys
 
             return false;
         }
+
+        public bool CheckOTP(int otp)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

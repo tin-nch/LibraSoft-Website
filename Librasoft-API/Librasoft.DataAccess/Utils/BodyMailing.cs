@@ -54,6 +54,22 @@ namespace Librasoft_API.Utils
             return body;
         }
 
+        public static string NotifyMail(EventParticipantDto eventParticipant)
+        {
+
+
+            string body = "<div> New participants: " + eventParticipant.Email.ToString() + "</div> <br>" +
+
+                "<div> Name: " + eventParticipant.FullName.ToString() + "</div> <br>" +
+                 "<div> Phone Number: " + eventParticipant.Phone.ToString() + "</div>" +
+            "<div> Company Name: " + eventParticipant.CompanyName + "</div> <br>" +
+
+              "<div> Position: " + eventParticipant.Position.ToString() + "</div> <br>";
+
+
+            return body;
+        }
+
         public static string ApplicationForm(PiranhaApplicationForm applicationForm)
         {
             //contactForm.Email = "NEmail";
