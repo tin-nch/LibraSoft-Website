@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="- 13th month salary bonus + attractive performance bonus (you'll love it!) + Performance review and allowance" xml:space="preserve">
+    <value>- Thưởng lương tháng 13 + thưởng hiệu suất hấp dẫn (bạn sẽ thích nó!) + Đánh giá thành tích và phụ cấp</value>
+  </data>
+  <data name="- Analytical, communication and teamwork skills" xml:space="preserve">
+    <value>- Kỹ năng phân tích, giao tiếp và làm việc nhóm</value>
+  </data>
+  <data name="- At least 1 year of experience as a developer using the latest Microsoft Stack: C#, ASP.NET Core, Entity Framework Core &amp; SQL Server, Web API, MVC" xml:space="preserve">
+    <value>- Có ít nhất 1 năm kinh nghiệm làm nhà phát triển sử dụng Microsoft Stack mới nhất: C #, ASP.NET Core, Entity Framework Core &amp; SQL Server, Web API, MVC</value>
+  </data>
+  <data name="- Can work on both back end and front end (preferably VueJs, Nodejs, Angularjs)" xml:space="preserve">
+    <value>- Có thể hoạt động trên cả back end và front end (tốt nhất là VueJs, Nodejs, Angularjs)</value>
+  </data>
+  <data name="- Check and review the application" xml:space="preserve">
+    <value>- Kiểm tra và xem xét các ứng dụng</value>
+  </data>
+  <data name="- Design and develop .Net applications, from concept to implementation" xml:space="preserve">
+    <value>- Thiết kế và phát triển các ứng dụng .Net, từ ý tưởng đến triển khai</value>
+  </data>
+  <data name="- Design and develop .Net applications, from concept to implementation." xml:space="preserve">
+    <value>- Thiết kế và phát triển các ứng dụng .Net, từ ý tưởng đến triển khai.</value>
+  </data>
+  <data name="- Design and optimize tables and queries for MS SQL Server." xml:space="preserve">
+    <value>- Thiết kế và tối ưu hóa các bảng và truy vấn cho MS SQL Server.</value>
+  </data>
+  <data name="- Develop and maintain the application and contribute to the implementation of features and solutions" xml:space="preserve">
+    <value>- Phát triển và duy trì ứng dụng và đóng góp vào việc triển khai các tính năng và giải pháp</value>
+  </data>
+  <data name="- Estimate and prepare a timeline for development/improvement" xml:space="preserve">
+    <value>- Ước tính và chuẩn bị một mốc thời gian để phát triển / cải tiến</value>
+  </data>
+  <data name="- Experience in building web applications using ASP .NET Web MVC" xml:space="preserve">
+    <value>- Có kinh nghiệm xây dựng ứng dụng web bằng ASP .NET Web MVC</value>
+  </data>
+  <data name="- Experience with source control systems such as GIT" xml:space="preserve">
+    <value>- Có kinh nghiệm với các hệ thống điều khiển nguồn như GIT</value>
+  </data>
+  <data name="- Flexible working time, comfortable and convenient working environment" xml:space="preserve">
+    <value>- Thời gian làm việc linh hoạt, môi trường làm việc thoải mái, thuận tiện</value>
+  </data>
+  <data name="- Get diversified training in trending technologies/foreign languages ​​and soft skills" xml:space="preserve">
+    <value>- Được đào tạo đa dạng về công nghệ xu hướng / ngoại ngữ và kỹ năng mềm</value>
+  </data>
+  <data name="- High performance app optimization experience" xml:space="preserve">
+    <value>- Trải nghiệm tối ưu hóa ứng dụng hiệu suất cao</value>
+  </data>
+  <data name="- Join a dynamic and fast-growing global company" xml:space="preserve">
+    <value>- Tham gia vào một công ty toàn cầu năng động và phát triển nhanh chóng</value>
+  </data>
+  <data name="- Logical thinking skills, problem solving, good analysis, ready to work" xml:space="preserve">
+    <value>- Kỹ năng tư duy logic, giải quyết vấn đề, phân tích tốt, sẵn sàng làm việc</value>
+  </data>
+  <data name="- Participate in collecting, analyzing, proposing technical solutions, solving complex problems of web applications with friends and colleague" xml:space="preserve">
+    <value>- Tham gia thu thập, phân tích, đề xuất các giải pháp kỹ thuật, giải quyết các vấn đề phức tạp của ứng dụng web cùng với bạn bè và đồng nghiệp</value>
+  </data>
+  <data name="- Participate in collecting, analyzing, proposing technical solutions, solving complex problems of web applications with friends and colleagues" xml:space="preserve">
+    <value>- Tham gia thu thập, phân tích, đề xuất các giải pháp kỹ thuật, giải quyết các vấn đề phức tạp của ứng dụng web với bạn bè và không</value>
+  </data>
+  <data name="- Participate in collecting, analyzing, proposing technical solutions, solving complex problems of web applications with friends and colleaguess" xml:space="preserve">
+    <value>- Tham gia thu thập, phân tích, đề xuất các giải pháp kỹ thuật, giải quyết các vấn đề phức tạp của ứng dụng web cùng với bạn bè và đồng nghiệp</value>
+  </data>
+  <data name="- Participate in many team building activities, company trips, year-end parties, talk about technology" xml:space="preserve">
+    <value>- Tham gia nhiều hoạt động team building, các chuyến đi công ty, tiệc cuối năm, nói chuyện về công nghệ</value>
+  </data>
+  <data name="- Technical support / mentoring for team members" xml:space="preserve">
+    <value>- Hỗ trợ kỹ thuật / cố vấn cho các thành viên trong nhóm</value>
+  </data>
+  <data name="- Work at one of the best workplaces in Vietnam" xml:space="preserve">
+    <value>- Làm việc tại một trong những nơi làm việc tốt nhất Việt Nam
+Quyền lợi và cơ hội nghề nghiệp</value>
+  </data>
+  <data name="- Working with customers to grasp, understand the business context, develop communication skills" xml:space="preserve">
+    <value>- Làm việc với khách hàng để nắm bắt, hiểu rõ bối cảnh kinh doanh, phát triển kỹ năng giao tiếp</value>
+  </data>
+  <data name=".Net Developer" xml:space="preserve">
+    <value>Lập trình viên .Net</value>
+  </data>
+  <data name="Because together we turn ideas into reality, working every day to make tomorrow's world a better place." xml:space="preserve">
+    <value>Vì cùng nhau, chúng ta biến ý tưởng thành hiện thực, làm việc vì một thế giới tốt đẹp hơn</value>
+  </data>
+  <data name="Because we don't just follow trends, we create them." xml:space="preserve">
+    <value>Vì chúng ta không theo trào lưu, chúng ta tạo ra chúng.</value>
+  </data>
+  <data name="Benefits and career opportunities" xml:space="preserve">
+    <value>Quyền lợi và cơ hội nghề nghiệp</value>
+  </data>
+  <data name="Enter your email :" xml:space="preserve">
+    <value>Nhập email của bạn :</value>
+  </data>
+  <data name="Enter your name" xml:space="preserve">
+    <value>Điền tên của bạn</value>
+  </data>
+  <data name="Enter your phone" xml:space="preserve">
+    <value>Nhập điện thoại của bạn</value>
+  </data>
+  <data name="Job description" xml:space="preserve">
+    <value>Mô tả công việc</value>
+  </data>
+  <data name="Join our team" xml:space="preserve">
+    <value>Gia nhập đội ngũ của chúng tôi</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Gửi</value>
+  </data>
+  <data name="welcome" xml:space="preserve">
+    <value>hoan nghênh</value>
+  </data>
+  <data name="Why would you love working at LibraSoft?" xml:space="preserve">
+    <value>Tại sao bạn thích làm việc tại LibraSoft?</value>
+  </data>
+  <data name="Your Journey Starts Here." xml:space="preserve">
+    <value>Hành trình của bạn bắt đầu từ đây.</value>
+  </data>
+  <data name="Your name :" xml:space="preserve">
+    <value>Tên của bạn :</value>
+  </data>
+  <data name="Your phone number :" xml:space="preserve">
+    <value>Số điện thoại của bạn :</value>
+  </data>
+  <data name="Your skills and experience" xml:space="preserve">
+    <value>Kỹ năng và kinh nghiệm của bạn</value>
+  </data>
+</root>

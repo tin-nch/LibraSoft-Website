@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&lt;h2&gt;About AxxonSoft&lt;/h2&gt;" xml:space="preserve">
+    <value>&lt;h2&gt;Về AxxonSoft&lt;/h2&gt;</value>
+  </data>
+  <data name="&lt;h2&gt;About Scandit&lt;/h2&gt;" xml:space="preserve">
+    <value>&lt;h2&gt;Về Scandit&lt;/h2&gt;</value>
+  </data>
+  <data name="&lt;p&gt;Founded in 2003, AxxonSoft is a leading developer of smart integrated security and video surveillance systems (VMS and PSIM). The company's portfolio for the Safety &amp;amp; Security market boasts over 150,000 projects with 2.5 million cameras installed.&lt;br /&gt;AxxonSoft has more than 5,800 certified partners in 100+ countries, which perform over 1,500 installations every month. With 40 offices around the world, the company provides its partners with fast response times and exceptional support in every corner of the globe.&lt;br /&gt;The AxxonSoft VMS and PSIM platforms power more than 240 Safe City municipal surveillance projects and security systems at retailers, banks, international airports, seaports, industrial sites, and numerous government and business facilities around the world.&quot;&lt;/p&gt;" xml:space="preserve">
+    <value>&lt;p&gt; Được thành lập vào năm 2003, AxxonSoft là nhà phát triển hàng đầu của hệ thống giám sát video và an ninh tích hợp thông minh (VMS và PSIM). Danh mục đầu tư của công ty cho thị trường An toàn &amp; An ninh tự hào có hơn 150.000 dự án với 2,5 triệu camera được lắp đặt.&lt;br /&gt;AxxonSoft có hơn 5.800 đối tác được chứng nhận ở hơn 100 quốc gia, thực hiện hơn 1.500 lượt cài đặt mỗi tháng. Với 40 văn phòng trên khắp thế giới, công ty cung cấp cho các đối tác của mình thời gian phản hồi nhanh chóng và hỗ trợ đặc biệt ở mọi nơi trên toàn cầu. &lt;br /&gt; Các nền tảng AxxonSoft VMS và PSIM cung cấp năng lượng cho hơn 240 dự án giám sát thành phố Safe City và hệ thống an ninh tại các nhà bán lẻ, ngân hàng, sân bay quốc tế, cảng biển, khu công nghiệp và nhiều cơ sở chính phủ và doanh nghiệp trên khắp thế giới.&lt;/p&gt;</value>
+  </data>
+  <data name="&lt;p&gt;Three researchers from MIT, ETH Zurich and IBM Research founded Scandit in 2009 and remain in the business today. We quickly evolved into a software business that puts a powerful smart device scanning solution in the hands of workers and customers, enabling them to interact digitally with physical objects.&lt;br /&gt;&lt;br /&gt;Scandit is the leader in smart data capture with a team of global experts who partner with customers to integrate data capture into their workflows and provide actionable insights. Scandit is trusted for delivering top performance, business results and enterprise-level success. Perpetually aiming to break new ground will continue to shape our Smart Data Capture platform.&lt;/p&gt;" xml:space="preserve">
+    <value>&lt;p&gt; Scandit được thành lập vào năm 2009 bởi 3 nhà nghiên cứu MIT, ETH Zurich và IBM Research. Chúng tôi nhanh chóng phát triển thành một công ty kinh doanh phần mềm đưa giải pháp quét trên các thiết bị thông minh mạnh mẽ đến tay người lao động và khách hàng, cho phép họ tương tác kỹ thuật số với các đối tượng vật lý.  &lt;br /&gt; &lt;br /&gt; Scandit dẫn đầu trong lĩnh vực thu thập dữ liệu thông minh với đội ngũ chuyên gia toàn cầu hợp tác với khách hàng để tích hợp thu thập dữ liệu vào quy trình làm việc của họ và cung cấp thông tin chi tiết hữu ích. Scandit được tin cậy vì mang lại hiệu suất cao nhất, kết quả kinh doanh và thành công ở cấp độ doanh nghiệp. Mục tiêu lâu dài để tạo ra nền tảng mới sẽ tiếp tục định hình nền tảng Thu thập dữ liệu thông minh của chúng tôi. &lt;/p&gt;</value>
+  </data>
+  <data name="About AxxonSoft" xml:space="preserve">
+    <value>Về AxxonSoft</value>
+  </data>
+  <data name="Founded in 2003, AxxonSoft is a leading developer of smart integrated security and video surveillance systems (VMS and PSIM)." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Founded in 2003, AxxonSoft is a leading developer of smart integrated security and video surveillance systems (VMS and PSIM). The company's portfolio for the Safety &amp; Security market boasts over 150,000 projects with 2.5 million cameras installed.&lt;br/&gt;AxxonSoft has more than 5,800 certified partners in 100+ countries, which perform over 1,500 installations every month. With 40 offices around the world, the company provides its partners with fast response times and exceptional support in every corner of the globe.&lt;br/&gt;The AxxonSoft VMS and PSIM platforms power more than 240 Safe City municipal surveillance projects and security systems at retailers, banks, international airports, seaports, industrial sites, and numerous government and business facilities around the world." xml:space="preserve">
+    <value>Được thành lập vào năm 2003, AxxonSoft là nhà phát triển hàng đầu của hệ thống giám sát video và an ninh tích hợp thông minh (VMS và PSIM). Danh mục đầu tư của công ty cho thị trường An toàn &amp; An ninh tự hào có hơn 150.000 dự án với 2,5 triệu camera được lắp đặt. &lt;br/&gt; AxxonSoft có hơn 5.800 đối tác được chứng nhận tại hơn 100 quốc gia, thực hiện hơn 1.500 lượt cài đặt mỗi tháng. Với 40 văn phòng trên khắp thế giới, công ty cung cấp cho các đối tác của mình thời gian phản hồi nhanh chóng và hỗ trợ đặc biệt ở mọi nơi trên toàn cầu. &lt;br/&gt; Nền tảng AxxonSoft VMS và PSIM cung cấp năng lượng cho hơn 240 dự án giám sát thành phố Safe City và hệ thống an ninh tại các nhà bán lẻ , ngân hàng, sân bay quốc tế, cảng biển, khu công nghiệp, và nhiều cơ sở chính phủ và doanh nghiệp trên khắp thế giới.</value>
+  </data>
+  <data name="learn more" xml:space="preserve">
+    <value>tìm hiểu thêm</value>
+  </data>
+  <data name="Our Partners" xml:space="preserve">
+    <value>Đối Tác</value>
+  </data>
+</root>

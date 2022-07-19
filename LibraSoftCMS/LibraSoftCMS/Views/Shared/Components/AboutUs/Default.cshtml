@@ -1,0 +1,72 @@
+﻿@using LibraSoftSolution.ViewModel
+
+@model AboutUsDataModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<section id="about" class="about-area pt-40">
+    <div class="container">
+        <div class="row">
+            @foreach(var Item in Model.About1)
+            {
+               <div class="col-lg-6">
+                    <div class="about-thumb mb-40">
+                        @Html.Raw(@Item.ImgPath)
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text mb-40">
+                        <div class="servces-icon2">
+                            <h3>@localizer[@Item.Title] <span><i class="@Item.IconCode"></i></span></h3>
+                        </div>
+                        @{
+                            string content;
+                            content = @localizer[@Item.Content].Value;
+                        }
+                        @Html.Raw(content)
+                    </div>
+                </div>                
+            }
+            <div class="col-lg-6">
+                <div class="about-text mb-40">
+                    <div class="servces-icon2">
+                        <h3>@localizer["Our Culture"] <span><i class="pe-7s-leaf"></i></span></h3>
+                    </div>
+                    <p>@localizer["Librasoft provides a challenging environment that encourages initiative and promotes commitment to its clients’ business objectives."]</p>
+                    <div class="servces-icon2">
+                        <h3>@localizer["Vision"] <span><i class="pe-7s-look"></i></span></h3>
+                    </div>
+                    <p>@localizer["Enabling enterprises to leverage technology for business growth and success"]</p>
+                    <div class="servces-icon2">
+                        <h3>@localizer["Mission"] <span><i class="pe-7s-paper-plane"></i></span></h3>
+                    </div>
+                    <p>@localizer["We help businesses elevate their value through custom software development, high end quality solutions with the right blend of technology, domain knowledge and effective methodology."]</p>                       
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-thumb mb-40">
+                    <img src="~/img/bg/About2.jpg" alt="">
+                </div>
+            </div>
+            @foreach(var Item in Model.About3)
+            {
+               <div class="col-lg-6">
+                    <div class="about-thumb mb-40">
+                        @Html.Raw(@Item.ImgPath)
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text mb-40">
+                        <div class="servces-icon2">
+                            <h3>@localizer[@Item.Title] <span><i class="@Item.IconCode"></i></span></h3>
+                        </div>
+                        @{
+                            string content;
+                            content = @localizer[@Item.Content].Value;
+                        }
+                        @Html.Raw(content)
+                    </div>
+                </div>                
+            }
+        </div>
+    </div>
+</section>

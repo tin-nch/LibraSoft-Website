@@ -1,0 +1,18 @@
+﻿@model List<LibraSoftSolution.ViewModels.ContentBlock.FactCTVM>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<section class="fact-area pt-20 pb-20 mb-20" data-background="img/bg/Fact1.jpg">
+    <div class="container">
+        <div class="row">
+            @foreach(var Item in Model)
+            {
+            <div class="col-lg-3 col-md-6">
+                <div class="fact text-center mb-40">
+                    <h3>@Item.Number</h3>
+                    <span>@localizer[@Item.Content]</span>
+                </div>
+            </div>                
+            }
+        </div>
+    </div>
+</section>

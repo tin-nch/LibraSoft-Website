@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&lt;p&gt;+ Humble: We constantly look to improve and never forget the importance of our customers and colleagues.&lt;/p&gt;&lt;p&gt;+ Customer Focused: We exceed expectations through great discipline and ensure a world class customer experience.&lt;/p&gt;&lt;p&gt;+ Discipline: In everything we do. We accept responsibility and deliver on all of our commitments.&lt;/p&gt;&lt;p&gt;+ Innovation: We continue to accelerate growth through active innovation, utilize the powers of different technologies and integrate them seamlessly.&lt;/p&gt;" xml:space="preserve">
+    <value>&lt;p&gt;+ Khiêm tốn: Chúng tôi không ngừng tìm cách cải thiện và không bao giờ quên tầm quan trọng của khách hàng - đồng nghiệp.&lt;/p&gt;&lt;p&gt;+ Khách hàng là trọng tâm: Chúng tôi vượt mọi sự kỳ vọng thông qua kỷ luật tuyệt vời và đảm bảo trải nghiệm khách hàng đẳng cấp thế giới.&lt;/p&gt;&lt;p&gt;+ Đổi mới: Chúng tôi tiếp tục thúc đẩy tăng trưởng thông qua đổi mới tích cực, sử dụng sức mạnh của các công nghệ khác nhau và tích hợp chúng một cách liền mạch.&lt;/p&gt;&lt;p&gt;+ Kỷ luật: Trong mọi việc làm, Chúng tôi nhận trách nhiệm và thực hiện đúng theo cam kết của mình.&lt;/p&gt;</value>
+  </data>
+  <data name="&lt;p&gt;Founded in 2019, LibraSoft is a leading, highly innovative software house, systems integrator and technology provider, established to provide leading edge intelligent technical solutions and consulting services to businesses, organizations and government in order to allow the efficient and effective secure access and communication with various heterogeneous information resources and services, anytime and anywhere.&lt;/p&gt;&lt;p&gt;We are flat, quick, and efficient. We combine the industry knowledge with technology competence to deliver the highend quality solutions in a cost effective manner to maximize your competitive advantage and increase your business productivity.&lt;/p&gt;" xml:space="preserve">
+    <value>&lt;p&gt;Được thành lập vào năm 2019, LibraSoft là nhà cung cấp phần mềm, nhà tích hợp hệ thống và công nghệ hàng đầu, có tính sáng tạo cao, được thành lập để cung cấp các giải pháp kỹ thuật thông minh và dịch vụ tư vấn cho các doanh nghiệp, tổ chức và chính phủ nhằm cho phép truy cập và giao tiếp an toàn hiệu quả với các nguồn thông tin và dịch vụ không đồng nhất khác nhau, mọi lúc và mọi nơi.&lt;/p&gt;&lt;p&gt;Chúng tôi nhất quán, nhanh chóng và hiệu quả. Chúng tôi kết hợp kiến thức ngành với năng lực công nghệ để cung cấp các giải pháp chất lượng cao nhất với chi phí hiệu quả nhằm tối đa hóa lợi thế cạnh tranh và tăng năng suất kinh doanh của bạn.&lt;/p&gt;</value>
+  </data>
+  <data name="Enabling enterprises to leverage technology for business growth and success" xml:space="preserve">
+    <value>Cho phép doanh nghiệp tận dụng tối đa sự phát triển của công nghệ để tăng trưởng bền vững và thành công trong kinh doanh.</value>
+  </data>
+  <data name="Librasoft provides a challenging environment that encourages initiative and promotes commitment to its clients’ business objectives." xml:space="preserve">
+    <value>Librasoft mang lại một môi trường đầy thách thức khuyến khích sự chủ động và thúc đẩy cam kết với các mục tiêu kinh doanh của khách hàng.</value>
+  </data>
+  <data name="Mission" xml:space="preserve">
+    <value>Sứ mệnh</value>
+  </data>
+  <data name="Our Culture" xml:space="preserve">
+    <value>Văn hóa của chúng tôi</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Giá trị</value>
+  </data>
+  <data name="Vision" xml:space="preserve">
+    <value>Tầm nhìn</value>
+  </data>
+  <data name="We help businesses elevate their value through custom software development, high end quality solutions with the right blend of technology, domain knowledge and effective methodology." xml:space="preserve">
+    <value>Chúng tôi giúp các doanh nghiệp nâng cao giá trị của mình thông qua phát triển phần mềm tùy chỉnh, các giải pháp chất lượng cao với sự kết hợp phù hợp của công nghệ, kiến thức miền và phương pháp luận hiệu quả.</value>
+  </data>
+  <data name="Who we are" xml:space="preserve">
+    <value>Về chúng tôi</value>
+  </data>
+</root>

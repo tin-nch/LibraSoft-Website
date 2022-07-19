@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_FELayout.cshtml";
+}
+
+@model LibraSoftSolution.ViewModels.Candidate_CV.CandidateFormVM
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<section id="career" class="about-area pt-120 pb-80">
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about-text mb-40">
+                    <div class="section-title mb-25">
+                        <h1>@localizer["Why would you love working at LibraSoft?"]</h1>
+                    </div>
+                    <p>@localizer["Because we don't just follow trends, we create them."]</p>
+                    <p>@localizer["Because together we turn ideas into reality, working every day to make tomorrow's world a better place."]</p>
+                    <div class="about-btn mt-30">
+                        <a class="btn btn-green smoth-scroll" href="#joinourteam">@localizer["Join our team"]</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-thumb mb-40">
+                    <img src="~/img/bg/career.jpg" alt="">
+                    <div class="bakix-video">
+                        <div class="inner-video">
+                            <img src="~/img/bg/video.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="joinourteam" class="faq-area black-bg">
+@*    <div class="qus-img bounce-animate" style="margin-top:50px"><img src="~/img/bg/qus.png" alt=""></div>
+*@    <div class="container faq-box">
+        <div class="row">
+            <div class="col-xl-6 offset-xl-3">
+                <div class="section-title white-text text-center mb-100">
+                    <p>@localizer["welcome"]</p>
+                    <h1>@localizer["Join our team"]</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-xl-6">
+                <div>
+                    <div class="section-title mb-25">
+                        <p>@localizer[".Net Developer"]</p>
+                        <h1 style="color:white">@localizer["Your Journey Starts Here."]</h1>
+                    </div>
+                    <div id="accordion" class="mt-40">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                        @localizer["Job description"]
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p>@localizer["- Design and develop .Net applications, from concept to implementation."]</p>                                   
+                                    <br/><p>@localizer["- Working with customers to grasp, understand the business context, develop communication skills"]</p>
+                                    <br/><p>@localizer["- Participate in collecting, analyzing, proposing technical solutions, solving complex problems of web applications with friends and colleaguess"]</p>
+                                    <br/><p>@localizer["- Develop and maintain the application and contribute to the implementation of features and solutions"]</p>
+                                    <br/><p>@localizer["- Check and review the application"]</p>
+                                    <br/><p>@localizer["- Design and optimize tables and queries for MS SQL Server."]</p>
+                                    <br/><p>@localizer["- Estimate and prepare a timeline for development/improvement"]</p>
+                                    <br/><p>@localizer["- Technical support / mentoring for team members"]</p>
+                                    <br/><p>@localizer["- Logical thinking skills, problem solving, good analysis, ready to work"]</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <a href="#" class="btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                        aria-controls="collapseTwo">
+                                        @localizer["Benefits and career opportunities"]
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p>@localizer["- Work at one of the best workplaces in Vietnam"]</p>
+                                    <br/><p>@localizer["- Join a dynamic and fast-growing global company"]</p>
+                                    <br/><p>@localizer["- 13th month salary bonus + attractive performance bonus (you'll love it!) + Performance review and allowance"]</p>
+                                    <br/><p>@localizer["- Flexible working time, comfortable and convenient working environment"]</p>
+                                    <br/><p>@localizer["- Get diversified training in trending technologies/foreign languages ​​and soft skills"]</p>
+                                    <br/><p>@localizer["- Participate in many team building activities, company trips, year-end parties, talk about technology"]</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <a href="#" class="btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        @localizer["Your skills and experience"]
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p>@localizer["- At least 1 year of experience as a developer using the latest Microsoft Stack: C#, ASP.NET Core, Entity Framework Core & SQL Server, Web API, MVC"]</p>
+                                    <br/><p>@localizer["- Experience in building web applications using ASP .NET Web MVC"]</p>
+                                    <br/><p>@localizer["- High performance app optimization experience"]</p>
+                                    <br/><p>@localizer["- Can work on both back end and front end (preferably VueJs, Nodejs, Angularjs)"]</p>
+                                    <br/><p>@localizer["- Experience with source control systems such as GIT"]</p>
+                                    <br/><p>@localizer["- Analytical, communication and teamwork skills"]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="contact-wrapper" style="padding:35px">
+                    <form asp-controller="Career" asp-action="Index" enctype="multipart/form-data" method="post">
+                        <div class="row">
+                            <div class="col-lg-12 mb-45">
+                                <div class="c-icon">
+                                    <label asp-for="FullName">@localizer["Enter your name"]</label>
+                                    <input id="crFullName" type="text"  asp-for="FullName"  placeholder="@localizer["Your name :"]">
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-45">
+                                <div class="c-icon">
+                                    <label asp-for="Email">@localizer["Enter your email"]</label>
+                                    <input  type="email"  asp-for="Email" id="ceEmail" placeholder="info@gmail.com :">
+                                    <span asp-validation-for="Email" class="text-danger"></span>  
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-45">
+                                <div class="c-icon">
+                                    <label asp-for="Phone">@localizer["Enter your phone"]</label>
+                                    <input  type="tel"  asp-for="Phone" id="crPhone" placeholder="@localizer["Your phone number :"]">
+                                    <span asp-validation-for="Phone" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-45">
+                                <div class="c-icon">
+                                    <label class="form-label" asp-for="File">CV</label>
+                                    <input type="file" class="form-control text-center" id="cvFile" asp-for="File"/>
+                                    <span asp-validation-for="File" class="text-danger"></span>  
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="contact-butoon text-center">
+                                    <button class="btn btn-green" type="submit">@localizer["Submit"]</button>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="form-message"></p>
+                    </form>
+                </div>
+            </div>        
+        </div>
+    </div>
+</section>
+
+<!-- map-area start -->
+@await Component.InvokeAsync("Map")
+<!-- map-area end -->
+

@@ -1,0 +1,95 @@
+﻿@{
+}
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<section id="slider" class="slider-area">
+    <div class="slider-active slick-initialized slick-slider">
+
+        <button class="slick-prev slick-arrow" style="display:block" href="#sliderCarousel" role="button" data-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div id="sliderCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" data-interval="1000">
+
+                <div class="carousel-item active">
+                    <div class="single-slider d-flex align-items-center" data-background="img/slider/Home1.jpg">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-10 offset-xl-1">
+                                    <div class="slider-content text-center">
+                                        <div>
+                                            <span data-animation="fadeInUp" data-delay=".2s" style="padding-right:3px; padding-top: 3px; display:inline-block;">
+                                                <img src="~/img/LibraSoftImg/logo_LibraSoft_2.png" height="80"/>
+                                            </span>
+                                        </div>
+                                        <h4 data-animation="fadeInUp" data-delay=".4s">@localizer["We help your business maximize competitive advantage and increase business productivity"]</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="single-slider d-flex align-items-center" data-background="img/slider/Home2.jpg">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-10 offset-xl-1">
+                                    <div class="slider-content text-center">
+                                        <span data-animation="fadeInUp" data-delay=".2s">@localizer["Our solutions"]</span>
+                                        <h4 data-animation="fadeInUp" data-delay=".4s">@localizer["Business Digital Transformation - End-To-End"]
+                                            <br />@localizer["Tailored Solutions"]
+                                            <br />@localizer["Robotic Process Automation"]
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="single-slider d-flex align-items-center" data-background="img/slider/Home3.png">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-10 offset-xl-1">
+                                    <div class="slider-content text-center">
+                                        <span data-animation="fadeInUp" data-delay=".2s">@localizer["Our solutions"]</span>
+                                        <h4 data-animation="fadeInUp" data-delay=".4s">@localizer["Automate Document Processing - Intelligent Data"]
+                                            <br/>@localizer["Intelligent Document Management"]
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="single-slider d-flex align-items-center" data-background="img/slider/Home4.png">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-10 offset-xl-1">
+                                    <div class="slider-content text-center">
+                                        <span data-animation="fadeInUp" data-delay=".2s">@localizer["Our solutions"]</span>
+                                        <h4 data-animation="fadeInUp" data-delay=".4s">@localizer["AI-Powered Object Identification"]
+                                            <br/>@localizer["Self Service Kiosk"]
+                                            <br/>@localizer["Intelligent Visitor Management"]
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <button href="#sliderCarousel" class="slick-next slick-arrow" style="display:block" role="button" data-slide="next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+    </div>
+</section>

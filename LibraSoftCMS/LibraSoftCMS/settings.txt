@@ -1,0 +1,3 @@
+http = http
+domain = 103.167.93.239
+port = 81

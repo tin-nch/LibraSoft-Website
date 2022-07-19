@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="* To obtain the invitation letter and the link to attend the webinar, please provide the correct email address" xml:space="preserve">
+    <value>* Để nhận được thư mời và liên kết tham dự hội thảo trên web, vui lòng cung cấp địa chỉ email chính xác</value>
+  </data>
+  <data name="1. Challenges and Impact in current business landscape" xml:space="preserve">
+    <value>1. Những thách thức và tác động trong bối cảnh kinh doanh hiện tại</value>
+  </data>
+  <data name="2. About Scandit and Smart Data Capture Platform" xml:space="preserve">
+    <value>2. Giới thiệu về Scandit và Nền tảng thu thập dữ liệu thông minh</value>
+  </data>
+  <data name="3. How Smart Data Capture improve Operational Efficiency and Productivity" xml:space="preserve">
+    <value>3. Cách Thu thập dữ liệu thông minh cải thiện Hiệu quả hoạt động và Năng suất</value>
+  </data>
+  <data name="Agenda" xml:space="preserve">
+    <value>Nội dung chương trình</value>
+  </data>
+  <data name="Company Name...." xml:space="preserve">
+    <value>Tên công ty....</value>
+  </data>
+  <data name="Event Details" xml:space="preserve">
+    <value>Event Details</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="I Agree To Attend The Webinar" xml:space="preserve">
+    <value>Tôi Đồng ý Tham dự Hội thảo trên Web</value>
+  </data>
+  <data name="In this webinar, we want to show how Scandit provides the fastest-to-integrate, best-performing enterprise solution to address last mile delivery peak fluctuations with agility, no matter if with a BYOD or COPE deployment model. With highperformance and robustness of the technology which is tailored to last mile delivery processes lead to the achievement of operational KPIs while costs can be reduced due to lower TCO and higher productivity" xml:space="preserve">
+    <value>Trong hội thảo trên web này, chúng tôi muốn chỉ ra cách Scandit cung cấp giải pháp doanh nghiệp tích hợp nhanh nhất, hiệu suất tốt nhất để giải quyết các biến động cao điểm của phân phối ở chặng cuối một cách linh hoạt, bất kể là với mô hình triển khai BYOD hoặc COPE. Với hiệu suất cao và tính mạnh mẽ của công nghệ được điều chỉnh cho phù hợp với quy trình giao hàng chặng cuối dẫn đến việc đạt được các KPI hoạt động trong khi chi phí có thể giảm do TCO thấp hơn và năng suất cao hơn</value>
+  </data>
+  <data name="Most logistic companies are concerned about operational excellence of the company and the operations executives have tough times ensuring efficiency and reliability of operations while keeping costs low. Improving operational processes and profitability are crucial, exceeding KPIs through modernized operations." xml:space="preserve">
+    <value>Hầu hết các công ty logistic đều quan tâm đến sự xuất sắc trong hoạt động của công ty và các nhà điều hành hoạt động gặp khó khăn trong việc đảm bảo hiệu quả và độ tin cậy của hoạt động trong khi vẫn giữ chi phí thấp. Cải thiện quy trình hoạt động và lợi nhuận là rất quan trọng, vượt quá KPI thông qua các hoạt động được hiện đại hóa.</value>
+  </data>
+  <data name="News - Event" xml:space="preserve">
+    <value>Sự kiện - Tin tức</value>
+  </data>
+  <data name="Presenter" xml:space="preserve">
+    <value>Người thuyết trình</value>
+  </data>
+  <data name="Regional Partnership Manager, Scandit" xml:space="preserve">
+    <value>Giám đốc quan hệ đối tác khu vực, Scandit</value>
+  </data>
+  <data name="Smart Data Capture Superpowers To Your Business" xml:space="preserve">
+    <value>Thu Thập Dữ Liệu Thông Minh Siêu Năng Lực Cho Doanh Nghiệp Của Bạn</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Gửi</value>
+  </data>
+  <data name="William Gan" xml:space="preserve">
+    <value>William Gan</value>
+  </data>
+  <data name="Your Email...." xml:space="preserve">
+    <value>Email của bạn....</value>
+  </data>
+  <data name="Your Name...." xml:space="preserve">
+    <value>Tên của bạn....</value>
+  </data>
+  <data name="Your Phone...." xml:space="preserve">
+    <value>Điện thoại của bạn....</value>
+  </data>
+  <data name="Your Position...." xml:space="preserve">
+    <value>Vị trí của bạn....</value>
+  </data>
+</root>

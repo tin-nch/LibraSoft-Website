@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.6" />
+    <PackageReference Include="Piranha" Version="10.1.0" />
+    <PackageReference Include="Piranha.AspNetCore" Version="10.1.0" />
+    <PackageReference Include="Piranha.AspNetCore.Identity.SQLServer" Version="10.1.0" />
+    <PackageReference Include="Piranha.AttributeBuilder" Version="10.1.0" />
+    <PackageReference Include="Piranha.Data.EF.SQLServer" Version="10.1.0" />
+    <PackageReference Include="Piranha.ImageSharp" Version="10.1.0" />
+    <PackageReference Include="Piranha.Local.FileStorage" Version="10.1.0" />
+    <PackageReference Include="Piranha.Manager" Version="10.1.0" />
+    <PackageReference Include="Piranha.Manager.LocalAuth" Version="10.1.0" />
+    <PackageReference Include="Piranha.Manager.TinyMCE" Version="10.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\librasoft\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DLL\LibraSoftSolution\LibraSoftSolution.API.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Views\Shared\Components\AboutUs\Default.en.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Shared\Components\AboutUs\Default.vi.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

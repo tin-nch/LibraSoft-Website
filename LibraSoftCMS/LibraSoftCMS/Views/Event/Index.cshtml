@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_FELayout.cshtml";
+}
+
+@model LibraSoftSolution.ViewModels.Event.RegistersVM
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<style>
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+</style>
+
+<!-- page-title-area start -->
+<section class="page-title-area pt-320 pb-140" data-background="img/slider/slide1.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="page-title page-title-white text-center">
+                    <h2>@localizer["Event Details"]</h2>
+                    <div class="breadcrumb-list">
+                        <ul>
+                            <li><a href="#">@localizer["Home"]</a></li>
+                            <li><a href="#">@localizer["News - Event"]</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- page-title-area end -->
+
+<!-- blog-area start -->
+<div class="blog-area grey-bg pt-20 pb-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <article class="postbox post format-image mb-40">
+                    <div class="postbox__thumb">
+                        <img src="~/img/bg/EventFinal.jpg" alt="event image" class="center" width="55%" >
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-6">
+                <article class="postbox post format-image mb-40">
+                    <div class="postbox__text p-50">
+                        <div class="post-meta mb-15"></div>
+                        <h3 class="blog-title text-uppercase">
+                            @localizer["Smart Data Capture Superpowers To Your Business"]
+                        </h3>
+                        <div class="post-text mb-20">
+                            <p>@localizer["Most logistic companies are concerned about operational excellence of the company and the operations executives have tough times ensuring efficiency and reliability of operations while keeping costs low. Improving operational processes and profitability are crucial, exceeding KPIs through modernized operations."]</p>
+                            <p>@localizer["In this webinar, we want to show how Scandit provides the fastest-to-integrate, best-performing enterprise solution to address last mile delivery peak fluctuations with agility, no matter if with a BYOD or COPE deployment model. With highperformance and robustness of the technology which is tailored to last mile delivery processes lead to the achievement of operational KPIs while costs can be reduced due to lower TCO and higher productivity"]</p>
+                            <div class="inner-content">
+                                <h4>@localizer["Agenda"]</h4>
+                                <p>@localizer["1. Challenges and Impact in current business landscape"]</p>
+                                <p>@localizer["2. About Scandit and Smart Data Capture Platform"]</p>
+                                <p>@localizer["3. How Smart Data Capture improve Operational Efficiency and Productivity"]</p>
+                             </div>
+                            <div class="inner-content">
+                                <h4>@localizer["Presenter"]</h4>
+                                <p>@localizer["William Gan"]</p>
+                                <p>@localizer["Regional Partnership Manager, Scandit"]</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-6">
+                <article class="postbox post format-image mb-40">
+                    <div class="postbox__text p-50">
+                        <div class="post-comments-form">
+                            <form id="event-form"  class="conatct-post-form">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="contact-icon">
+                                            <input  asp-for="FullName" id="txtName"  type="text" placeholder="@localizer["Your Name...."] ">
+                                        <span asp-validation-for="FullName" class="text-danger"></span>  
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="contact-icon"> 
+                                            <input  asp-for="Phone" id="txtPhone" type="tel" placeholder="@localizer["Your Phone...."] ">
+                                        <span asp-validation-for="Phone" class="text-danger"></span>  
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="contact-icon">
+                                            <input  asp-for="Email" id="txtEmail" type="email" placeholder="@localizer["Your Email...."] ">
+                                            <span asp-validation-for="Email" class="text-danger"></span>                                      
+                                            <label for="emailev">@localizer["* To obtain the invitation letter and the link to attend the webinar, please provide the correct email address"]</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="contact-icon">
+                                            <input asp-for="CompanyName" id="txtCompanyName" type="text" placeholder="@localizer["Company Name...."] ">
+                                            <span asp-validation-for="CompanyName" class="text-danger"></span>  
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="contact-icon">
+                                            <input asp-for="Position" type="text" id="txtPosition" placeholder="@localizer["Your Position...."] ">
+                                            <span asp-validation-for="Position" class="text-danger"></span>  
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div id="checkbox-ev">
+                                              <input type="checkbox" id="cbagree" name="agree" value="agree">
+                                              <label for="cbagree">@localizer["I Agree To Attend The Webinar"]</label>
+                                        </div>
+                                    </div>
+@*                                    <div id="OTPInput" class="col-xl-12" style="display:none">
+                                        <div class="contact-icon">
+                                            <input  asp-for="OTPcode" id="txtOTPcode" type="text" placeholder="Your OTP Code....">
+                                            <span asp-validation-for="OTPcode" class="text-danger"></span>                                      
+                                        </div>
+                                    </div>*@
+                                    <div class="col-xl-12">
+                                        <input asp-for="IDEvent" id="txtIDEvent" type="text" hidden value="1">
+                                        <button class="btn btn-red" id="btnEventSubmit" type="button">@localizer["Submit"] <i class="fa fa-spinner fa-spin" id="loaderIcon" style="display:none"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- blog-area end -->

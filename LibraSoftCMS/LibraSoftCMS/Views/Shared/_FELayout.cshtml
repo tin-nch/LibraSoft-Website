@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Libra Soft</title>
+
+@*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LibraSoftSolution.styles.css" asp-append-version="true" />*@
+
+    <link rel="manifest" href="site.webmanifest">
+	<link rel="shortcut icon" type="image/x-icon" href="~/img/icon/ICON-removebg-preview.png">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/animate.min.css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/css/pe-icon-7-stroke.min.css">
+    <link rel="stylesheet" href="~/css/slick.css">
+    <link rel="stylesheet" href="~/css/default.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+</head>
+<body>
+    @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+    <!-- loader -->
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <!-- header -->
+    <header>
+        <div id="header-sticky" class="header-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-12 d-flex align-items-center">
+                        <div class="logo">
+                            <a asp-controller="Home" asp-action="Index">
+                                <img src="~/img/LibraSoftImg/logoLibra.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-12">
+                        <div class="responsive"><i class="fas fa-bars"></i></div>
+                        <div class="main-menu">
+                            <nav id="basic-nav">
+                                <ul class="basic-menu">
+                                    <li><a asp-controller="Home" asp-action="Index">@localizer["Home"]</a></li>
+                                    <li><a asp-controller="Home" asp-action="Index" asp-fragment="about">@localizer["About Us"]</a></li>
+                                    <li><a href="#">@localizer["Our Projects"]</a></li>
+                                    <li><a asp-controller="Home" asp-action="Index" asp-fragment="service">@localizer["Our Services"]</a></li>
+                                    <li><a asp-controller="Event" asp-action="Index">@localizer["News - Events"]</a></li>
+                                    <li><a asp-controller="Career" asp-action="Index">@localizer["Career"]</a></li>
+                                    <li>
+                                        <partial name="_Culture" />
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 d-none d-xl-block pl-0">
+                        <div class="header-btn">
+                            <a asp-controller="Home" asp-action="Index" asp-fragment="contact" class="btn btn-red">@localizer["Contact Us"]</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header -->
+
+    @RenderBody()
+
+    <!-- footer-area-start -->
+    <footer>
+        <div class="footer-area black-bg pt-10 pb-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8 col-lg-8 offset-lg-2 offset-xl-2">
+                        <div class="footer-wrapper text-center">
+                            <div class="footer-logo">
+                                <a  asp-controller="Home" asp-action="Index"><img src="~/img/LibraSoftImg/logo_LibraSoft_2.png" width=40% alt="" /></a>
+                            </div>
+                            <div class="footer-icon">
+                                <a href="https://www.facebook.com/librasoft.vn" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.linkedin.com/company/librasoft-process-automation/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- JS here -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js" integrity="sha512-DedNBWPF0hLGUPNbCYfj8qjlEnNE92Fqn7xd3Sscfu7ipy7Zu33unHdugqRD3c4Vj7/yLv+slqZhMls/4Oc7Zg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.js" integrity="sha512-f04GBpoqEZhbyjlRTuXeg8FIHDb+xfCJ0LVdqiN1fEl5B3jz3Z0SPe9IxDumOVdTeeXmKMcMJhb26VuGf1Laqw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="~/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/isotope.pkgd.min.js"></script>
+    <script src="~/js/one-page-nav-min.js"></script>
+    <script src="~/js/slick.min.js"></script>
+    <script src="~/js/ajax-form.js"></script>
+    <script src="~/js/wow.min.js"></script>
+    <script src="~/js/jquery.scrollUp.min.js"></script>
+    <script src="~/js/imagesloaded.pkgd.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJScy7qJ156DWM8kJVG-ZrK0R7Kize2Jg"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+    <script src="~/js/event.js"></script>
+    <script src="~/js/contactform.js"></script>
+    <script src="~/js/submit.js"></script>
+    <script src="~/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+﻿@{
+}
+
+@using LibraSoftCMS.ViewModel
+
+@model PartnerDataModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<section id="partner" class="services-area pt-20 pb-20 black-bg">
+    <div class="container-fluid py-2">
+        <div class="col-xl-6 offset-xl-3">
+            <div class="section-title white-text text-center mb-15">
+                <h1 style="color:#ff4b57;">@localizer["Our Partners"]</h1>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-auto">
+                <a class="h1" href="#partnerCarousel" role="button" data-slide="prev">
+                    <span>&lt;</span>
+                </a>
+            </div>
+            <div class="col">
+                <div id="partnerCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach (var item in Model.PartnerMain)
+                        {
+                            <div class="carousel-item active">
+                                <div class="row align-items-center">
+                                    <div class="col-md-4">
+                                        <a href="@item.url" target="_blank">
+                                            @Html.Raw(@item.imgpath)
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8" style="height:500px">
+                                        <div class="services-text">
+                                            @{
+                                                string content, title;
+                                                content = @localizer[@item.content].Value;
+                                                title = @localizer[@item.title].Value;
+
+                                            }
+                                            @Html.Raw(title)
+                                            @Html.Raw(content)
+                                            <div class="about-btn mt-30">
+                                                <a class="btn btn-green" href="@item.url" target="_blank">@localizer["learn more"]</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @foreach (var item in Model.Partner)
+                        {
+                            <div class="carousel-item ">
+                                <div class="row align-items-center">
+                                    <div class="col-md-4">
+                                        <a href="@item.url" target="_blank">
+                                            @Html.Raw(@item.imgpath)
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8" style="height:500px">
+                                        <div class="services-text">
+                                            @{
+                                                string content, title;
+                                                content = @localizer[@item.content].Value;
+                                                title = @localizer[@item.title].Value;
+                                            }
+                                            @Html.Raw(title)
+                                            @Html.Raw(content)
+                                            <div class="about-btn mt-30">
+                                                <a class="btn btn-green" href="@item.url" target="_blank">@localizer["learn more"]</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto">
+                <a class="h1" href="#partnerCarousel" role="button" data-slide="next">
+                    <span>&gt;</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
