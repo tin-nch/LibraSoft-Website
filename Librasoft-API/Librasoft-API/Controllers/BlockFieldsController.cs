@@ -186,7 +186,18 @@ namespace Librasoft_API.Controllers
                         string g = p.url.Remove(p.url.Length - 4);
                         p.url = g;
                     }
-
+                    string[] temp = p.content.Split("\r");
+                    p.content = "";
+                    for (int i = 0; i < temp.Length - 1; i++)
+                    {
+                        p.content += temp[i];
+                    }
+                    string[] temp2 = p.title.Split("\r");
+                    p.title = "";
+                    for (int i = 0; i < temp2.Length - 1; i++)
+                    {
+                        p.title += temp2[i];
+                    }
 
 
                     parnerCMs.Add(p);
@@ -306,8 +317,10 @@ namespace Librasoft_API.Controllers
                     for(int i = 4;i< a.Length-1;i++)
                         {
                         p.Content += a[i];
+                     
                     }
-                   
+                  
+                  
                     p.ImgPath = a[0];
                     p.ImgPath = p.ImgPath.Substring(3);
                     string g = p.ImgPath.Remove(p.ImgPath.Length - 5);
@@ -324,6 +337,12 @@ namespace Librasoft_API.Controllers
                          g = p.IconCode.Remove(p.IconCode.Length - 4);
                         p.IconCode = g;
                     }
+                    string[] temp = p.Content.Split("\r");
+                    p.Content = "";
+                        for(int i = 0; i < temp.Length -1;i++)
+                    {
+                        p.Content += temp[i];
+                    }    
                     aboutCMs.Add(p);
 
                 }
@@ -648,7 +667,7 @@ namespace Librasoft_API.Controllers
             }
         }
         [HttpGet]
-        public RequestResponse GetBlockFieldByID(string id)
+        public RequestResponse GetBlockFieldByID(Guid id)
         {
 
             try

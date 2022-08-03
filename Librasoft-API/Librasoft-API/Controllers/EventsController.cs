@@ -58,50 +58,50 @@ namespace Librasoft_API.Controllers
         }
 
         [HttpPost("add")]
-        public async Task<RequestResponse> Add(PiranhaEvent e)
-        {
-            try
+            public async Task<RequestResponse> Add(PiranhaEvent e)
             {
-                if (ModelState.IsValid)
+                try
                 {
-                    //add contact to dtb
-                    PiranhaEvent add = await eventServices.AddEventAsync(e);
-                    //send email
-                    // var a = await _sendEmailServices.SendEmail(applicationForm);
+                    if (ModelState.IsValid)
+                    {
+                        //add contact to dtb
+                        PiranhaEvent add = await eventServices.AddEventAsync(e);
+                        //send email
+                        // var a = await _sendEmailServices.SendEmail(applicationForm);
 
-                    if (add != null /*&& add == true*/)
+                        if (add != null /*&& add == true*/)
+                        {
+                            return new RequestResponse
+                            {
+                                ErrorCode = ErrorCode.Success,
+                                Content = "add successfully"
+                            };
+                        }
+
+                        return new RequestResponse
+                        {
+                            ErrorCode = ErrorCode.GeneralFailure,
+                            Content = "Empty"
+                        };
+                    }
+                    else
                     {
                         return new RequestResponse
                         {
-                            ErrorCode = ErrorCode.Success,
-                            Content = "add successfully"
+                            ErrorCode = ErrorCode.GeneralFailure,
+                            Content = "Model invalid"
                         };
                     }
-
+                }
+                catch (Exception ex)
+                {
+                    string errorDetail = ex.InnerException != null ? ex.InnerException.ToString() : ex.Message.ToString();
                     return new RequestResponse
                     {
                         ErrorCode = ErrorCode.GeneralFailure,
-                        Content = "Empty"
-                    };
-                }
-                else
-                {
-                    return new RequestResponse
-                    {
-                        ErrorCode = ErrorCode.GeneralFailure,
-                        Content = "Model invalid"
+                        Content = errorDetail
                     };
                 }
             }
-            catch (Exception ex)
-            {
-                string errorDetail = ex.InnerException != null ? ex.InnerException.ToString() : ex.Message.ToString();
-                return new RequestResponse
-                {
-                    ErrorCode = ErrorCode.GeneralFailure,
-                    Content = errorDetail
-                };
-            }
-        }
     }
 }

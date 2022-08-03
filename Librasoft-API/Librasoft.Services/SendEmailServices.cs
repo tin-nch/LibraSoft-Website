@@ -212,8 +212,8 @@ namespace Librasoft.Services
             string virtualEmail = _virtualMail.Email;
             string password = _virtualMail.Password;
 
-            //ten nguoi nhan //participant.Email
-             string nameCorp = "htran5646@gmail.com";
+            //ten nguoi nhan 
+             string nameCorp =  "tam.tln@librasoft.vn";
            
 
             MailAddress _sender = new MailAddress(virtualEmail);

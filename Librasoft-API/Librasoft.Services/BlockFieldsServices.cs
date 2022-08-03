@@ -23,7 +23,7 @@ namespace Librasoft.Services
             this.mapper = mapper;
         }
 
-        public PiranhaBlockField GetBlockFieldByID(string id)
+        public PiranhaBlockField GetBlockFieldByID(Guid id)
         {
             return blockFieldsRepository.GetBlockFieldsByID(id);
         }
@@ -41,7 +41,21 @@ namespace Librasoft.Services
 
         public List<string> GetListHTML(List<PiranhaBlock> listblk)
         {
-            return blockFieldsRepository.GetListHTML(listblk);
+            List<string> list = new List<string>();
+            foreach (PiranhaBlock block in listblk)
+            {
+                List<PiranhaBlockField> lst = blockFieldsRepository.getListBlockFieldByBlockID(block.Id);
+                foreach (PiranhaBlockField f in lst)
+                {
+                    if (f.Value.Contains("/upload"))
+                    {
+                        continue;
+                    }
+                    list.Add(f.Value);
+                }
+            }
+            return list;
+
         }
 
       
@@ -50,7 +64,40 @@ namespace Librasoft.Services
 
         public List<string> GetListHTMLWithImg(List<PiranhaBlock> listblk)
         {
-            return blockFieldsRepository.GetListHTMLWithImg(listblk);
+            List<string> list = new List<string>();
+
+            string root = blockFieldsRepository.getRootImg();
+
+
+            foreach (PiranhaBlock block in listblk)
+            {
+                List<PiranhaBlockField> lst = blockFieldsRepository.getListBlockFieldByBlockID(block.Id);
+                foreach (PiranhaBlockField s in lst)
+                {
+                    List<PiranhaPageBlock> listpageblock = new List<PiranhaPageBlock>();
+                    foreach (PiranhaPageBlock k in listpageblock)
+                    {
+                        if (k.BlockId == s.BlockId)
+                            continue;
+                        else lst.Remove(s);
+                    }
+                }
+                foreach (PiranhaBlockField f in lst)
+                {
+                    if (!f.Value.Contains("/upload"))
+                    {
+                        continue;
+                    }
+                    string a = f.Value;
+                    string prefix = a.Substring(0, a.IndexOf("/upload"));
+                    string postfix = a.Substring(a.IndexOf("/upload"));
+                    string res = prefix + root + postfix;
+                    list.Add(res);
+                }
+            }
+            return list;
+
+
         }
 
       

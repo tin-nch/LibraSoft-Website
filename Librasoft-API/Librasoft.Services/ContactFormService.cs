@@ -54,7 +54,16 @@ namespace Librasoft.Services
 
         public bool ValidateContactForm(PiranhaContactForm contactForm)
         {
-           return contactFormRepository.ValidateContactForm(contactForm);
+
+           List<PiranhaContactForm> lst = contactFormRepository.GetListContactFormInDateNowByEmail(contactForm);
+            foreach (PiranhaContactForm x in lst)
+            {
+                if (x.MessageContent.Equals(contactForm.MessageContent))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

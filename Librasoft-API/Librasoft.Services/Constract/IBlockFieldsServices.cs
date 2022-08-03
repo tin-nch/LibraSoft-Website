@@ -1,5 +1,6 @@
 ﻿using Librasoft.Entities.Entities;
 using Librasoft.Entities.Entities.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace Librasoft.Services.Constract
 
         public Task<IEnumerable<PiranhaBlockField>> GetBlockFieldlistAsync();
 
-        public PiranhaBlockField GetBlockFieldByID(string id);
+        public PiranhaBlockField GetBlockFieldByID(Guid id);
 
         public List<string> GetListHTMLWithImg(List<PiranhaBlock> listblk);
         public List<string> GetListHTML(List<PiranhaBlock> listblk);

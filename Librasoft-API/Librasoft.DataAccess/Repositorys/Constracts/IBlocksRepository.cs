@@ -12,12 +12,13 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
     public interface IBlocksRepository: IEfRepository<PiranhaBlock>
     {
 
-        public List<string> GetCLRTypeList();
+      
+        public PiranhaBlock GetBlockIsColumnBlock(string id);
         public List<PiranhaBlock> GetBlockListHaveParentID(string id);
-        public List<PiranhaBlock> GeListColumnBlock();
-        public List<PiranhaBlock> GeListColumnBlockByPageID(string id);
+  
+  
 
-        public List<BlockChildVM> GetBlockChildListByParentID(string id);
+ 
 
     }
 }

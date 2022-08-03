@@ -50,12 +50,24 @@ namespace Librasoft.Services
 
         public int checkExistsEmail(EventParticipantDto eventParticipant)
         {
-            return eventParticipantsRepository.CheckExistsEmail(eventParticipant);
+            PiranhaEventParticipant a = eventParticipantsRepository.GetExistsEmail(eventParticipant);
+            if (a != null)
+            {
+                if (String.IsNullOrEmpty(a.FullName))
+                    return 0;
+                return 1;
+            }
+
+            return -1;
         }
 
         public bool checkRegistedEmail(EventParticipantDto eventParticipant)
         {
-            return eventParticipantsRepository.CheckRegistedEmail(eventParticipant);
+            PiranhaEvent e = eventParticipantsRepository.GetRegistedEvent(eventParticipant);
+            if (e != null)
+                return true;
+
+            return false;
         }
 
         public bool UpdateParticipants(EventParticipantDto e)

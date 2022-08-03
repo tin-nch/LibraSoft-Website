@@ -11,10 +11,11 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
 {
     public interface IBlockFieldsRepository: IEfRepository<PiranhaBlockField>
     {
-
-        public PiranhaBlockField GetBlockFieldsByID(string id);
-        public List<string> GetListHTMLWithImg(List<PiranhaBlock> listblk);
-        public List<string> GetListHTML(List<PiranhaBlock> listblk);
+        public string getRootImg();
+        public List<PiranhaBlockField> getListBlockFieldByBlockID(Guid blockid);
+        public PiranhaBlockField GetBlockFieldsByID(Guid id);
+       // public List<string> GetListHTMLWithImg(List<PiranhaBlock> listblk);
+        //public List<string> GetListHTML(List<PiranhaBlock> listblk);
 
        
 

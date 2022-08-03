@@ -87,7 +87,7 @@ namespace Librasoft_API.Controllers
                             //  var l = await sendEmail.SendConFirmEmail(participant);
                         //    eventParticipants.UpdateParticipants(participant);
                             eventParticipants.AddParticipantsToEvent(participant,participant.IDEvent);
-                            var b = await sendEmail.SendNotifyMail(participant);
+                           
                             return new RequestResponse
                                 {
                                     ErrorCode = ErrorCode.Success,
@@ -116,12 +116,10 @@ namespace Librasoft_API.Controllers
                         };
                     }    
                     //add contact to dtb
-              
-             
                     bool rs = eventParticipants.AddParticipants(participant);
                   //  send email
                       var a = await sendEmail.SendConFirmEmail(participant);
-                   
+                    var b = await sendEmail.SendNotifyMail(participant);
                     if (rs && a == true)
                     {
                         return new RequestResponse

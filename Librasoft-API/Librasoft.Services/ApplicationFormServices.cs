@@ -37,7 +37,11 @@ namespace Librasoft.Services
 
         public bool checkExistsEmail(PiranhaApplicationForm applicationForm)
         {
-            return  applicationFormRepository.CheckExistsEmail(applicationForm);
+            PiranhaApplicationForm a = applicationFormRepository.GetExistsEmail(applicationForm);
+            if (a != null)
+                return true;
+            return false;
+            
         }
 
         public async Task<List<PiranhaApplicationForm>> GetApplicaitionFormlistAsync()

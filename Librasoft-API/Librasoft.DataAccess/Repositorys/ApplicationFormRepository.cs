@@ -1,4 +1,4 @@
-﻿using Librasoft.DataAccess.EFs;
+﻿    using Librasoft.DataAccess.EFs;
 using Librasoft.DataAccess.Repositorys.Constracts;
 using Librasoft.Entities.Entities;
 using Librasoft.Entities.Entities.Dtos;
@@ -19,12 +19,10 @@ namespace Librasoft.DataAccess.Repositorys
 
         }
 
-        public bool CheckExistsEmail(PiranhaApplicationForm applicationForm)
+        public PiranhaApplicationForm GetExistsEmail(PiranhaApplicationForm applicationForm)
         {
            PiranhaApplicationForm a = _context.PiranhaApplicationForms.FirstOrDefault(x=>x.Email.Trim().Equals(applicationForm.Email.Trim()));
-            if (a != null)
-                return true;
-            return false;
+            return a;
         }
     }
 }

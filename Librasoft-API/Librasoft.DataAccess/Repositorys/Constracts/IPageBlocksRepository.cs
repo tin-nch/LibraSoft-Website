@@ -10,7 +10,8 @@ namespace Librasoft.DataAccess.Repositorys.Constracts
 {
     public interface IPageBlocksRepository : IEfRepository<PiranhaPageBlock>
     {
-
+        public PiranhaPageBlock GetPageBlockByBlockID(Guid blockid);
+        public List<PiranhaPageBlock> GetPageBlockListByPageID(string id);
         public string GetBlockIDBySortOrder(int order);
        
     }

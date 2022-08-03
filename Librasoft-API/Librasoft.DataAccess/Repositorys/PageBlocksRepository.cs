@@ -20,5 +20,14 @@ namespace Librasoft.DataAccess.Repositorys
         {
             return _context.PiranhaPageBlocks.FirstOrDefault(a=>a.SortOrder == order).BlockId.ToString();
         }
+        public PiranhaPageBlock GetPageBlockByBlockID(Guid blockid)
+        {
+            return _context.PiranhaPageBlocks.FirstOrDefault(a => a.BlockId == blockid);
+        }
+
+        public List<PiranhaPageBlock> GetPageBlockListByPageID(string id)
+        {
+           return _context.PiranhaPageBlocks.Where(a => a.PageId.ToString().Trim().Contains(id)).OrderBy(a => a.SortOrder).ToList();
+        }
     }
 }

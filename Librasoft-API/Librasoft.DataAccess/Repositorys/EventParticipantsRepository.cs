@@ -19,18 +19,10 @@ namespace Librasoft.DataAccess.Repositorys
 
 
         }
-        public int CheckExistsEmail(EventParticipantDto eventParticipant)
+        public PiranhaEventParticipant GetExistsEmail(EventParticipantDto eventParticipant)
         {
             PiranhaEventParticipant a = _context.PiranhaEventParticipants.FirstOrDefault(x => x.Email.Trim().Equals(eventParticipant.Email.Trim()));
-            if (a != null)
-            {
-                if (String.IsNullOrEmpty(a.FullName))
-                    return 0;
-                    return 1;
-            }    
-               
-           
-                return -1;    
+            return a;
            
         }
 
@@ -118,15 +110,14 @@ namespace Librasoft.DataAccess.Repositorys
 
         }
 
-        public bool CheckRegistedEmail(EventParticipantDto eventParticipant)
+        public PiranhaEvent GetRegistedEvent(EventParticipantDto eventParticipant)
         {
-            PiranhaEventParticipant a = _context.PiranhaEventParticipants.FirstOrDefault(x => x.Email.Trim().Equals(eventParticipant.Email.Trim()));
+            PiranhaEventParticipant a = GetExistsEmail(eventParticipant);
 
             PiranhaEvent e = a.IdEvents.FirstOrDefault(b => b.Id.Equals(eventParticipant.IDEvent));
-            if (e != null)
-                return true;
+            return e;
 
-            return false;
+       
         }
 
         public bool CheckOTP(int otp)
